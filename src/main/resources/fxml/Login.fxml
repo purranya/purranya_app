@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.Controllers.LoginController">
+   <children>
+      <ImageView fitHeight="200.0" fitWidth="640.0" layoutX="421.0" layoutY="103.0" pickOnBounds="true" smooth="false" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="192.0" AnchorPane.topAnchor="80.0">
+         <image>
+            <Image url="@../pictures/logo.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="393.0" layoutY="415.0" prefHeight="68.0" prefWidth="239.0" text="Zaloguj się" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="392.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="login" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/login.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="continueWithoutLogin" layoutX="421.0" layoutY="493.0" text="Kontynuuj bez logowania" underline="true" />
+      <JFXButton fx:id="forgotPassword" layoutX="843.0" layoutY="679.0" text="Nie pamiętasz hasła?" underline="true" />
+      <JFXButton fx:id="createAccount" layoutX="884.0" layoutY="705.0" prefHeight="26.0" prefWidth="116.0" text="Utwórz konto" underline="true" />
+      <Text layoutX="36.0" layoutY="736.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2018 ⓒ Purranya" />
+   </children>
+</AnchorPane>
