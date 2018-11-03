@@ -38,4 +38,18 @@ public class Login {
         window.setScene(loginUserScene);
         window.show();
     }
+
+    /* przycisk "Nie pamiętasz hasła?" */
+    @FXML void restorePassword(ActionEvent event) {
+        Parent restorePasswordParent = null;
+        try {
+            restorePasswordParent = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/RemindPassword.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene restorePasswordScene = new Scene(restorePasswordParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(restorePasswordScene);
+        window.show();
+    }
 }
