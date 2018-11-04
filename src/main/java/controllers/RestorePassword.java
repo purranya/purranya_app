@@ -13,7 +13,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginUser {
+public class RestorePassword {
+
     @FXML private ImageView logo;
     @FXML private JFXButton ret;
     SceneOptions scene;
@@ -23,5 +24,4 @@ public class LoginUser {
         scene = new SceneOptions(event);
         scene.change("Login");
     }
-
 }

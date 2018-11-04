@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginUser">
+<AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateAccount">
    <children>
       <BorderPane layoutX="242.0" layoutY="150.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="241.0" AnchorPane.topAnchor="150.0">
          <top>
@@ -25,16 +25,34 @@
                <top>
                   <JFXTextField labelFloat="true" promptText="Login" BorderPane.alignment="CENTER" />
                </top>
-               <center>
-                  <JFXPasswordField labelFloat="true" promptText="Hasło" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets top="20.0" />
-                     </BorderPane.margin>
-                  </JFXPasswordField>
-               </center>
                <BorderPane.margin>
                   <Insets left="100.0" right="100.0" top="50.0" />
                </BorderPane.margin>
+               <center>
+                  <JFXTextField labelFloat="true" promptText="E-mail" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="20.0" />
+                     </BorderPane.margin>
+                  </JFXTextField>
+               </center>
+               <bottom>
+                  <BorderPane prefHeight="98.0" prefWidth="267.0" BorderPane.alignment="CENTER">
+                     <top>
+                        <JFXPasswordField labelFloat="true" prefHeight="0.0" prefWidth="267.0" promptText="Hasło" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets top="20.0" />
+                           </BorderPane.margin>
+                        </JFXPasswordField>
+                     </top>
+                     <center>
+                        <JFXPasswordField labelFloat="true" promptText="Powtórz hasło" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets top="20.0" />
+                           </BorderPane.margin>
+                        </JFXPasswordField>
+                     </center>
+                  </BorderPane>
+               </bottom>
             </BorderPane>
          </center>
          <bottom>
@@ -47,7 +65,7 @@
                   </JFXButton>
                </left>
                <right>
-                  <JFXButton alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="26.0" prefWidth="95.0" text="Zaloguj się" BorderPane.alignment="CENTER">
+                  <JFXButton alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="26.0" prefWidth="95.0" text="Utwórz" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets right="50.0" />
                      </BorderPane.margin>

@@ -39,7 +39,7 @@
          </bottom>
       </BorderPane>
       <JFXButton fx:id="forgotPassword" layoutX="219.0" layoutY="579.0" onAction="#restorePassword" text="Nie pamiętasz hasła?" underline="true" AnchorPane.bottomAnchor="63.0" AnchorPane.rightAnchor="24.0" />
-      <JFXButton fx:id="createAccount" layoutX="884.0" layoutY="705.0" prefHeight="26.0" prefWidth="116.0" text="Utwórz konto" underline="true" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="24.0" />
+      <JFXButton fx:id="createAccount" layoutX="884.0" layoutY="705.0" onAction="#createAccount" prefHeight="26.0" prefWidth="116.0" text="Utwórz konto" underline="true" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="24.0" />
       <Text layoutX="26.0" layoutY="723.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2018 ⓒ Purranya" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="26.0" />
    </children>
 </AnchorPane>
