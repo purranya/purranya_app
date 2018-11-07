@@ -76,8 +76,7 @@ public class CreateAccount {
         }
         if(loginIsOK && emailIsOK && passwordIsOK && repeatedPasswordIsOK) {
             SceneOptions scene = new SceneOptions(event);
-            System.out.println("dziala");
-            //scene.change();
+            scene.change("CreateAccountConfirm");
         }
     }
 }
