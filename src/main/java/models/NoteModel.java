@@ -2,7 +2,7 @@ package models;
 
 import java.time.LocalDateTime;
 
-public class NoteModel extends Model {
+class NoteModel extends Model {
     /*
     -Notatka ma tytuł i zawartość
     -Notatka może nie mieć daty, może mieć datę pojedyńczą, lub okres (2 daty)
@@ -23,9 +23,7 @@ public class NoteModel extends Model {
 
     String content;
 
-    public NoteModel(String path){
-
-    }
+    public NoteModel() {}
 
     public NoteModel(String title, String content, boolean isArchived) {
 
