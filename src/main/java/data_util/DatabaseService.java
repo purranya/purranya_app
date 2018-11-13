@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 public class DatabaseService {
 
-    public static ArrayList<String> getDatabasesIndex() {
+    public DatabaseService(){}
+
+    public ArrayList<String> getDatabasesIndex() {
         HomeFolderService hfc = new HomeFolderService();
         File[] directories = new File(hfc.getPath("databases")).listFiles(File::isDirectory);
         ArrayList<String> names = new ArrayList<>();
@@ -24,7 +26,7 @@ public class DatabaseService {
         return names;
     }
 
-    public static Connection getDatabaseConnection(String database){
+    public Connection getDatabaseConnection(String database){
         HomeFolderService hfc = new HomeFolderService();
         ArrayList<String> index = getDatabasesIndex();
         if(!index.contains(database)){
@@ -49,7 +51,7 @@ public class DatabaseService {
         }
     }
 
-    public static boolean createDatabase(String database) {
+    public boolean createDatabase(String database) {
 
         HomeFolderService hfc = new HomeFolderService();
         if (OperationSystemData.os.equals(OperationSystemData.OS.WINDOWS)) {
@@ -68,7 +70,7 @@ public class DatabaseService {
 
     }
 
-    public static boolean deleteDatabase(String database) {
+    public boolean deleteDatabase(String database) {
         HomeFolderService hfc = new HomeFolderService();
         boolean success=false;
         if (OperationSystemData.os.equals(OperationSystemData.OS.WINDOWS)) {

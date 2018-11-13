@@ -7,13 +7,15 @@ import data_util.OperationSystemData;
 import java.sql.Connection;
 
 public class Main_dbtests {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
+        DatabaseService dbs = new DatabaseService();
         //tworzenie bazy
-        //DatabaseService.createDatabase("testcreate");
+        //dbs.createDatabase("testcreate");
         //połączenie
-        //Connection c = DatabaseService.getDatabaseConnection("testcreate");
+        //Connection c = dbs.getDatabaseConnection("testcreate");
+        //c.close();
         //usuwanie
-        //DatabaseService.deleteDatabase("testcreate");
+        //dbs.deleteDatabase("testcreate");
     }
 }
