@@ -2,6 +2,7 @@ package data_util;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HomeFolderService {
 
@@ -9,6 +10,7 @@ public class HomeFolderService {
     OperationSystemData.OS os;
     String osUser;
     String appHome;
+    static HashMap<String,String> paths = new HashMap<>();
 
     public HomeFolderService() {
         this.os = OperationSystemData.os;
@@ -30,11 +32,11 @@ public class HomeFolderService {
         //katalogi w home
         ArrayList<String> dirs = new ArrayList<>();
         if (this.os.equals(OperationSystemData.OS.WINDOWS)){
-            dirs.add("\\databases");
-            dirs.add("\\options");
+            dirs.add("\\databases"); paths.put("databases",this.appHome+"\\databases");
+            dirs.add("\\options"); paths.put("options",this.appHome+"\\options");
         } else if (this.os.equals(OperationSystemData.OS.UNIX)){
-            dirs.add("/databases");
-            dirs.add("/options");
+            dirs.add("/databases"); paths.put("databases",this.appHome+"/databases");
+            dirs.add("/options"); paths.put("options",this.appHome+"/options");
         }
         for(String dir : dirs)
             if(!directoryExists(dir))
@@ -79,14 +81,50 @@ public class HomeFolderService {
         return res;
     }
 
-    private boolean createDirectory(String dir){
+    public boolean createDirectory(String dir){
         boolean res;
         String appHome = this.appHome + dir;
         try {
-            res = (new File(appHome)).mkdir();
+            File f = new File(appHome);
+            if(!f.exists())
+                res = f.mkdir();
+            else
+                res=true;
         } catch (Exception e) {
             res = false;
         }
         return res;
+    }
+    public boolean deleteDirectory(String dir){
+        boolean res;
+        String appHome = this.appHome + dir;
+        try {
+            File f = new File(appHome);
+            if(f.exists())
+                deleteFolder(f);
+            res=true;
+        } catch (Exception e) {
+            res = false;
+        }
+        return res;
+    }
+
+    //ze staka, usuwa folder, usuwając najpierw całą zawartość rekursywnie
+    private static void deleteFolder(File folder) {
+        File[] files = folder.listFiles();
+        if(files!=null) { //some JVMs return null for empty dirs
+            for(File f: files) {
+                if(f.isDirectory()) {
+                    deleteFolder(f);
+                } else {
+                    f.delete();
+                }
+            }
+        }
+        folder.delete();
+    }
+
+    public String getPath(String dir) {
+        return paths.get(dir);
     }
 }

@@ -29,13 +29,20 @@
             <version>8.0.7</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.w3c/dom -->
-        <!-- Java dom -->
+        <!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
         <dependency>
-            <groupId>org.w3c</groupId>
-            <artifactId>dom</artifactId>
-            <version>2.3.0-jaxb-1.0.6</version>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.4.0</version>
+            <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
 
     </dependencies>
     
