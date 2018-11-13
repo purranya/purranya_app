@@ -17,20 +17,29 @@ public class Login {
     private SceneOptions scene;
 
     /* przycisk "Zaloguj się" */
-    @FXML void loginUser(ActionEvent event) {
+    @FXML
+    void loginUser(ActionEvent event) {
         scene = new SceneOptions(event);
         scene.change("LoginUser");
     }
 
     /* przycisk "Nie pamiętasz hasła?" */
-    @FXML void restorePassword(ActionEvent event) {
+    @FXML
+    void restorePassword(ActionEvent event) {
         scene = new SceneOptions(event);
         scene.change("RestorePassword");
     }
 
     /* przycisk "Utwórz konto" */
-    @FXML void createAccount(ActionEvent event) {
+    @FXML
+    void createAccount(ActionEvent event) {
         scene = new SceneOptions(event);
         scene.change("CreateAccount");
+    }
+
+    @FXML
+    void continueWithoutAccount(ActionEvent event) {
+        scene = new SceneOptions(event);
+        scene.change("Calendar");
     }
 }

@@ -35,7 +35,7 @@
             </JFXButton>
          </top>
          <bottom>
-            <JFXButton fx:id="continueWithoutLogin" prefHeight="26.0" prefWidth="192.0" text="Kontynuuj bez logowania" underline="true" BorderPane.alignment="CENTER" />
+            <JFXButton fx:id="continueWithoutLogin" onAction="#continueWithoutAccount" prefHeight="26.0" prefWidth="192.0" text="Kontynuuj bez logowania" underline="true" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
       <JFXButton fx:id="forgotPassword" layoutX="219.0" layoutY="579.0" onAction="#restorePassword" text="Nie pamiętasz hasła?" underline="true" AnchorPane.bottomAnchor="63.0" AnchorPane.rightAnchor="24.0" />
