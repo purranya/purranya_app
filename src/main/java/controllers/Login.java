@@ -16,27 +16,36 @@ public class Login {
     @FXML private ImageView logo;
     private SceneOptions scene;
 
-    /* przycisk "Zaloguj się" */
+    /**
+     * Obsługa przycisku "Zaloguj się".
+     */
     @FXML
     void loginUser(ActionEvent event) {
         scene = new SceneOptions(event);
         scene.change("LoginUser");
     }
 
-    /* przycisk "Nie pamiętasz hasła?" */
+    /**
+     * Obsługa przycisku "Zapomniałeś hasła?".
+     */
     @FXML
     void restorePassword(ActionEvent event) {
         scene = new SceneOptions(event);
         scene.change("RestorePassword");
     }
 
-    /* przycisk "Utwórz konto" */
+    /**
+     * Obsługa przycisku "Utwórz konto".
+     */
     @FXML
     void createAccount(ActionEvent event) {
         scene = new SceneOptions(event);
         scene.change("CreateAccount");
     }
 
+    /**
+     * Obsługa przycisku "Kontynuuj bez zalogowania".
+     */
     @FXML
     void continueWithoutAccount(ActionEvent event) {
         scene = new SceneOptions(event);
