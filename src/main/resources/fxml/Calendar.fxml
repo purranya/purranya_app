@@ -59,10 +59,10 @@
          <top>
             <BorderPane prefHeight="35.0" prefWidth="954.0" BorderPane.alignment="CENTER">
                <right>
-                  <JFXButton fx:id="next" text="&gt;&gt;" BorderPane.alignment="CENTER" />
+                  <JFXButton onAction="#nextMonth" text="&gt;&gt;" BorderPane.alignment="CENTER" />
                </right>
                <left>
-                  <JFXButton fx:id="previous" text="&lt;&lt;" BorderPane.alignment="CENTER" />
+                  <JFXButton onAction="#previousMonth" text="&lt;&lt;" BorderPane.alignment="CENTER" />
                </left>
                <center>
                   <Text fx:id="headerOfCalendar" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" BorderPane.alignment="CENTER" />

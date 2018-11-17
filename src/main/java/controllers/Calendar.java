@@ -1,6 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
@@ -14,11 +15,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class Calendar implements Initializable {
-    @FXML private JFXButton next;
-    @FXML private JFXButton previous;
     @FXML private Text headerOfCalendar;
     @FXML private GridPane calendarGrid;
 
+    private DateTime currentDateTime;
     List<BorderPane> day = new ArrayList<>(42);
 
     private void createCalendar(DateTime dt) {
@@ -65,9 +65,21 @@ public class Calendar implements Initializable {
 
     }
 
+    @FXML
+    void nextMonth(ActionEvent event) {
+        currentDateTime = currentDateTime.plusMonths(1);
+        createCalendar(currentDateTime);
+    }
+
+    @FXML
+    void previousMonth(ActionEvent event) {
+        currentDateTime = currentDateTime.minusMonths(1);
+        createCalendar(currentDateTime);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        DateTime dt = DateTime.now();
-        createCalendar(dt);
+        currentDateTime = DateTime.now();
+        createCalendar(currentDateTime);
     }
 }
