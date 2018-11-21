@@ -1,11 +1,12 @@
 package controllers;
 
+import application.StageOptions;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 
-import application.SceneOptions;
+import static application.StageOptions.setStage;
 
 public class Login {
     @FXML private JFXButton login;
@@ -14,15 +15,15 @@ public class Login {
     @FXML private JFXButton forgotPassword;
     @FXML private JFXButton createAccount;
     @FXML private ImageView logo;
-    private SceneOptions scene;
+    private StageOptions scene;
 
     /**
      * Obsługa przycisku "Zaloguj się".
      */
     @FXML
     void loginUser(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("LoginUser");
+        //scene = new StageOptions(event);
+        //scene.change("LoginUser");
     }
 
     /**
@@ -30,8 +31,8 @@ public class Login {
      */
     @FXML
     void restorePassword(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("RestorePassword");
+        //scene = new StageOptions(event);
+        //scene.change("RestorePassword");
     }
 
     /**
@@ -39,8 +40,7 @@ public class Login {
      */
     @FXML
     void createAccount(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("CreateAccount");
+        setStage("CreateAccount");
     }
 
     /**
@@ -48,7 +48,6 @@ public class Login {
      */
     @FXML
     void continueWithoutAccount(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("Calendar");
+        setStage("Calendar");
     }
 }

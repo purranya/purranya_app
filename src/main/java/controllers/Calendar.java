@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static application.StageOptions.setStage;
+
 public class Calendar implements Initializable {
     @FXML private Text headerOfCalendar;
 
@@ -175,6 +177,11 @@ public class Calendar implements Initializable {
     void previousMonth(ActionEvent event) {
         currentDateTime = currentDateTime.minusMonths(1);
         createCalendar(currentDateTime);
+    }
+
+    @FXML
+    void addEvent(ActionEvent event) {
+        setStage("AddEvent");
     }
 
     @Override

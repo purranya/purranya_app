@@ -53,6 +53,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
+            <JFXButton onAction="#addEvent" text="+" />
             </children>
         </VBox>
       <BorderPane layoutX="70.0" layoutY="29.0" prefHeight="739.0" prefWidth="954.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">

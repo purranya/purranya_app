@@ -1,15 +1,16 @@
 package controllers;
 
-import application.SceneOptions;
+import application.StageOptions;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+
+import static application.StageOptions.setStage;
 
 public class CreateAccount {
 
@@ -24,7 +25,6 @@ public class CreateAccount {
     @FXML private Text passwordText;
     @FXML private Text repeatedPasswordText;
 
-    private SceneOptions scene;
     private boolean loginIsOK = false;
     private boolean emailIsOK = false;
     private boolean passwordIsOK = false;
@@ -32,8 +32,8 @@ public class CreateAccount {
 
     /* przycisk "Powrót" */
     @FXML void retAction(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("Login");
+        //scene = new StageOptions(event);
+        //scene.change("Login");
     }
 
     @FXML void create(ActionEvent event) {
@@ -75,8 +75,7 @@ public class CreateAccount {
             repeatedPasswordText.setFill(Color.RED);
         }
         if(loginIsOK && emailIsOK && passwordIsOK && repeatedPasswordIsOK) {
-            SceneOptions scene = new SceneOptions(event);
-            scene.change("CreateAccountConfirm");
+            setStage("CreateAccountConfirm");
         }
     }
 }
