@@ -1,21 +1,25 @@
 package application;
 
-import data_util.DatabaseService;
-import data_util.HomeFolderService;
-import data_util.OperationSystemData;
-
-import java.sql.Connection;
+import data.Calendar;
+import data.CalendarManager;
 
 public class Main_dbtests {
-    public static void main(String[] args) throws Exception
+
+    public static HomeFolderManager homeFolderManager = new HomeFolderManager();
+
+    public static void main(String[] args)
     {
-        DatabaseService dbs = new DatabaseService();
-        //tworzenie bazy
-        //dbs.createDatabase("testcreate");
-        //połączenie
-        //Connection c = dbs.getDatabaseConnection("testcreate");
-        //c.close();
-        //usuwanie
-        //dbs.deleteDatabase("testcreate");
+        App.initialize(null);
+        CalendarManager cs = new CalendarManager();
+
+        Calendar c = cs.getCallendar("Test");
+
+        System.out.println(c.name);
+        System.out.println(c.comment);
+
+
+        cs.saveCallendar(c);
+
+
     }
 }

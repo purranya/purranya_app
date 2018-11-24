@@ -4,5 +4,7 @@ public class GlobalOptions {
 
     //Wszystko, co użytkownik może edytować w opcjach
 
-    public String Dateformat = "DD.MM.RRRR";
+    public static String currentCallendar = "test";
+    public static String dateFormat = "dd/MM/yyyy HH:mm:ss";
+    public static String logDateFormat = "yyyy-MM-dd-HH-mm-ss";
 }

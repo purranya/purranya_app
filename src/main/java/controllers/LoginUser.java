@@ -1,27 +1,20 @@
 package controllers;
 
-import application.SceneOptions;
+import application.App;
+import application.PrimaryStageManager;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class LoginUser {
     @FXML private ImageView logo;
     @FXML private JFXButton ret;
-    SceneOptions scene;
+    PrimaryStageManager scene;
 
     /* przycisk "Powrót" */
     @FXML void retAction(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("Login");
+        App.primaryStageManager.setScene("Login");
     }
 
 }

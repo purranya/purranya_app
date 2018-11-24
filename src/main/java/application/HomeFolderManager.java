@@ -1,10 +1,12 @@
-package data_util;
+package application;
+
+import application.OperationSystemData;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HomeFolderService {
+public class HomeFolderManager {
 
     String osHome;
     OperationSystemData.OS os;
@@ -12,7 +14,7 @@ public class HomeFolderService {
     String appHome;
     static HashMap<String,String> paths = new HashMap<>();
 
-    public HomeFolderService() {
+    public HomeFolderManager() {
         this.os = OperationSystemData.os;
         this.osHome = OperationSystemData.osHome;
         this.osUser = OperationSystemData.osUser;
@@ -34,9 +36,11 @@ public class HomeFolderService {
         if (this.os.equals(OperationSystemData.OS.WINDOWS)){
             dirs.add("\\databases"); paths.put("databases",this.appHome+"\\databases");
             dirs.add("\\options"); paths.put("options",this.appHome+"\\options");
+            dirs.add("\\logs"); paths.put("logs",this.appHome+"\\logs");
         } else if (this.os.equals(OperationSystemData.OS.UNIX)){
             dirs.add("/databases"); paths.put("databases",this.appHome+"/databases");
             dirs.add("/options"); paths.put("options",this.appHome+"/options");
+            dirs.add("/logs"); paths.put("logs",this.appHome+"/logs");
         }
         for(String dir : dirs)
             if(!directoryExists(dir))
@@ -126,5 +130,27 @@ public class HomeFolderService {
 
     public String getPath(String dir) {
         return paths.get(dir);
+    }
+
+    public String getErrorLogPath() {
+        String res = getPath("logs");
+
+        if (this.os.equals(OperationSystemData.OS.WINDOWS))
+            res += "\\errorlog";
+        else if (this.os.equals(OperationSystemData.OS.UNIX))
+            res += "/errorlog";
+
+        return res;
+    }
+
+    public String getEventLogPath() {
+        String res = getPath("logs");
+
+        if (this.os.equals(OperationSystemData.OS.WINDOWS))
+            res += "\\eventlog";
+        else if (this.os.equals(OperationSystemData.OS.UNIX))
+            res += "/eventlog";
+
+        return res;
     }
 }
