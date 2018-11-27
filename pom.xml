@@ -20,9 +20,15 @@
         </plugins>
     </build>
 
+    <!-- preferowana wersja Javy: Java 8, update 192 -->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
-        <!-- foenix lib -->
+        <!-- jfoenix lib -->
         <dependency>
             <groupId>com.jfoenix</groupId>
             <artifactId>jfoenix</artifactId>
@@ -33,7 +39,7 @@
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>2.4.0</version>
+            <version>2.4.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
