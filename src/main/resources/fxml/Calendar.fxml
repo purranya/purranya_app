@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -13,9 +14,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import java.net.URL?>
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Calendar">
     <children>
@@ -54,6 +53,8 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
+            <JFXButton onAction="#addEvent" prefHeight="26.0" prefWidth="73.0" text="+" />
+            <JFXButton onAction="#closeCalendar" prefHeight="26.0" prefWidth="70.0" text="Wyjdź" />
             </children>
         </VBox>
       <BorderPane layoutX="70.0" layoutY="29.0" prefHeight="739.0" prefWidth="954.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
@@ -105,11 +106,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber00" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton fx:id="add00" layoutX="102.0" maxHeight="22.0" maxWidth="20.0" prefHeight="22.0" prefWidth="20.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -122,11 +118,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber01" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -139,11 +130,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber02" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -156,11 +142,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber03" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -173,11 +154,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber04" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -190,11 +166,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber05" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -207,11 +178,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber06" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -224,11 +190,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber10" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -241,11 +202,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber11" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -258,11 +214,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber12" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -275,11 +226,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber13" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -292,11 +238,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber14" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -309,11 +250,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber15" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -326,11 +262,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber16" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -343,11 +274,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber20" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -360,11 +286,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber21" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -377,11 +298,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber22" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -394,11 +310,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber23" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -411,11 +322,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber24" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -428,11 +334,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber25" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -445,11 +346,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber26" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -462,11 +358,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber30" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -479,11 +370,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber31" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -496,11 +382,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber32" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -513,11 +394,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber33" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -530,11 +406,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber34" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -547,11 +418,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber35" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -564,11 +430,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber36" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -581,11 +442,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber40" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -598,11 +454,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber41" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -615,11 +466,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber42" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -632,11 +478,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber43" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -649,11 +490,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber44" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -666,11 +502,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber45" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -683,11 +514,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber46" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -700,11 +526,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber50" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -717,11 +538,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber51" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -734,11 +550,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber52" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -751,11 +562,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber53" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -768,11 +574,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber54" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -785,11 +586,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber55" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>
@@ -802,11 +598,6 @@
                               <AnchorPane BorderPane.alignment="CENTER">
                                  <children>
                                     <Text fx:id="dayNumber56" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="3.0" />
-                                    <JFXButton layoutX="102.0" layoutY="-5.0" prefHeight="16.0" prefWidth="29.0" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </JFXButton>
                                  </children>
                               </AnchorPane>
                            </top>

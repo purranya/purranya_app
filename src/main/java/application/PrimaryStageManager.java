@@ -25,7 +25,7 @@ public class PrimaryStageManager {
     private final String[] scenes = {
             "Calendar","CreateAccount","CreateAccountConfirm",
             "Login","LoginUser","RestorePassword",
-            "StickyNotes"
+            "StickyNotes", "AddEvent"
     };
 
 

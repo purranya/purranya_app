@@ -1,6 +1,6 @@
 package controllers;
 
-import com.jfoenix.controls.JFXButton;
+import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -177,6 +177,16 @@ public class Calendar implements Initializable {
     void previousMonth(ActionEvent event) {
         currentDateTime = currentDateTime.minusMonths(1);
         createCalendar(currentDateTime);
+    }
+
+    @FXML
+    void addEvent(ActionEvent event) {
+        App.primaryStageManager.setScene("AddEvent");
+    }
+
+    @FXML
+    void closeCalendar(ActionEvent event) {
+        App.primaryStageManager.setScene("Login");
     }
 
     @Override
