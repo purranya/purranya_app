@@ -73,12 +73,12 @@ public class CalendarManager {
             c.save();
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
 
-            Result output = new StreamResult(c.callendarMetaFile);
-            Source input = new DOMSource(c.callendarMeta);
+            Result output = new StreamResult(c.calendarMetaFile);
+            Source input = new DOMSource(c.calendarMeta);
             transformer.transform(input, output);
 
-            output = new StreamResult(c.callendarNotesFile);
-            input = new DOMSource(c.callendarNotes);
+            output = new StreamResult(c.calendarNotesFile);
+            input = new DOMSource(c.calendarNotes);
             transformer.transform(input, output);
 
         } catch (Exception e){
