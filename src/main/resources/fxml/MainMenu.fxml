@@ -17,17 +17,17 @@
          </font></Text>
       <AnchorPane prefHeight="30.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton layoutY="-1.0" maxHeight="30.0" onAction="#login" prefHeight="30.0" prefWidth="92.0" text="[Zaloguj się]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton fx:id="logInOut" layoutY="-1.0" maxHeight="30.0" onAction="#loginLogout" prefHeight="30.0" prefWidth="92.0" text="[Zaloguj się]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXButton>
-            <Text layoutX="98.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[uzytkownik]" wrappingWidth="105.9814453125" AnchorPane.topAnchor="6.0">
+            <Text fx:id="user" layoutX="98.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[uzytkownik]" wrappingWidth="105.9814453125" AnchorPane.topAnchor="6.0">
                <font>
                   <Font size="13.0" />
                </font>
             </Text>
-            <Text layoutX="882.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[data]" textAlignment="RIGHT" wrappingWidth="127.6708984375" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+            <Text fx:id="date" layoutX="882.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[data]" textAlignment="RIGHT" wrappingWidth="127.6708984375" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
                <font>
                   <Font size="13.0" />
                </font>
@@ -52,7 +52,7 @@
                         <Font size="31.0" />
                      </font>
                   </Text>
-                  <JFXButton layoutX="844.0" layoutY="9.0" prefHeight="60.0" prefWidth="60.0" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <JFXButton layoutX="844.0" layoutY="9.0" onAction="#addCalendar" prefHeight="60.0" prefWidth="60.0" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
             <JFXMasonryPane GridPane.rowIndex="1">
@@ -62,8 +62,8 @@
             </JFXMasonryPane>
             <JFXMasonryPane GridPane.rowIndex="3">
                <children>
-                  <JFXButton maxHeight="-Infinity" maxWidth="150.0" prefHeight="150.0" text="Sticky Notes" />
-                  <JFXButton maxWidth="150.0" prefHeight="150.0" text="Menedżer haseł" />
+                  <JFXButton maxHeight="-Infinity" maxWidth="150.0" onAction="#changeToStickyNotes" prefHeight="150.0" text="Sticky Notes" />
+                  <JFXButton maxWidth="150.0" onAction="#changeToPasswordManager" prefHeight="150.0" text="Menedżer haseł" />
                </children>
             </JFXMasonryPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">

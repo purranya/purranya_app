@@ -1,12 +1,11 @@
 package controllers;
 
 import application.App;
-import application.PrimaryStageManager;
-import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
 
+/** TODO zrobić jako popup
+ * TODO przebudować całą scenę (dostosować do okienka popup) */
 public class Login {
 
     /** Obsługa przycisku "Powrót" */

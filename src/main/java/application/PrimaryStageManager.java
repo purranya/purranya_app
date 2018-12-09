@@ -29,7 +29,9 @@ public class PrimaryStageManager {
             "MainMenu",
             "Login",
             "StickyNotes",
-            "AddEvent"
+            "AddEvent",
+            "PasswordManager",
+            "AddCalendar"
     };
 
 

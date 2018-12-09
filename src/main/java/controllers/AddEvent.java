@@ -4,12 +4,13 @@ import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+/** TODO zrobić jako popup */
 public class AddEvent {
 
     /** dodanie wydarzenia do kalendarza */
     @FXML
     void addEvent(ActionEvent event) {
-        //nic nie robi - przenosi do kalendarza
+        //póki co nic nie robi - po prostu przenosi do kalendarza
         App.primaryStageManager.setScene("Calendar");
     }
 
