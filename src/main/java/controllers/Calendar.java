@@ -4,8 +4,6 @@ import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import org.joda.time.*;
 
@@ -60,11 +58,9 @@ public class Calendar implements Initializable {
     @FXML private Text dayNumber55;
     @FXML private Text dayNumber56;
 
-
-
     private DateTime currentDateTime;
-    List<BorderPane> day = new ArrayList<>(42);
 
+    /** tworzenie kalendarza na bieżącej scenie */
     private void createCalendar(DateTime dt) {
         //_____________________________________________________
         //nagłówek
@@ -167,26 +163,42 @@ public class Calendar implements Initializable {
         }
     }
 
+    /** wyświetlenie miesiąca następnego niż na bieżącej scenie */
     @FXML
     void nextMonth(ActionEvent event) {
         currentDateTime = currentDateTime.plusMonths(1);
         createCalendar(currentDateTime);
     }
 
+    /** wyświetlenie miesiąca poprzedniego niż na bieżącej scenie */
     @FXML
     void previousMonth(ActionEvent event) {
         currentDateTime = currentDateTime.minusMonths(1);
         createCalendar(currentDateTime);
     }
 
+    /** przejście do sceny umożliwiającej dodanie wydarzenia */
     @FXML
     void addEvent(ActionEvent event) {
         App.primaryStageManager.setScene("AddEvent");
     }
 
+    /** wyjście z kalendarza */
     @FXML
     void closeCalendar(ActionEvent event) {
-        App.primaryStageManager.setScene("Login");
+        App.primaryStageManager.setScene("MainMenu");
+    }
+
+    /** zmiana sceny na Sticky Notes */
+    @FXML
+    void changeToStickyNotes(ActionEvent event) {
+        App.primaryStageManager.setScene("StickyNotes");
+    }
+
+    /** powrót do obecnego miesiąca */
+    @FXML
+    void reloadCalendar(ActionEvent event) {
+        App.primaryStageManager.setScene("Calendar");
     }
 
     @Override

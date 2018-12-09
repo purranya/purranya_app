@@ -35,7 +35,7 @@
         </MenuBar>
         <VBox layoutY="25.0" prefHeight="749.0" prefWidth="67.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="29.0">
             <children>
-                <JFXButton prefHeight="150.0" prefWidth="150.0" text="Kalendarz">
+                <JFXButton onAction="#reloadCalendar" prefHeight="150.0" prefWidth="150.0" text="Kalendarz">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -44,7 +44,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton prefHeight="150.0" prefWidth="150.0" text="Notatki">
+                <JFXButton onAction="#changeToStickyNotes" prefHeight="150.0" prefWidth="150.0" text="Notatki">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>

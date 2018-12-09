@@ -24,7 +24,7 @@ public class PrimaryStageManager {
     private final String stageTitle="Purranya";
     private final String[] scenes = {
             "Calendar","CreateAccount","CreateAccountConfirm",
-            "Login","LoginUser","RestorePassword",
+            "MainMenu","Login","RestorePassword",
             "StickyNotes", "AddEvent"
     };
 
@@ -44,7 +44,7 @@ public class PrimaryStageManager {
             primaryStage.setMinWidth(minWidth);
             primaryStage.setMinHeight(minHeight);
 
-            setScene("Login");
+            setScene("MainMenu");
 
             primaryStage.show();
 
@@ -65,7 +65,7 @@ public class PrimaryStageManager {
             sceneContainer.put(sceneName, new Scene(FXMLLoader.load(getClass().getClassLoader().getResource("fxml/"+sceneName+".fxml"))));
         } catch ( Exception e) {
             e.printStackTrace();
-            System.err.println("SceneMenager initialization failed");
+            System.err.println("SceneMenager initialization failed - ");
             Logging.Logger.logError("SceneMenager initialization failed");
             System.exit(1);
         }

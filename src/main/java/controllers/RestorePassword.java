@@ -15,6 +15,6 @@ public class RestorePassword {
 
     /* przycisk "Powrót" */
     @FXML void retAction(ActionEvent event) {
-        App.primaryStageManager.setScene("Login");
+        App.primaryStageManager.setScene("MainMenu");
     }
 }

@@ -7,11 +7,11 @@ import javafx.fxml.FXML;
 
 public class CreateAccountConfirm {
     @FXML void login(ActionEvent event) {
-        App.primaryStageManager.setScene("LoginUser");
+        App.primaryStageManager.setScene("Login");
     }
 
     @FXML
     void ret(ActionEvent event) {
-        App.primaryStageManager.setScene("Login");
+        App.primaryStageManager.setScene("MainMenu");
     }
 }

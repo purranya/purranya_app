@@ -32,7 +32,7 @@ public class CreateAccount {
 
     /* przycisk "Powrót" */
     @FXML void retAction(ActionEvent event) {
-        App.primaryStageManager.setScene("Login");
+        App.primaryStageManager.setScene("MainMenu");
     }
 
     @FXML void create(ActionEvent event) {
