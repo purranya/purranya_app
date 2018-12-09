@@ -8,13 +8,17 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 
 public class Login {
-    @FXML private ImageView logo;
-    @FXML private JFXButton ret;
-    PrimaryStageManager scene;
 
-    /* przycisk "Powrót" */
-    @FXML void retAction(ActionEvent event) {
+    /** Obsługa przycisku "Powrót" */
+    @FXML
+    void retAction(ActionEvent event) {
         App.primaryStageManager.setScene("MainMenu");
+    }
+
+    /** Obsługa przycisku "Utwórz konto" */
+    @FXML
+    void createAccount(ActionEvent event) {
+        App.primaryStageManager.setScene("CreateAccount");
     }
 
 }
