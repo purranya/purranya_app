@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 
 public class Calendar implements Initializable {
     @FXML private Text headerOfCalendar;
+    @FXML private Text date;
 
     @FXML private Text dayNumber00;
     @FXML private Text dayNumber01;
@@ -204,6 +205,7 @@ public class Calendar implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         currentDateTime = DateTime.now();
+        date.setText(currentDateTime.dayOfMonth().getAsString() + " " + currentDateTime.monthOfYear().getAsText() + " " + currentDateTime.year().getAsString());
         createCalendar(currentDateTime);
     }
 }
