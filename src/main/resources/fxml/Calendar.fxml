@@ -2,62 +2,18 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Calendar">
     <children>
-        <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Plik">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Wyloguj" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Opcje">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Ustawienia" />
-                        <MenuItem mnemonicParsing="false" text="Personalizacja" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <VBox layoutY="25.0" prefHeight="749.0" prefWidth="67.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="29.0">
-            <children>
-                <JFXButton prefHeight="150.0" prefWidth="150.0" text="Kalendarz">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../pictures/calendarIco.jpg" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
-                <JFXButton prefHeight="150.0" prefWidth="150.0" text="Notatki">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../pictures/stickyNotesIco.jpg" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
-            <JFXButton onAction="#addEvent" prefHeight="26.0" prefWidth="73.0" text="+" />
-            <JFXButton onAction="#closeCalendar" prefHeight="26.0" prefWidth="70.0" text="Wyjdź" />
-            </children>
-        </VBox>
-      <BorderPane layoutX="70.0" layoutY="29.0" prefHeight="739.0" prefWidth="954.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+      <BorderPane layoutX="70.0" layoutY="29.0" prefHeight="739.0" prefWidth="954.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <top>
             <BorderPane prefHeight="35.0" prefWidth="954.0" BorderPane.alignment="CENTER">
                <right>
@@ -611,6 +567,30 @@
             </AnchorPane>
          </center>
       </BorderPane>
+      <AnchorPane prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fx:id="date" layoutX="982.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <JFXButton layoutY="-1.0" onAction="#closeCalendar" prefHeight="31.0" prefWidth="186.0" text="Powrót do ekranu głównego" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="182.0" layoutY="6.0" onAction="#addEvent" prefHeight="30.0" prefWidth="130.0" text="Utwórz wydarzenie" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="312.0" prefHeight="30.0" prefWidth="146.0" text="Zarządzaj etykietami" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
     </children>
    <stylesheets>
       <URL value="@Calendar.css" />

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="573.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Test">
+    <children>
+        <JFXTextField labelFloat="true" layoutX="64.0" layoutY="73.0" prefHeight="26.0" prefWidth="235.0" promptText="test" />
+        <JFXButton layoutX="64.0" layoutY="146.0" onAction="#gotowe" text="OK" />
+        <JFXButton layoutX="236.0" layoutY="146.0" onAction="#anuluj" text="Anuluj" />
+        <AnchorPane layoutX="6.0" layoutY="-1.0" prefHeight="46.0" prefWidth="362.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Text layoutX="165.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEST" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="165.7255859375" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

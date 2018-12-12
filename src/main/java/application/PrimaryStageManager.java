@@ -23,9 +23,17 @@ public class PrimaryStageManager {
 
     private final String stageTitle="Purranya";
     private final String[] scenes = {
-            "Calendar","CreateAccount","CreateAccountConfirm",
-            "Login","LoginUser","RestorePassword",
-            "StickyNotes", "AddEvent"
+            "Calendar",
+            "CreateAccount",
+            "CreateAccountConfirm",
+            "MainMenu",
+            "Login",
+            "StickyNotes",
+            "AddEvent",
+            "PasswordManager",
+            "AddCalendar",
+            "AddNote",
+            "Test"
     };
 
 
@@ -44,7 +52,7 @@ public class PrimaryStageManager {
             primaryStage.setMinWidth(minWidth);
             primaryStage.setMinHeight(minHeight);
 
-            setScene("Login");
+            setScene("MainMenu");
 
             primaryStage.show();
 
