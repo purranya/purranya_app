@@ -10,14 +10,16 @@ public class Login {
 
     /** Obsługa przycisku "Powrót" */
     @FXML
-    void retAction(ActionEvent event) {
+    void cancel(ActionEvent event) {
         App.primaryStageManager.setScene("MainMenu");
     }
 
-    /** Obsługa przycisku "Utwórz konto" */
+    /** Obsługa przycisku "Zaloguj"
+     * TODO dodać obsługę!
+     * */
     @FXML
-    void createAccount(ActionEvent event) {
-        App.primaryStageManager.setScene("CreateAccount");
+    void login(ActionEvent event) {
+        App.primaryStageManager.setScene("MainMenu");
     }
 
 }

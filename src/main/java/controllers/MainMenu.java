@@ -16,7 +16,7 @@ public class MainMenu implements Initializable {
 
     /** Obsługa przycisku "Zaloguj się"
      * TODO dodać obsługę zalogowanego/niezalogowanego użytkownika
-     * TODO dodać przycisk na utworzenie konta*/
+     * TODO dodać przycisk na utworzenie konta w zależności od tego, czy użytkownik jest zalogowany*/
     @FXML
     void loginLogout(ActionEvent event) {
         //jeżeli niezalogowany
@@ -48,11 +48,17 @@ public class MainMenu implements Initializable {
     void continueWithoutAccount(ActionEvent event) { App.primaryStageManager.setScene("Calendar");
     }
 
-    /** TODO dodać obsługę zalogowanego użytkownika! */
+    /** TODO dodać obsługę zalogowanego użytkownika! (dotyczy zmiennej user) */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         user.setText("");
         DateTime dateTime = DateTime.now();
         date.setText(dateTime.dayOfMonth().getAsString() + " " + dateTime.monthOfYear().getAsText() + " " + dateTime.year().getAsString());
+    }
+
+    /** FUNKCJA TESTOWA */
+    @FXML
+    void runTest(ActionEvent event) {
+        App.primaryStageManager.setScene("Test");
     }
 }
