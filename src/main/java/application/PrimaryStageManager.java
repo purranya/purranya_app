@@ -34,7 +34,6 @@ public class PrimaryStageManager {
             "PasswordManager",
             "AddCalendar",
             "AddNote",
-            "Test"
     };
 
 

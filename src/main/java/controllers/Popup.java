@@ -1,114 +1,88 @@
 package controllers;
 
-import javafx.geometry.Pos;
+import com.jfoenix.controls.JFXTextField;
+import data.domain.TestModel;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Popup {
-    public enum POPUP_TYPE { ALERT ,BOOLEAN, THREE_WAY }
-    //Alert ma tylko przycisk ok, zawsze zwraca 0
-    //boolean ma tak=1/nie=2, a zamknięcie okna daje anuluj=0
-    //threeway ma tak=1,nie=2 i anuluj=0
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    String title;
-    String message;
-    POPUP_TYPE type;
+public class Popup implements Initializable {
+    @FXML
+    Text message;
+    @FXML
+    JFXTextField textfield;
 
-    int answer=0;
-
-    final int width=300;
-    final int height=150;
-
-    public Popup(String title,String message) {this(title,message,POPUP_TYPE.BOOLEAN);}
-    public Popup(String title,String message,POPUP_TYPE type){
-        this.type=type;
-        this.title=title;
-        this.message=message;
+    @FXML
+    void yesAction(ActionEvent event) {
+        answer = new TestModel(1,textfield.getText());
+        popupStage.close();
     }
 
-    public int display() {
-        //przygotowanie okna
-        Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle(title);
-        popupStage.setWidth(width);
-        popupStage.setHeight(height);
-        popupStage.setResizable(false);
-        //popupStage.setAlwaysOnTop(true);
+    @FXML
+    void noAction(ActionEvent event) {
+        answer = new TestModel(2,null);
+        popupStage.close();
+    }
 
-        switch (type)
-        {
-            case BOOLEAN: {
-                //jeśli chcesz to zamiast tego wszystkiego możesz zrobić ladowanie fxmla z widokiem
-                //<--
-                Label popupMessage = new Label(message);
-                Button yesButton = new Button("Tak");
-                yesButton.setOnAction(e ->{
-                    answer=1;
-                    popupStage.close();
-                });
-                Button noButton = new Button("Nie");
-                noButton.setOnAction(e ->{
-                    answer=2;
-                    popupStage.close();
-                });
+    @FXML
+    void cancelAction(ActionEvent event) {
+        answer = new TestModel(0,null);
+        popupStage.close();
+    }
 
-                HBox buttons = new HBox(yesButton,noButton);
-                buttons.setAlignment(Pos.CENTER);
-                VBox content = new VBox(popupMessage,buttons);
-                content.setAlignment(Pos.CENTER);
-                //-->
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        message.setText(messageString);
+        textfield.setPromptText("odpowiedź");
+    }
 
-                popupStage.setScene(new Scene(content));
 
-                //Ta funkcja zatrzymuje wątek, aż nie zamknie się okno, a okno zamykane jest przez przyciski i przez krzyżyk
-                //naciśnięcie krzyżyka też zwraca "anuluj"
-                popupStage.showAndWait();
-            } break;
-            case ALERT: {
+    static String title;
+    static String messageString;
 
-                Label popupMessage = new Label(message);
-                Button button = new Button("Ok");
-                button.setOnAction(e -> popupStage.close());
-                VBox content = new VBox(popupMessage,button);
-                content.setAlignment(Pos.CENTER);
+    static TestModel answer = null;
 
-                popupStage.setScene(new Scene(content));
+    static final int width = 362;
+    static final int height = 198;
 
-                popupStage.showAndWait();
-            } break;
-            case THREE_WAY: {
-                Label popupMessage = new Label(message);
-                Button yesButton = new Button("Tak");
-                yesButton.setOnAction(e ->{
-                    answer=1;
-                    popupStage.close();
-                });
-                Button noButton = new Button("Nie");
-                noButton.setOnAction(e ->{
-                    answer=2;
-                    popupStage.close();
-                });
-                Button cancelButton = new Button("Anuluj");
-                cancelButton.setOnAction(e ->popupStage.close());
+    static Stage popupStage;
+    static Scene popupScene = loadScene();
 
-                HBox buttons = new HBox(yesButton,noButton,cancelButton);
-                buttons.setAlignment(Pos.CENTER);
-                VBox content = new VBox(popupMessage,buttons);
-                content.setAlignment(Pos.CENTER);
-                //-->
+    public static TestModel display(String title, String msg) {
 
-                popupStage.setScene(new Scene(content));
-
-                popupStage.showAndWait();
-            } break;
-            default: answer=0;
+        if(popupStage==null) {
+            popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setWidth(width);
+            popupStage.setHeight(height);
+            popupStage.setResizable(false);
+            popupStage.setScene(popupScene);
         }
+        popupStage.setTitle(title);
+
+        ((Text)popupScene.lookup("#message")).setText(msg);
+
+        popupStage.showAndWait();
+
         return answer;
+    }
+
+    static Scene loadScene()
+    {
+        Scene s = null;
+        try{
+            s = new Scene(FXMLLoader.load(Popup.class.getClassLoader().getResource("fxml/Test.fxml")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return s;
     }
 }
