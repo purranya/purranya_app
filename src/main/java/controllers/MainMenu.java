@@ -59,7 +59,8 @@ public class MainMenu implements Initializable {
     /** FUNKCJA TESTOWA */
     @FXML
     void runTest(ActionEvent event) {
-        Popup p = new Popup("Zapisz zmiany", "Czy na pewno chcesz zachować zmiany", Popup.POPUP_TYPE.THREE_WAY);
+        App.primaryStageManager.popup("AddEvent", new AddEvent());
+        /*Popup p = new Popup("Zapisz zmiany", "Czy na pewno chcesz zachować zmiany", Popup.POPUP_TYPE.THREE_WAY);
         int answer = p.display();
         if(answer==0)
             System.out.println("Anuluj");
@@ -67,5 +68,6 @@ public class MainMenu implements Initializable {
             System.out.println("Tak");
         if(answer==2)
             System.out.println("Nie");
+        */
     }
 }

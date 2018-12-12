@@ -39,7 +39,7 @@ public class Popup {
         popupStage.setWidth(width);
         popupStage.setHeight(height);
         popupStage.setResizable(false);
-        popupStage.setAlwaysOnTop(true);
+        //popupStage.setAlwaysOnTop(true);
 
         switch (type)
         {

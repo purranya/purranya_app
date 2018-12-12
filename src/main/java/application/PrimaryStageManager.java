@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -58,8 +59,8 @@ public class PrimaryStageManager {
 
         } catch ( Exception e ) {
             e.printStackTrace();
-            System.err.println("SceneMenager initialization failed");
-            Logging.Logger.logError("SceneMenager initialization failed");
+            System.err.println("SceneManager initialization failed");
+            Logging.Logger.logError("SceneManager initialization failed");
             System.exit(1);
         }
     }
@@ -73,9 +74,25 @@ public class PrimaryStageManager {
             sceneContainer.put(sceneName, new Scene(FXMLLoader.load(getClass().getClassLoader().getResource("fxml/"+sceneName+".fxml"))));
         } catch ( Exception e) {
             e.printStackTrace();
-            System.err.println("SceneMenager initialization failed");
-            Logging.Logger.logError("SceneMenager initialization failed");
+            System.err.println("SceneManager initialization failed");
+            Logging.Logger.logError("SceneManager initialization failed");
             System.exit(1);
+        }
+    }
+
+    /** metoda do obsługi popupów
+     * @param name nazwa kontrolera oraz pliku FXML
+     */
+    public void popup(String name, Object controller) {
+        Popup popup = new Popup();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/" + name + ".fxml"));
+        loader.setController(controller);
+        try {
+            popup.getContent().add(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Popup initialization failed");
+            Logging.Logger.logError("Popup initialization failed");
         }
     }
 }
