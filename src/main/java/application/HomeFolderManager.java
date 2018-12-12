@@ -34,13 +34,13 @@ public class HomeFolderManager {
         //katalogi w home
         ArrayList<String> dirs = new ArrayList<>();
         if (this.os.equals(OperationSystemData.OS.WINDOWS)){
-            dirs.add("\\databases"); paths.put("databases",this.appHome+"\\databases");
-            dirs.add("\\options"); paths.put("options",this.appHome+"\\options");
-            dirs.add("\\logs"); paths.put("logs",this.appHome+"\\logs");
+            dirs.add("\\databases"); paths.put("databases",this.appHome+"\\databases\\");
+            dirs.add("\\options"); paths.put("options",this.appHome+"\\options\\");
+            dirs.add("\\logs"); paths.put("logs",this.appHome+"\\logs\\");
         } else if (this.os.equals(OperationSystemData.OS.UNIX)){
-            dirs.add("/databases"); paths.put("databases",this.appHome+"/databases");
-            dirs.add("/options"); paths.put("options",this.appHome+"/options");
-            dirs.add("/logs"); paths.put("logs",this.appHome+"/logs");
+            dirs.add("/databases"); paths.put("databases",this.appHome+"/databases/");
+            dirs.add("/options"); paths.put("options",this.appHome+"/options/");
+            dirs.add("/logs"); paths.put("logs",this.appHome+"/logs/");
         }
         for(String dir : dirs)
             if(!directoryExists(dir))

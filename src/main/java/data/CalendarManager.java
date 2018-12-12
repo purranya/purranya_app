@@ -1,89 +1,140 @@
 package data;
 
-import application.Logging;
-import application.OperationSystemData;
-
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.File;
-import java.util.ArrayList;
-
 import application.App;
+import application.Logging;
+import data.domain.Calendar;
+import data.domain.Label;
+import data.domain.Note;
+import org.joda.time.DateTime;
+
+import java.io.*;
+import java.util.List;
 
 public class CalendarManager {
+    private Calendar c;
 
     public CalendarManager(){ }
 
-    public ArrayList<String> getCallendarIndex() {
-        File[] directories = new File(App.homeFolderManager.getPath("databases")).listFiles(File::isDirectory);
-        ArrayList<String> names = new ArrayList<>();
+    public Calendar getCalendar_DEBUG() { return c; }
 
-        for(File f : directories) {
-            String path = f.toString();
-            int l = 0;
-            if(OperationSystemData.os.equals(OperationSystemData.OS.WINDOWS))
-                l= path.lastIndexOf('\\');
-            else if(OperationSystemData.os.equals(OperationSystemData.OS.UNIX))
-                l= path.lastIndexOf('/');
-            names.add(f.toString().substring(l+1,path.length()));
-        }
-        return names;
-    }
+    public String getCalendarName() { return c.name; }
+    public String getCalendarComment() { return c.comment; }
 
-    public String getCallendarPath(String name){
-        ArrayList<String> index = getCallendarIndex();
+    public List<Note> getAllNotes() { return c.notes; }
+    public List<Label> getAllLabels() { return c.labels; }
 
-        if(!index.contains(name)){
-            System.err.println("Brak kalendarza");
-            Logging.Logger.logError("Invalid callendar name");
-            return null;
-        }
-
-        String path = App.homeFolderManager.getPath("databases");
-
-        if(OperationSystemData.os.equals(OperationSystemData.OS.WINDOWS))
-            path += '\\' + name + '\\';
-        else if(OperationSystemData.os.equals(OperationSystemData.OS.UNIX))
-            path += '/' + name + '/';
-
-        return path;
-    }
-
-    public Calendar getCallendar(String name)
+    public boolean loadCallendar(String name)
+            //wczytuje kalendarz z pliku o podanej nazwie
     {
-        String path = getCallendarPath(name);
-        Calendar c;
-
-        if(OperationSystemData.os.equals(OperationSystemData.OS.WINDOWS))
-            c = new Calendar(new File(path+"\\meta.xml"),new File(path+"\\notes.xml"));
-        else if(OperationSystemData.os.equals(OperationSystemData.OS.UNIX))
-            c = new Calendar(new File(path+"/meta.xml"),new File(path+"/notes.xml"));
-        else
-            c=null;
-
-        return c;
+        try {
+            ObjectInputStream o = new ObjectInputStream(new FileInputStream(App.homeFolderManager.getPath("databases") + name));
+            c = (Calendar) o.readObject();
+            return true;
+        } catch ( Exception e)
+        {
+            Logging.Logger.logError("Loading calendar failed");
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public void saveCallendar(Calendar c){
+    public boolean saveCalendar()
+            //zapisuje aktualnie wczytany kalendarz
+    {
+        ObjectOutputStream o = null;
         try {
-            c.save();
-            Transformer transformer = TransformerFactory.newInstance().newTransformer();
-
-            Result output = new StreamResult(c.calendarMetaFile);
-            Source input = new DOMSource(c.calendarMeta);
-            transformer.transform(input, output);
-
-            output = new StreamResult(c.calendarNotesFile);
-            input = new DOMSource(c.calendarNotes);
-            transformer.transform(input, output);
-
-        } catch (Exception e){
+            if(!isCalendarLoaded()) throw new Exception("calendar is null");
+            o = new ObjectOutputStream(new FileOutputStream(App.homeFolderManager.getPath("databases") + c.name));
+            o.writeObject(c);
+            o.flush();
+            return true;
+        } catch ( Exception e) {
+            Logging.Logger.logError("Saving calendar failed");
             e.printStackTrace();
-            Logging.Logger.logError("Saving callendar failed");
+            return false;
         }
+    }
+
+    public void createCalendar(String name) { createCalendar(name,""); }
+
+    public void renameCalendar(String newName) {
+        File f = new File(App.homeFolderManager.getPath("databases") + c.name);
+        System.out.println(f.exists());
+        System.out.println(f.delete());
+
+        c.name=newName;
+        saveCalendar();
+    }
+
+    public void createCalendar(String name, String comment)
+            //tworzy nowy, pusty kalendarz
+    {
+        c = new Calendar(name,comment);
+
+    }
+
+    public boolean isCalendarLoaded()
+            //zwraca informacje o tym, czy wczytano jakiś kalendarz
+    {
+        return c!=null;
+    }
+
+    public void addNote(Note n) {
+        n.id=this.c.nextNoteId;
+        this.c.nextNoteId++;
+        this.c.notes.add(n);
+    }
+
+    public void addNote(String title, String content, boolean isArchived, int label, DateTime startDate, DateTime endDate)
+    {
+        addNote(new Note(title,content,isArchived,getLabelById(label),startDate,endDate));
+    }
+
+    public void addLabel(Label l)
+    {
+        l.id=this.c.nextLabelId;
+        this.c.nextLabelId++;
+        this.c.labels.add(l);
+    }
+
+    public void addLabel(String text)
+    {
+        addLabel(new Label(text));
+    }
+
+    public Label getLabelById(int id)
+    {
+        for(Label l : c.labels)
+            if(l.id==id) return l;
+
+        return null;
+    }
+
+    public Note getNoteById(int id)
+    {
+        for(Note n : c.notes)
+            if(n.id==id) return n;
+
+        return null;
+    }
+
+    public boolean deleteLabelById(int id)
+    {
+        Label l = getLabelById(id);
+        if(l!=null)
+            this.c.labels.remove(l);
+        else
+            return false;
+        return true;
+    }
+
+    public boolean deleteNoteById(int id)
+    {
+        Note n = getNoteById(id);
+        if(n!=null)
+            this.c.notes.remove(n);
+        else
+            return false;
+        return true;
     }
 }
