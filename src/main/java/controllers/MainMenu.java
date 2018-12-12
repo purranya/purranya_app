@@ -15,7 +15,8 @@ public class MainMenu implements Initializable {
     @FXML private Text date;
 
     /** Obsługa przycisku "Zaloguj się"
-     * TODO dodać obsługę zalogowanego/niezalogowanego użytkownika */
+     * TODO dodać obsługę zalogowanego/niezalogowanego użytkownika
+     * TODO dodać przycisk na utworzenie konta*/
     @FXML
     void loginLogout(ActionEvent event) {
         //jeżeli niezalogowany
