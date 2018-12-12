@@ -31,7 +31,8 @@ public class PrimaryStageManager {
             "StickyNotes",
             "AddEvent",
             "PasswordManager",
-            "AddCalendar"
+            "AddCalendar",
+            "AddNote"
     };
 
 

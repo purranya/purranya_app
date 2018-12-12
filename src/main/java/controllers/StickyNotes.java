@@ -20,6 +20,7 @@ public class StickyNotes implements Initializable {
     /** TODO utworzyć scenę dla dodawania notatek */
     @FXML
     void addNote(ActionEvent event) {
+        App.primaryStageManager.setScene("AddNote");
     }
 
     /** wyjście ze Sticky Notes */
