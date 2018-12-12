@@ -59,6 +59,13 @@ public class MainMenu implements Initializable {
     /** FUNKCJA TESTOWA */
     @FXML
     void runTest(ActionEvent event) {
-        App.primaryStageManager.setScene("Test");
+        Popup p = new Popup("Zapisz zmiany", "Czy na pewno chcesz zachować zmiany", Popup.POPUP_TYPE.THREE_WAY);
+        int answer = p.display();
+        if(answer==0)
+            System.out.println("Anuluj");
+        if(answer==1)
+            System.out.println("Tak");
+        if(answer==2)
+            System.out.println("Nie");
     }
 }
