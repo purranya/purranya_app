@@ -5,7 +5,7 @@ import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class AddNote {
+public class AddNoteController {
 
     /** dodanie notatki do bazy
      * TODO zrobić obsługę z bazą
@@ -15,7 +15,7 @@ public class AddNote {
 
     }
 
-    /** zamknięcie okna AddNote */
+    /** zamknięcie okna AddNoteController */
     @FXML
     void cancelAddingNote(ActionEvent event) {
         App.primaryStageManager.setScene("StickyNotes");

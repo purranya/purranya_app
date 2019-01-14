@@ -1,4 +1,4 @@
-package data.domain;
+package models;
 
 public class Login {
     public String username;

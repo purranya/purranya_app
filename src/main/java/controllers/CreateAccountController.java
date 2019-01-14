@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class CreateAccount {
+public class CreateAccountController {
 
     @FXML private ImageView logo;
     @FXML private JFXButton ret;
@@ -43,7 +43,7 @@ public class CreateAccount {
         }
         else {
             loginIsOK = false;
-            loginText.setText("Login musi posiadać od 3 do 15 znaków.");
+            loginText.setText("LoginController musi posiadać od 3 do 15 znaków.");
             loginText.setFill(Color.RED);
         }
         if (email.getText().matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{1,6})$")) {

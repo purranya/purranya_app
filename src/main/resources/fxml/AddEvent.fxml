@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="573.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEvent">
+<AnchorPane maxHeight="573.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEventController">
    <children>
       <JFXDatePicker layoutX="64.0" layoutY="114.0" prefHeight="26.0" prefWidth="235.0" promptText="Data rozpoczęcia" showWeekNumbers="true" />
       <JFXTextField labelFloat="true" layoutX="64.0" layoutY="73.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />

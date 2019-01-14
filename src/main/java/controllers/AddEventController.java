@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 /** TODO zrobić jako popup */
-public class AddEvent {
+public class AddEventController {
 
     /** dodanie wydarzenia do kalendarza */
     @FXML

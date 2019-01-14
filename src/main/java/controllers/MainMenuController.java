@@ -1,7 +1,7 @@
 package controllers;
 
 import application.App;
-import data.domain.TestModel;
+import models.TestModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +11,7 @@ import org.joda.time.DateTime;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainMenu implements Initializable {
+public class MainMenuController implements Initializable {
     @FXML private Text user;
     @FXML private Text date;
 
@@ -34,6 +34,8 @@ public class MainMenu implements Initializable {
     /** obsługa przycisku "Menedżer haseł */
     @FXML
     void changeToPasswordManager(ActionEvent event) {
+        App.primaryStageManager.setScene("PasswordManager");
+        App.primaryStageManager.setScene("PasswordManager");
         App.primaryStageManager.setScene("PasswordManager");
     }
 
@@ -60,8 +62,8 @@ public class MainMenu implements Initializable {
     /** FUNKCJA TESTOWA */
     @FXML
     void runTest(ActionEvent event) {
-        //App.primaryStageManager.popup("AddEvent", new AddEvent());
-        TestModel answer = Popup.display("Zapisz zmiany", "Czy na pewno chcesz zachować zmiany");
+        //App.primaryStageManager.popup("AddEventController", new AddEventController());
+        TestModel answer = PopupController.display("Zapisz zmiany", "Czy na pewno chcesz zachować zmiany");
         System.out.println(answer);
     }
 }

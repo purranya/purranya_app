@@ -11,7 +11,7 @@ import org.joda.time.DateTime;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StickyNotes implements Initializable {
+public class StickyNotesController implements Initializable {
 
     @FXML
     private Text date;

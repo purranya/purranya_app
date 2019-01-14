@@ -5,7 +5,7 @@ import application.PrimaryStageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class CreateAccountConfirm {
+public class CreateAccountConfirmController {
     @FXML void login(ActionEvent event) {
         App.primaryStageManager.setScene("Login");
     }
