@@ -25,15 +25,9 @@ public class PrimaryStageManager {
     private final String stageTitle="Purranya";
     private final String[] scenes = {
             "Calendar",
-            "CreateAccount",
-            "CreateAccountConfirm",
             "MainMenu",
-            "Login",
             "StickyNotes",
-            "AddEvent",
-            "PasswordManager",
-            "AddCalendar",
-            "AddNote",
+            "PasswordManager"
     };
 
 

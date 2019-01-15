@@ -2,9 +2,9 @@ package data;
 
 import application.App;
 import application.Logging;
-import data.domain.Calendar;
-import data.domain.Label;
-import data.domain.Note;
+import models.Calendar;
+import models.Label;
+import models.Note;
 import org.joda.time.DateTime;
 
 import java.io.*;

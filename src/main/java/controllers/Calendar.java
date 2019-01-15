@@ -181,7 +181,7 @@ public class Calendar implements Initializable {
     /** przejście do sceny umożliwiającej dodanie wydarzenia */
     @FXML
     void addEvent(ActionEvent event) {
-        App.primaryStageManager.setScene("AddEvent");
+        controllers.AddEvent.display();
     }
 
     /** wyjście z kalendarza */

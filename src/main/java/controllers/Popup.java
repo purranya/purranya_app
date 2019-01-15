@@ -1,7 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXTextField;
-import data.domain.TestModel;
+import models.TestModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
