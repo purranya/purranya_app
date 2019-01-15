@@ -16,11 +16,10 @@ public class StickyNotes implements Initializable {
     @FXML
     private Text date;
 
-    /** dodanie nowej notatki */
-    /** TODO utworzyć scenę dla dodawania notatek */
+    /** (button) dodanie nowej notatki */
     @FXML
     void addNote(ActionEvent event) {
-        App.primaryStageManager.setScene("AddNote");
+        controllers.AddNote.display();
     }
 
     /** wyjście ze Sticky Notes */
