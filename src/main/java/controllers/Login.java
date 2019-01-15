@@ -1,54 +1,25 @@
 package controllers;
 
-import com.jfoenix.controls.JFXButton;
+import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
 
-import application.SceneOptions;
-
+/** TODO zrobić jako popup
+ * TODO przebudować całą scenę (dostosować do okienka popup) */
 public class Login {
-    @FXML private JFXButton login;
-    @FXML private ImageView login1;
-    @FXML private JFXButton continueWithoutLogin;
-    @FXML private JFXButton forgotPassword;
-    @FXML private JFXButton createAccount;
-    @FXML private ImageView logo;
-    private SceneOptions scene;
 
-    /**
-     * Obsługa przycisku "Zaloguj się".
-     */
+    /** Obsługa przycisku "Powrót" */
     @FXML
-    void loginUser(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("LoginUser");
+    void cancel(ActionEvent event) {
+        App.primaryStageManager.setScene("MainMenu");
     }
 
-    /**
-     * Obsługa przycisku "Zapomniałeś hasła?".
-     */
+    /** Obsługa przycisku "Zaloguj"
+     * TODO dodać obsługę!
+     * */
     @FXML
-    void restorePassword(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("RestorePassword");
+    void login(ActionEvent event) {
+        App.primaryStageManager.setScene("MainMenu");
     }
 
-    /**
-     * Obsługa przycisku "Utwórz konto".
-     */
-    @FXML
-    void createAccount(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("CreateAccount");
-    }
-
-    /**
-     * Obsługa przycisku "Kontynuuj bez zalogowania".
-     */
-    @FXML
-    void continueWithoutAccount(ActionEvent event) {
-        scene = new SceneOptions(event);
-        scene.change("Calendar");
-    }
 }
