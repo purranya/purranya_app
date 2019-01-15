@@ -28,7 +28,7 @@ public class MainMenu implements Initializable {
      * TODO uzupełnić! */
     @FXML
     void addCalendar(ActionEvent event) {
-        App.primaryStageManager.setScene("AddCalendar");
+        controllers.AddCalendar.display();
     }
 
     /** obsługa przycisku "Menedżer haseł */

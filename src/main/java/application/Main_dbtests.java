@@ -1,9 +1,9 @@
 package application;
 
-import data.domain.Calendar;
+import models.Calendar;
 import data.CalendarManager;
-import data.domain.Label;
-import data.domain.Note;
+import models.Label;
+import models.Note;
 import org.joda.time.DateTime;
 
 import java.lang.invoke.CallSite;

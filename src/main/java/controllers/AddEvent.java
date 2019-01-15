@@ -1,18 +1,17 @@
 package controllers;
 
-import application.App;
 import application.Logging;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
+/** kontroler do obsługi dodawania wydarzeń w kalendarzu */
 public class AddEvent {
-    static Stage popupStage;
-    static Scene popupScene = loadScene();
+    private static Stage addEventStage;
+    private static Scene addEventScene = loadScene();
 
     /** (button) dodanie wydarzenia do kalendarza */
     @FXML
@@ -23,11 +22,11 @@ public class AddEvent {
     /** (button) wyjście z okna dodawania wydarzenia do kalendarza */
     @FXML
     void cancelAddingEvent(ActionEvent event) {
-       popupStage.close();
+       addEventStage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
-    static Scene loadScene() {
+    private static Scene loadScene() {
         try {
             return new Scene(FXMLLoader.load(AddEvent.class.getClassLoader().getResource("fxml/AddEvent.fxml")));
         } catch (Exception e) {
@@ -39,17 +38,17 @@ public class AddEvent {
     }
 
     /** wyświetlanie popupu */
-    public static void display() {
-        if(popupStage==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
-            popupStage = new Stage();
-            popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.setWidth(362);
-            popupStage.setHeight(530);
-            popupStage.setResizable(false);
-            popupStage.setScene(popupScene);
+    static void display() {
+        if(addEventStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
+            addEventStage = new Stage();
+            addEventStage.initModality(Modality.APPLICATION_MODAL);
+            addEventStage.setWidth(362);
+            addEventStage.setHeight(530);
+            addEventStage.setResizable(false);
+            addEventStage.setScene(addEventScene);
         }
-        popupStage.setTitle("Dodaj wydarzenie - Purranya");
+        addEventStage.setTitle("Dodaj wydarzenie - Purranya");
 
-        popupStage.showAndWait();
+        addEventStage.showAndWait();
     }
 }
