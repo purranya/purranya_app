@@ -1,18 +1,17 @@
 package controllers;
 
-import application.SceneOptions;
+import application.App;
+import application.PrimaryStageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class CreateAccountConfirm {
     @FXML void login(ActionEvent event) {
-        SceneOptions scene = new SceneOptions(event);
-        scene.change("LoginUser");
+        App.primaryStageManager.setScene("Login");
     }
 
     @FXML
     void ret(ActionEvent event) {
-        SceneOptions scene = new SceneOptions(event);
-        scene.change("Login");
+        App.primaryStageManager.setScene("MainMenu");
     }
 }
