@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 
 /** TODO zrobić jako popup
  * TODO przebudować całą scenę (dostosować do okienka popup) */
-public class LoginController {
+public class Login {
 
     /** Obsługa przycisku "Powrót" */
     @FXML

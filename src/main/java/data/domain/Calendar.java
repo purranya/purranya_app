@@ -1,4 +1,4 @@
-package models;
+package data.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class Calendar implements Serializable {
     @Override
     public String toString() {
         StringBuilder var = new StringBuilder();
-        var.append("\nCalendarController: " + name + "\nComment: " + comment + "\nLabels:\n");
+        var.append("\nCalendar: " + name + "\nComment: " + comment + "\nLabels:\n");
         for (Label l : labels)
             var.append(l + "\n");
         var.append("Notes:\n");

@@ -1,4 +1,4 @@
-package models;
+package data.domain;
 
 public class TestModel {
     int answer;

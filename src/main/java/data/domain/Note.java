@@ -1,4 +1,4 @@
-package models;
+package data.domain;
 
 import application.GlobalOptions;
 import org.joda.time.DateTime;

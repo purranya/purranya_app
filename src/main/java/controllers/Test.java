@@ -5,18 +5,16 @@ import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class AddCalendarController {
+public class Test {
 
     @FXML
-    void addCalendar(ActionEvent event) {
-        //póki co nic nie robi - po prostu przenosi do głównego menu
+    void anuluj(ActionEvent event) {
         App.primaryStageManager.setScene("MainMenu");
     }
 
     @FXML
-    void cancelAddingCalendar(ActionEvent event) {
+    void gotowe(ActionEvent event) {
         App.primaryStageManager.setScene("MainMenu");
     }
 
 }
-

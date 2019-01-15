@@ -1,7 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXTextField;
-import models.TestModel;
+import data.domain.TestModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PopupController implements Initializable {
+public class Popup implements Initializable {
     @FXML
     Text message;
     @FXML
@@ -79,7 +79,7 @@ public class PopupController implements Initializable {
     {
         Scene s = null;
         try{
-            s = new Scene(FXMLLoader.load(PopupController.class.getClassLoader().getResource("fxml/TestController.fxml")));
+            s = new Scene(FXMLLoader.load(Popup.class.getClassLoader().getResource("fxml/Test.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
         }

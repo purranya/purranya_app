@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CalendarController implements Initializable {
+public class Calendar implements Initializable {
     @FXML private Text headerOfCalendar;
     @FXML private Text date;
 
