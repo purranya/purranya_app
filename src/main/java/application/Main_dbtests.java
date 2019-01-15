@@ -1,29 +1,21 @@
 package application;
 
-import models.Calendar;
-import data.CalendarManager;
-import models.Label;
-import models.Note;
-import org.joda.time.DateTime;
+import data_util.DatabaseService;
+import data_util.HomeFolderService;
+import data_util.OperationSystemData;
 
-import java.lang.invoke.CallSite;
-
-import static application.App.calendarManager;
+import java.sql.Connection;
 
 public class Main_dbtests {
-
-    public static HomeFolderManager homeFolderManager = new HomeFolderManager();
-
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-        App.initialize(null);
-
-        CalendarManager cm = calendarManager;
-        cm.loadCallendar("test");
-        //cm.renameCalendar("test2");
-
-        System.out.println(cm.getCalendar_DEBUG());
-
-
+        DatabaseService dbs = new DatabaseService();
+        //tworzenie bazy
+        //dbs.createDatabase("testcreate");
+        //połączenie
+        //Connection c = dbs.getDatabaseConnection("testcreate");
+        //c.close();
+        //usuwanie
+        //dbs.deleteDatabase("testcreate");
     }
 }

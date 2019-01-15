@@ -1,4 +1,4 @@
-package application;
+package data_util;
 
 import java.io.IOException;
 import java.util.Locale;

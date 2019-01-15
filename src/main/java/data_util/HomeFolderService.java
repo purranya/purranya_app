@@ -1,12 +1,10 @@
-package application;
-
-import application.OperationSystemData;
+package data_util;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HomeFolderManager {
+public class HomeFolderService {
 
     String osHome;
     OperationSystemData.OS os;
@@ -14,7 +12,7 @@ public class HomeFolderManager {
     String appHome;
     static HashMap<String,String> paths = new HashMap<>();
 
-    public HomeFolderManager() {
+    public HomeFolderService() {
         this.os = OperationSystemData.os;
         this.osHome = OperationSystemData.osHome;
         this.osUser = OperationSystemData.osUser;
@@ -34,13 +32,11 @@ public class HomeFolderManager {
         //katalogi w home
         ArrayList<String> dirs = new ArrayList<>();
         if (this.os.equals(OperationSystemData.OS.WINDOWS)){
-            dirs.add("\\databases"); paths.put("databases",this.appHome+"\\databases\\");
-            dirs.add("\\options"); paths.put("options",this.appHome+"\\options\\");
-            dirs.add("\\logs"); paths.put("logs",this.appHome+"\\logs\\");
+            dirs.add("\\databases"); paths.put("databases",this.appHome+"\\databases");
+            dirs.add("\\options"); paths.put("options",this.appHome+"\\options");
         } else if (this.os.equals(OperationSystemData.OS.UNIX)){
-            dirs.add("/databases"); paths.put("databases",this.appHome+"/databases/");
-            dirs.add("/options"); paths.put("options",this.appHome+"/options/");
-            dirs.add("/logs"); paths.put("logs",this.appHome+"/logs/");
+            dirs.add("/databases"); paths.put("databases",this.appHome+"/databases");
+            dirs.add("/options"); paths.put("options",this.appHome+"/options");
         }
         for(String dir : dirs)
             if(!directoryExists(dir))
@@ -130,27 +126,5 @@ public class HomeFolderManager {
 
     public String getPath(String dir) {
         return paths.get(dir);
-    }
-
-    public String getErrorLogPath() {
-        String res = getPath("logs");
-
-        if (this.os.equals(OperationSystemData.OS.WINDOWS))
-            res += "\\errorlog";
-        else if (this.os.equals(OperationSystemData.OS.UNIX))
-            res += "/errorlog";
-
-        return res;
-    }
-
-    public String getEventLogPath() {
-        String res = getPath("logs");
-
-        if (this.os.equals(OperationSystemData.OS.WINDOWS))
-            res += "\\eventlog";
-        else if (this.os.equals(OperationSystemData.OS.UNIX))
-            res += "/eventlog";
-
-        return res;
     }
 }

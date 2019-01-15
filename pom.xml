@@ -20,27 +20,20 @@
         </plugins>
     </build>
 
-    <!-- preferowana wersja Javy: Java 8, update 192 -->
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
-        <!-- jfoenix lib -->
+        <!-- foenix lib -->
         <dependency>
             <groupId>com.jfoenix</groupId>
             <artifactId>jfoenix</artifactId>
             <version>8.0.7</version>
-            <scope>calendar</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>2.4.1</version>
+            <version>2.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -55,6 +48,7 @@
             <version>2.10.1</version>
             <scope>calendar</scope>
         </dependency>
+
 
     </dependencies>
     
