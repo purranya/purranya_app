@@ -1,27 +1,35 @@
 package controllers;
 
 import application.Logging;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /** kontroler do obsługi dodawania kalendarzy */
 public class AddCalendar {
+    @FXML private JFXTextField name;
+    @FXML private Text validationText;
+    @FXML private TextArea calendarDescription;
+
     private static Stage addCalendarStage;
     private static Scene addCalendarScene = loadScene();
 
-    /** (button) dodanie kalendarza */
+    /** (button) dodanie kalendarza
+     * TODO sciaganie danych z okna
+     * TODO wprowadzenie walidacji nazwy */
     @FXML
-    void addCalendar(ActionEvent event) {
-        //sciaganie danych z okna
+    void add(ActionEvent event) {
     }
 
     /** (button) wyjście z okna dodawania kalendarza */
     @FXML
-    void cancelAddingCalendar(ActionEvent event) {
+    void cancel(ActionEvent event) {
         addCalendarStage.close();
     }
 

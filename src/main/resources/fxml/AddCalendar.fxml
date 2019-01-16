@@ -9,19 +9,14 @@
 
 <AnchorPane maxHeight="305.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddCalendar">
     <children>
-        <JFXTextField labelFloat="true" layoutX="64.0" layoutY="73.0" prefHeight="26.0" prefWidth="235.0" promptText="Nazwa" />
-        <JFXButton layoutX="64.0" layoutY="251.0" onAction="#addCalendar" text="Dodaj" />
-        <JFXButton layoutX="236.0" layoutY="251.0" onAction="#cancelAddingCalendar" text="Anuluj" />
-        <AnchorPane layoutX="6.0" layoutY="-1.0" prefHeight="46.0" prefWidth="362.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <Text layoutX="119.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utwórz kalendarz" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="118.94140625" />
-            </children>
-        </AnchorPane>
-      <Text layoutX="63.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="235.0000079870224">
+        <JFXTextField fx:id="name" labelFloat="true" layoutX="64.0" layoutY="35.0" prefHeight="26.0" prefWidth="235.0" promptText="Nazwa" />
+        <JFXButton layoutX="64.0" layoutY="221.0" onAction="#add" text="Dodaj" />
+        <JFXButton layoutX="236.0" layoutY="221.0" onAction="#cancel" text="Anuluj" />
+      <Text fx:id="validationText" layoutX="64.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="235.0000079870224">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <TextArea layoutX="64.0" layoutY="142.0" prefHeight="97.0" prefWidth="235.0" promptText="Opis kalendarza" />
+      <TextArea fx:id="calendarDescription" layoutX="64.0" layoutY="104.0" prefHeight="97.0" prefWidth="235.0" promptText="Opis kalendarza" />
     </children>
 </AnchorPane>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="136.0" minWidth="244.0" prefHeight="136.0" prefWidth="244.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterConfirm">
+   <children>
+      <Text layoutX="37.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Konto zostało utworzone!" />
+      <JFXButton layoutX="88.0" layoutY="68.0" onAction="#ret" text="Powrót" />
+   </children>
+</AnchorPane>

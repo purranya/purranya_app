@@ -44,7 +44,7 @@ public class AddNote {
             addNoteStage = new Stage();
             addNoteStage.initModality(Modality.APPLICATION_MODAL);
             addNoteStage.setWidth(362);
-            addNoteStage.setHeight(510);
+            addNoteStage.setHeight(542);
             addNoteStage.setResizable(false);
             addNoteStage.setScene(addNoteScene);
         }

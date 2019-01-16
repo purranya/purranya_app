@@ -26,7 +26,7 @@ public class Login {
      * */
     @FXML
     void login(ActionEvent event) {
-        App.primaryStageManager.setScene("MainMenu");
+        loginStage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
@@ -46,8 +46,8 @@ public class Login {
         if(loginStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
             loginStage = new Stage();
             loginStage.initModality(Modality.APPLICATION_MODAL);
-            loginStage.setWidth(362);
-            loginStage.setHeight(530);
+            loginStage.setWidth(336);
+            loginStage.setHeight(235);
             loginStage.setResizable(false);
             loginStage.setScene(loginScene);
         }

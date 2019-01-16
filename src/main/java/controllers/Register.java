@@ -1,6 +1,5 @@
 package controllers;
 
-import application.App;
 import application.Logging;
 import application.PrimaryStageManager;
 import com.jfoenix.controls.JFXButton;
@@ -17,7 +16,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /** kontroler do obsługi tworzenia konta */
-public class CreateAccount {
+public class Register {
     private static Stage createAccountStage;
     private static Scene createAccountScene = loadScene();
 
@@ -84,18 +83,19 @@ public class CreateAccount {
         }
         if(loginIsOK && emailIsOK && passwordIsOK && repeatedPasswordIsOK) {
             /** TODO wprowadzić obsługę tworzenia konta w bazie danych */
-            controllers.CreateAccountConfirm.display();
+            RegisterConfirm.display();
+            createAccountStage.close();
         }
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(CreateAccount.class.getClassLoader().getResource("fxml/CreateAccount.fxml")));
+            return new Scene(FXMLLoader.load(Register.class.getClassLoader().getResource("fxml/Register.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Popup CreateAccount initialization failed");
-            Logging.Logger.logError("Popup CreateAccount initialization failed");
+            System.err.println("Popup Register initialization failed");
+            Logging.Logger.logError("Popup Register initialization failed");
         }
         return null;
     }
@@ -105,8 +105,8 @@ public class CreateAccount {
         if(createAccountStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
             createAccountStage = new Stage();
             createAccountStage.initModality(Modality.APPLICATION_MODAL);
-            createAccountStage.setWidth(1000);
-            createAccountStage.setHeight(1000);
+            createAccountStage.setWidth(328);
+            createAccountStage.setHeight(462);
             createAccountStage.setResizable(false);
             createAccountStage.setScene(createAccountScene);
         }
