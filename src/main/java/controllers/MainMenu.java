@@ -21,11 +21,10 @@ public class MainMenu implements Initializable {
     @FXML
     void loginLogout(ActionEvent event) {
         //jeżeli niezalogowany
-        App.primaryStageManager.setScene("Login");
+        controllers.CreateAccount.display();
     }
 
-    /** Dodanie nowego kalendarza do bazy
-     * TODO uzupełnić! */
+    /** Dodanie nowego kalendarza do bazy */
     @FXML
     void addCalendar(ActionEvent event) {
         controllers.AddCalendar.display();

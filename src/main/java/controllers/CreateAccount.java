@@ -1,17 +1,25 @@
 package controllers;
 
 import application.App;
+import application.Logging;
 import application.PrimaryStageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+/** kontroler do obsługi tworzenia konta */
 public class CreateAccount {
+    private static Stage createAccountStage;
+    private static Scene createAccountScene = loadScene();
 
     @FXML private ImageView logo;
     @FXML private JFXButton ret;
@@ -32,7 +40,7 @@ public class CreateAccount {
 
     /** (button) zamknięcie okna */
     @FXML void retAction(ActionEvent event) {
-        App.primaryStageManager.setScene("MainMenu");
+        createAccountStage.close();
     }
 
     /** (button) utworzenie konta */
@@ -77,5 +85,32 @@ public class CreateAccount {
         if(loginIsOK && emailIsOK && passwordIsOK && repeatedPasswordIsOK) {
             //okienko małe będzie!!
         }
+    }
+
+    /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
+    private static Scene loadScene() {
+        try {
+            return new Scene(FXMLLoader.load(AddEvent.class.getClassLoader().getResource("fxml/CreateAccount.fxml")));
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Popup CreateAccount initialization failed");
+            Logging.Logger.logError("Popup CreateAccount initialization failed");
+        }
+        return null;
+    }
+
+    /** wyświetlanie popupu */
+    static void display() {
+        if(createAccountStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
+            createAccountStage = new Stage();
+            createAccountStage.initModality(Modality.APPLICATION_MODAL);
+            createAccountStage.setWidth(362);
+            createAccountStage.setHeight(530);
+            createAccountStage.setResizable(false);
+            createAccountStage.setScene(createAccountScene);
+        }
+        createAccountStage.setTitle("Utwórz konto - Purranya");
+
+        createAccountStage.showAndWait();
     }
 }
