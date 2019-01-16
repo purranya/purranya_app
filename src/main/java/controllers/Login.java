@@ -2,6 +2,8 @@ package controllers;
 
 import application.App;
 import application.Logging;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +14,11 @@ import javafx.stage.Stage;
 /** kontroler do obsługi okna logowania
  * TODO przebudować całą scenę (dostosować do okienka popup) */
 public class Login {
-    private static Stage loginStage;
-    private static Scene loginScene = loadScene();
+    @FXML private JFXTextField login;
+    @FXML private JFXPasswordField password;
+
+    private static Stage stage;
+    private static Scene scene = loadScene();
 
     /** (button) Obsługa przycisku "Powrót" */
     @FXML
@@ -21,12 +26,12 @@ public class Login {
         App.primaryStageManager.setScene("MainMenu");
     }
 
-    /** Obsługa przycisku "Zaloguj"
+    /** (button) Obsługa przycisku "Zaloguj"
      * TODO usunać przycisk! i dodać w mainmenu (ze względu na popup)
      * */
     @FXML
     void login(ActionEvent event) {
-        loginStage.close();
+        stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
@@ -43,16 +48,16 @@ public class Login {
 
     /** wyświetlanie popupu */
     static void display() {
-        if(loginStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
-            loginStage = new Stage();
-            loginStage.initModality(Modality.APPLICATION_MODAL);
-            loginStage.setWidth(336);
-            loginStage.setHeight(235);
-            loginStage.setResizable(false);
-            loginStage.setScene(loginScene);
+        if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setWidth(336);
+            stage.setHeight(235);
+            stage.setResizable(false);
+            stage.setScene(scene);
         }
-        loginStage.setTitle("Zaloguj się - Purranya");
+        stage.setTitle("Zaloguj się - Purranya");
 
-        loginStage.showAndWait();
+        stage.showAndWait();
     }
 }

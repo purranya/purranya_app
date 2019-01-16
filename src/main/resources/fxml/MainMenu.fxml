@@ -11,6 +11,11 @@
 
 <AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenu">
    <children>
+      <JFXButton layoutX="906.0" layoutY="730.0" onAction="#register" text="[Utwórz konto]" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
       <Text layoutX="14.0" layoutY="747.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2018-2019 ⓒ Purranya" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="13.0" />

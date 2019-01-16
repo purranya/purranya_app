@@ -22,19 +22,20 @@ public class AddEvent {
     @FXML private JFXDatePicker dateOfEnd;
     @FXML private Text validationText;
 
-    private static Stage addEventStage;
-    private static Scene addEventScene = loadScene();
+    private static Stage stage;
+    private static Scene scene = loadScene();
 
-    /** (button) dodanie wydarzenia do kalendarza */
+    /** (button) dodanie wydarzenia do kalendarza
+     * TODO ściąganie danych z okna i przesyłanie do bazy*/
     @FXML
-    void addEvent(ActionEvent event) {
-        //tutaj ma być ściąganie danych z okna i przesyłanie do bazy
+    void add(ActionEvent event) {
+
     }
 
     /** (button) wyjście z okna dodawania wydarzenia do kalendarza */
     @FXML
-    void cancelAddingEvent(ActionEvent event) {
-       addEventStage.close();
+    void cancel(ActionEvent event) {
+       stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
@@ -51,16 +52,16 @@ public class AddEvent {
 
     /** wyświetlanie popupu */
     static void display() {
-        if(addEventStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
-            addEventStage = new Stage();
-            addEventStage.initModality(Modality.APPLICATION_MODAL);
-            addEventStage.setWidth(362);
-            addEventStage.setHeight(542);
-            addEventStage.setResizable(false);
-            addEventStage.setScene(addEventScene);
+        if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setWidth(362);
+            stage.setHeight(542);
+            stage.setResizable(false);
+            stage.setScene(scene);
         }
-        addEventStage.setTitle("Dodaj wydarzenie - Purranya");
+        stage.setTitle("Dodaj wydarzenie - Purranya");
 
-        addEventStage.showAndWait();
+        stage.showAndWait();
     }
 }

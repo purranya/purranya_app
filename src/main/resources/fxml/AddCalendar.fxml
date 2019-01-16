@@ -17,6 +17,6 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <TextArea fx:id="calendarDescription" layoutX="64.0" layoutY="104.0" prefHeight="97.0" prefWidth="235.0" promptText="Opis kalendarza" />
+      <TextArea fx:id="description" layoutX="64.0" layoutY="104.0" prefHeight="97.0" prefWidth="235.0" promptText="Opis kalendarza" />
     </children>
 </AnchorPane>

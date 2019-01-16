@@ -50,8 +50,8 @@ public class Popup implements Initializable {
 
     static TestModel answer = null;
 
-    static final int width = 362;
-    static final int height = 198;
+    static final int width = 999;
+    static final int height = 999;
 
     static Stage popupStage;
     static Scene popupScene = loadScene();

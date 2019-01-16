@@ -1,15 +1,12 @@
 package controllers;
 
 import application.Logging;
-import application.PrimaryStageManager;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -17,29 +14,26 @@ import javafx.stage.Stage;
 
 /** kontroler do obsługi tworzenia konta */
 public class Register {
-    private static Stage createAccountStage;
-    private static Scene createAccountScene = loadScene();
+    private static Stage stage;
+    private static Scene scene = loadScene();
 
-    @FXML private ImageView logo;
-    @FXML private JFXButton ret;
     @FXML private JFXTextField login;
     @FXML private JFXTextField email;
     @FXML private JFXPasswordField password;
     @FXML private JFXPasswordField repeatedPassword;
-    @FXML private Text loginText;
-    @FXML private Text emailText;
-    @FXML private Text passwordText;
-    @FXML private Text repeatedPasswordText;
+    @FXML private Text loginValidationText;
+    @FXML private Text emailValidationText;
+    @FXML private Text passwordValidationText;
+    @FXML private Text repeatedPasswordValidationText;
 
-    private PrimaryStageManager scene;
     private boolean loginIsOK = false;
     private boolean emailIsOK = false;
     private boolean passwordIsOK = false;
     private boolean repeatedPasswordIsOK = false;
 
     /** (button) zamknięcie okna */
-    @FXML void retAction(ActionEvent event) {
-        createAccountStage.close();
+    @FXML void cancel(ActionEvent event) {
+        stage.close();
     }
 
     /** (button) utworzenie konta */
@@ -47,44 +41,44 @@ public class Register {
         /* walidacja */
         if (login.getText().matches("^.{2,15}?$")) {
             loginIsOK = true;
-            loginText.setFill(Color.GREEN);
+            loginValidationText.setFill(Color.GREEN);
         }
         else {
             loginIsOK = false;
-            loginText.setText("Login musi posiadać od 3 do 15 znaków.");
-            loginText.setFill(Color.RED);
+            loginValidationText.setText("Login musi posiadać od 3 do 15 znaków.");
+            loginValidationText.setFill(Color.RED);
         }
         if (email.getText().matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{1,6})$")) {
             emailIsOK = true;
-            emailText.setFill(Color.GREEN);
+            emailValidationText.setFill(Color.GREEN);
         }
         else {
             emailIsOK = false;
-            emailText.setText("Wpisz poprawny e-mail, np. jan@kowalski.pl.");
-            emailText.setFill(Color.RED);
+            emailValidationText.setText("Wpisz poprawny e-mail, np. jan@kowalski.pl.");
+            emailValidationText.setFill(Color.RED);
         }
         if (password.getText().matches("^.{8,30}?$")) {
             passwordIsOK = true;
-            passwordText.setFill(Color.GREEN);
+            passwordValidationText.setFill(Color.GREEN);
         }
         else {
             passwordIsOK = false;
-            passwordText.setText("Hasło musi posiadać 8-30 znaków.");
-            passwordText.setFill(Color.RED);
+            passwordValidationText.setText("Hasło musi posiadać 8-30 znaków.");
+            passwordValidationText.setFill(Color.RED);
         }
         if (repeatedPassword.getText().equals(password.getText()) && !repeatedPassword.getText().equals("")) {
             repeatedPasswordIsOK = true;
-            repeatedPasswordText.setFill(Color.GREEN);
+            repeatedPasswordValidationText.setFill(Color.GREEN);
         }
         else {
             repeatedPasswordIsOK = false;
-            repeatedPasswordText.setText("Hasła muszą być identyczne.");
-            repeatedPasswordText.setFill(Color.RED);
+            repeatedPasswordValidationText.setText("Hasła muszą być identyczne.");
+            repeatedPasswordValidationText.setFill(Color.RED);
         }
         if(loginIsOK && emailIsOK && passwordIsOK && repeatedPasswordIsOK) {
             /** TODO wprowadzić obsługę tworzenia konta w bazie danych */
             RegisterConfirm.display();
-            createAccountStage.close();
+            stage.close();
         }
     }
 
@@ -102,16 +96,16 @@ public class Register {
 
     /** wyświetlanie popupu */
     static void display() {
-        if(createAccountStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
-            createAccountStage = new Stage();
-            createAccountStage.initModality(Modality.APPLICATION_MODAL);
-            createAccountStage.setWidth(328);
-            createAccountStage.setHeight(462);
-            createAccountStage.setResizable(false);
-            createAccountStage.setScene(createAccountScene);
+        if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setWidth(328);
+            stage.setHeight(462);
+            stage.setResizable(false);
+            stage.setScene(scene);
         }
-        createAccountStage.setTitle("Utwórz konto - Purranya");
+        stage.setTitle("Utwórz konto - Purranya");
 
-        createAccountStage.showAndWait();
+        stage.showAndWait();
     }
 }

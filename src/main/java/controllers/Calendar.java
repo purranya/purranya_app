@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/** kontroler obsługujący kalendarz
+ * TODO dodać obsługę wydarzeń
+ * TODO dodać obsługę przycisku zarządzania etykietami */
 public class Calendar implements Initializable {
-    @FXML private Text headerOfCalendar;
+    @FXML private Text header;
     @FXML private Text date;
 
     @FXML private Text dayNumber00;
@@ -104,7 +107,7 @@ public class Calendar implements Initializable {
                 month = "Grudzień";
                 break;
         }
-        headerOfCalendar.setText(month + " " + dt.getYear());
+        header.setText(month + " " + dt.getYear());
 
         //_____________________________________________________
         //dni miesiąca
@@ -164,42 +167,30 @@ public class Calendar implements Initializable {
         }
     }
 
-    /** wyświetlenie miesiąca następnego niż na bieżącej scenie */
+    /** (button) wyświetlenie miesiąca następnego niż na bieżącej scenie */
     @FXML
     void nextMonth(ActionEvent event) {
         currentDateTime = currentDateTime.plusMonths(1);
         createCalendar(currentDateTime);
     }
 
-    /** wyświetlenie miesiąca poprzedniego niż na bieżącej scenie */
+    /** (button) wyświetlenie miesiąca poprzedniego niż na bieżącej scenie */
     @FXML
     void previousMonth(ActionEvent event) {
         currentDateTime = currentDateTime.minusMonths(1);
         createCalendar(currentDateTime);
     }
 
-    /** przejście do sceny umożliwiającej dodanie wydarzenia */
+    /** (button) przejście do popupu umożliwiającej dodanie wydarzenia */
     @FXML
     void addEvent(ActionEvent event) {
         controllers.AddEvent.display();
     }
 
-    /** wyjście z kalendarza */
+    /** (button) wyjście z kalendarza */
     @FXML
-    void closeCalendar(ActionEvent event) {
+    void cancel(ActionEvent event) {
         App.primaryStageManager.setScene("MainMenu");
-    }
-
-    /** zmiana sceny na Sticky Notes */
-    @FXML
-    void changeToStickyNotes(ActionEvent event) {
-        App.primaryStageManager.setScene("StickyNotes");
-    }
-
-    /** powrót do obecnego miesiąca */
-    @FXML
-    void reloadCalendar(ActionEvent event) {
-        App.primaryStageManager.setScene("Calendar");
     }
 
     @Override

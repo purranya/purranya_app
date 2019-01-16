@@ -1,6 +1,5 @@
 package controllers;
 
-import application.App;
 import application.Logging;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,13 +10,13 @@ import javafx.stage.Stage;
 
 /** kontroler do wyświetlania okna potwierdzającego utworzenie konta */
 public class RegisterConfirm {
-    private static Stage createAccountConfirmStage;
-    private static Scene createAccountConfirmScene = loadScene();
+    private static Stage stage;
+    private static Scene scene = loadScene();
 
     /** (button) zamknięcie okna */
     @FXML
-    void ret(ActionEvent event) {
-        createAccountConfirmStage.close();
+    void cancel(ActionEvent event) {
+        stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
@@ -34,16 +33,16 @@ public class RegisterConfirm {
 
     /** wyświetlanie popupu */
     static void display() {
-        if(createAccountConfirmStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
-            createAccountConfirmStage = new Stage();
-            createAccountConfirmStage.initModality(Modality.APPLICATION_MODAL);
-            createAccountConfirmStage.setWidth(244);
-            createAccountConfirmStage.setHeight(136);
-            createAccountConfirmStage.setResizable(false);
-            createAccountConfirmStage.setScene(createAccountConfirmScene);
+        if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setWidth(244);
+            stage.setHeight(136);
+            stage.setResizable(false);
+            stage.setScene(scene);
         }
-        createAccountConfirmStage.setTitle("");
+        stage.setTitle("");
 
-        createAccountConfirmStage.showAndWait();
+        stage.showAndWait();
     }
 }

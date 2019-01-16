@@ -1,29 +1,37 @@
 package controllers;
 
-import application.App;
 import application.Logging;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /** kontroler do obsługi dodawania notatek w StickyNotes */
 public class AddNote {
-    private static Stage addNoteStage;
-    private static Scene addNoteScene = loadScene();
+    @FXML private JFXTextField title;
+    @FXML private JFXComboBox<?> label;
+    @FXML private TextArea description;
+    @FXML private Text validationText;
 
-    /** (button) dodanie notatki do bazy */
+    private static Stage stage;
+    private static Scene scene = loadScene();
+
+    /** (button) dodanie notatki do bazy
+     * TODO do zrobienia */
     @FXML
-    void addNote(ActionEvent event) {
-        /** TODO do zrobienia */
+    void add(ActionEvent event) {
     }
 
     /** (button) zamknięcie okna AddNote */
     @FXML
-    void cancelAddingNote(ActionEvent event) {
-        addNoteStage.close();
+    void cancel(ActionEvent event) {
+        stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
@@ -40,17 +48,17 @@ public class AddNote {
 
     /** wyświetlanie popupu */
     static void display() {
-        if(addNoteStage == null) {
-            addNoteStage = new Stage();
-            addNoteStage.initModality(Modality.APPLICATION_MODAL);
-            addNoteStage.setWidth(362);
-            addNoteStage.setHeight(542);
-            addNoteStage.setResizable(false);
-            addNoteStage.setScene(addNoteScene);
+        if(stage == null) {
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setWidth(362);
+            stage.setHeight(540);
+            stage.setResizable(false);
+            stage.setScene(scene);
         }
-        addNoteStage.setTitle("Dodaj notatkę - Purranya");
+        stage.setTitle("Dodaj notatkę - Purranya");
 
-        addNoteStage.showAndWait();
+        stage.showAndWait();
     }
 
 }

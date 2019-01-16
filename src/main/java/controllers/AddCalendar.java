@@ -15,10 +15,10 @@ import javafx.stage.Stage;
 public class AddCalendar {
     @FXML private JFXTextField name;
     @FXML private Text validationText;
-    @FXML private TextArea calendarDescription;
+    @FXML private TextArea description;
 
-    private static Stage addCalendarStage;
-    private static Scene addCalendarScene = loadScene();
+    private static Stage stage;
+    private static Scene scene = loadScene();
 
     /** (button) dodanie kalendarza
      * TODO sciaganie danych z okna
@@ -30,7 +30,7 @@ public class AddCalendar {
     /** (button) wyjście z okna dodawania kalendarza */
     @FXML
     void cancel(ActionEvent event) {
-        addCalendarStage.close();
+        stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
@@ -47,17 +47,17 @@ public class AddCalendar {
 
     /** metoda obsługująca wyświetlanie okna */
     static void display() {
-        if(addCalendarStage == null) {
-            addCalendarStage = new Stage();
-            addCalendarStage.initModality(Modality.APPLICATION_MODAL);
-            addCalendarStage.setWidth(362);
-            addCalendarStage.setHeight(305);
-            addCalendarStage.setResizable(false);
-            addCalendarStage.setScene(addCalendarScene);
+        if(stage == null) {
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setWidth(362);
+            stage.setHeight(305);
+            stage.setResizable(false);
+            stage.setScene(scene);
         }
-        addCalendarStage.setTitle("Dodaj kalendarz - Purranya");
+        stage.setTitle("Dodaj kalendarz - Purranya");
 
-        addCalendarStage.showAndWait();
+        stage.showAndWait();
     }
 
 }

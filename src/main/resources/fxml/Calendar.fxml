@@ -23,7 +23,7 @@
                   <JFXButton onAction="#previousMonth" text="&lt;&lt;" BorderPane.alignment="CENTER" />
                </left>
                <center>
-                  <Text fx:id="headerOfCalendar" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                  <Text fx:id="header" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </top>
@@ -574,7 +574,7 @@
                   <Font size="13.0" />
                </font>
             </Text>
-            <JFXButton layoutY="-1.0" onAction="#closeCalendar" prefHeight="31.0" prefWidth="186.0" text="Powrót do ekranu głównego" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton layoutY="-1.0" onAction="#cancel" prefHeight="31.0" prefWidth="186.0" text="Powrót do ekranu głównego" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="13.0" />
                </font>
