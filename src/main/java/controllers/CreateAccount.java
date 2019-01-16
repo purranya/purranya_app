@@ -91,7 +91,7 @@ public class CreateAccount {
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddEvent.class.getClassLoader().getResource("fxml/CreateAccount.fxml")));
+            return new Scene(FXMLLoader.load(CreateAccount.class.getClassLoader().getResource("fxml/CreateAccount.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Popup CreateAccount initialization failed");

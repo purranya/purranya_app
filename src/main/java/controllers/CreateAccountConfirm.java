@@ -30,11 +30,11 @@ public class CreateAccountConfirm {
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddEvent.class.getClassLoader().getResource("fxml/CreateAccountConfirm.fxml")));
+            return new Scene(FXMLLoader.load(CreateAccountConfirm.class.getClassLoader().getResource("fxml/CreateAccountConfirm.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Popup AddEvent initialization failed");
-            Logging.Logger.logError("Popup AddEvent initialization failed");
+            System.err.println("Popup CreateAccountConfirm initialization failed");
+            Logging.Logger.logError("Popup CreateAccountConfirm initialization failed");
         }
         return null;
     }

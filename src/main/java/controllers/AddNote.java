@@ -29,7 +29,7 @@ public class AddNote {
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddEvent.class.getClassLoader().getResource("fxml/AddNote.fxml")));
+            return new Scene(FXMLLoader.load(AddNote.class.getClassLoader().getResource("fxml/AddNote.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Popup AddNote initialization failed");

@@ -17,11 +17,11 @@ public class MainMenu implements Initializable {
 
     /** Obsługa przycisku "Zaloguj się"
      * TODO dodać obsługę zalogowanego/niezalogowanego użytkownika
-     * TODO dodać przycisk na utworzenie konta w zależności od tego, czy użytkownik jest zalogowany*/
+     * TODO dodać przycisk na utworzenie konta w zależności od tego, czy użytkownik jest zalogowany */
     @FXML
     void loginLogout(ActionEvent event) {
         //jeżeli niezalogowany
-        controllers.CreateAccount.display();
+        controllers.Login.display();
     }
 
     /** Dodanie nowego kalendarza do bazy */

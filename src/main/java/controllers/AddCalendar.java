@@ -28,7 +28,7 @@ public class AddCalendar {
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddEvent.class.getClassLoader().getResource("fxml/AddCalendar.fxml")));
+            return new Scene(FXMLLoader.load(AddCalendar.class.getClassLoader().getResource("fxml/AddCalendar.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Popup AddCalendar initialization failed");
