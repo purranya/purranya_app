@@ -83,7 +83,8 @@ public class CreateAccount {
             repeatedPasswordText.setFill(Color.RED);
         }
         if(loginIsOK && emailIsOK && passwordIsOK && repeatedPasswordIsOK) {
-            //okienko małe będzie!!
+            /** TODO wprowadzić obsługę tworzenia konta w bazie danych */
+            controllers.CreateAccountConfirm.display();
         }
     }
 
@@ -104,8 +105,8 @@ public class CreateAccount {
         if(createAccountStage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
             createAccountStage = new Stage();
             createAccountStage.initModality(Modality.APPLICATION_MODAL);
-            createAccountStage.setWidth(362);
-            createAccountStage.setHeight(530);
+            createAccountStage.setWidth(1000);
+            createAccountStage.setHeight(1000);
             createAccountStage.setResizable(false);
             createAccountStage.setScene(createAccountScene);
         }
