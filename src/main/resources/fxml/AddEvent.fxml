@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="542.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEvent">
+<AnchorPane maxHeight="542.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="362.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEvent">
    <children>
       <JFXDatePicker fx:id="dateOfStart" layoutX="64.0" layoutY="92.0" prefHeight="26.0" prefWidth="235.0" promptText="Data rozpoczęcia" showWeekNumbers="true" />
-      <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="34.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />
+      <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="34.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" styleClass="jfx-text-input" />
       <JFXComboBox fx:id="label" labelFloat="true" layoutX="64.0" layoutY="200.0" prefHeight="26.0" prefWidth="235.0" promptText="Etykieta" />
       <TextArea fx:id="description" layoutX="64.0" layoutY="250.0" prefHeight="182.0" prefWidth="235.0" promptText="Opis wydarzenia..." wrapText="true" />
       <JFXButton layoutX="62.0" layoutY="445.0" onAction="#add" text="Dodaj" />
       <JFXButton layoutX="236.0" layoutY="445.0" onAction="#cancel" text="Anuluj" />
       <JFXDatePicker fx:id="dateOfEnd" layoutX="64.0" layoutY="143.0" prefHeight="26.0" prefWidth="235.0" promptText="Data rozpoczęcia" showWeekNumbers="true" />
-      <Text fx:id="validationText" layoutX="64.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="validationText" layoutX="64.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" />
    </children>
 </AnchorPane>

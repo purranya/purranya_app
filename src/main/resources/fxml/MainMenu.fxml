@@ -9,30 +9,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenu">
+<AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenu">
    <children>
-      <JFXButton layoutX="906.0" layoutY="730.0" onAction="#register" text="[Utwórz konto]" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+      <JFXButton layoutX="906.0" layoutY="730.0" onAction="#register" styleClass="jfx-button-regular" text="[Utwórz konto]" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <font>
             <Font size="13.0" />
          </font>
       </JFXButton>
-      <Text layoutX="14.0" layoutY="747.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2018-2019 ⓒ Purranya" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
+      <Text layoutX="14.0" layoutY="747.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="2018-2019 ⓒ Purranya" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="13.0" />
          </font></Text>
       <AnchorPane prefHeight="30.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton fx:id="logInOut" layoutY="-1.0" maxHeight="30.0" onAction="#loginLogout" prefHeight="30.0" prefWidth="92.0" text="[Zaloguj się]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton fx:id="logInOut" layoutY="-1.0" maxHeight="30.0" onAction="#loginLogout" prefHeight="30.0" prefWidth="106.0" styleClass="jfx-button" text="[Zaloguj się]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXButton>
-            <Text fx:id="user" layoutX="98.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[uzytkownik]" wrappingWidth="105.9814453125" AnchorPane.topAnchor="6.0">
+            <Text fx:id="user" layoutX="115.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="[uzytkownik]" wrappingWidth="105.9814453125" AnchorPane.topAnchor="8.861328125">
                <font>
                   <Font size="13.0" />
                </font>
             </Text>
-            <Text fx:id="date" layoutX="882.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[data]" textAlignment="RIGHT" wrappingWidth="127.6708984375" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+            <Text fx:id="date" layoutX="882.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="[data]" textAlignment="RIGHT" wrappingWidth="127.6708984375" AnchorPane.rightAnchor="14.3291015625" AnchorPane.topAnchor="8.861328125">
                <font>
                   <Font size="13.0" />
                </font>
@@ -50,31 +50,31 @@
           <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="439.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="60.0" prefWidth="944.0">
+            <AnchorPane prefHeight="60.0" prefWidth="944.0" stylesheets="@../css/AnchorPane.css">
                <children>
-                  <Text layoutX="27.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista kalendarzy" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                  <Text fill="#971515" layoutX="27.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field-header" text="Lista kalendarzy" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="31.0" />
                      </font>
                   </Text>
-                  <JFXButton layoutX="844.0" layoutY="9.0" onAction="#addCalendar" prefHeight="60.0" prefWidth="60.0" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <JFXButton layoutX="844.0" layoutY="9.0" onAction="#addCalendar" prefHeight="60.0" prefWidth="60.0" styleClass="jfx-button" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
             <JFXMasonryPane GridPane.rowIndex="1">
                <children>
-                  <JFXButton onAction="#continueWithoutAccount" prefHeight="60.0" prefWidth="150.0" text="probny kalendarz" />
+                  <JFXButton onAction="#continueWithoutAccount" prefHeight="60.0" prefWidth="150.0" styleClass="jfx-button-bigger" text="probny kalendarz" textAlignment="CENTER" wrapText="true" />
                </children>
             </JFXMasonryPane>
             <JFXMasonryPane GridPane.rowIndex="3">
                <children>
-                  <JFXButton maxHeight="-Infinity" maxWidth="150.0" onAction="#changeToStickyNotes" prefHeight="150.0" text="Sticky Notes" />
-                  <JFXButton maxWidth="150.0" onAction="#changeToPasswordManager" prefHeight="150.0" text="Menedżer haseł" />
-                  <JFXButton onAction="#runTest" prefHeight="150.0" prefWidth="150.0" text="TEST" />
+                  <JFXButton maxHeight="-Infinity" maxWidth="150.0" onAction="#changeToStickyNotes" prefHeight="150.0" styleClass="jfx-button-bigger" text="Sticky Notes" />
+                  <JFXButton maxWidth="150.0" onAction="#changeToPasswordManager" prefHeight="150.0" styleClass="jfx-button-bigger" text="Menedżer haseł" />
+                  <JFXButton onAction="#runTest" prefHeight="150.0" prefWidth="150.0" styleClass="jfx-button-bigger" stylesheets="@../css/Button_Bigger.css" text="TEST" />
                </children>
             </JFXMasonryPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <Text layoutX="15.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Narzędzia" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                  <Text fill="#941f1f" layoutX="15.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field-header" text="Narzędzia" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="31.0" />
                      </font>

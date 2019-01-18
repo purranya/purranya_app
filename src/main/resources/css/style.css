@@ -1,0 +1,86 @@
+.root {
+    -fx-background-color: #212121;
+    -fx-font-family: "DejaVu Sans";
+}
+
+.text-field {
+    -fx-font-size: 12px;
+    -fx-fill: #C2DAFE;
+}
+
+.text-field-header {
+    -fx-font-size: 30px;
+    -fx-fill: #FECBC8;
+}
+
+.jfx-button {
+    -fx-background-color: #212121;
+    -fx-font-size: 12px;
+    -fx-text-fill: #B9E6DF;
+    -fx-border-color: #212121;
+    -fx-border-width: 1;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.jfx-button-bigger {
+    -fx-background-color: #262626;
+    -fx-font-size: 15px;
+    -fx-text-fill: #B9E6DF;
+    -fx-border-color: #212121;
+    -fx-border-width: 1;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.jfx-text-input, .jfx-password-input {
+    -fx-font-size: 12px;
+    -fx-text-fill: #C2DAFE;
+    -fx-prompt-text-fill: #89b2ac;
+    -jfx-focus-color: #C2DAFE;
+    -jfx-unfocus-color: #4f706b;
+}
+
+.text-area, .content {
+    -fx-font-size: 12px;
+    -fx-text-fill: #C2DAFE;
+    -fx-border-color: #212121;
+    -fx-border-style: outset;
+    -fx-prompt-text-fill: #595959;
+    -fx-background-color: #262626;
+}
+
+.text-validation {
+    -fx-font-size: 11px;
+    -fx-fill: #595959;
+}
+
+.scroll-bar {
+    -fx-background-color: #262626;
+    -fx-border-color: #212121;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #C2DAFE;
+    -fx-background-radius: 2em;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color:transparent;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding:0;
+}
+
+.date-picker {
+    -fx-show-week-numbers: false;
+    -fx-font-size: 12px;
+    -fx-text-fill: #C2DAFE;
+    -fx-prompt-text-fill: #89b2ac;
+    -jfx-focus-color: #C2DAFE;
+    -jfx-unfocus-color: #4f706b;
+}
