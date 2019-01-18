@@ -6,8 +6,12 @@ import models.Calendar;
 import models.Label;
 import models.Note;
 import org.joda.time.DateTime;
+import org.omg.CORBA.Object;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class CalendarManager {
@@ -27,8 +31,10 @@ public class CalendarManager {
             //wczytuje kalendarz z pliku o podanej nazwie
     {
         try {
-            ObjectInputStream o = new ObjectInputStream(new FileInputStream(App.homeFolderManager.getPath("databases") + name));
+            FileInputStream fip = new FileInputStream(App.homeFolderManager.getPath("databases") + name);
+            ObjectInputStream o = new ObjectInputStream(fip);
             c = (Calendar) o.readObject();
+            fip.close();
             return true;
         } catch ( Exception e)
         {
@@ -56,6 +62,11 @@ public class CalendarManager {
     public boolean saveCalendar()
             //zapisuje aktualnie wczytany kalendarz
     {
+        if(!isCalendarLoaded())
+        {
+            System.err.println("No calendar");
+            Logging.Logger.logError("No calendar");
+        }
         ObjectOutputStream o = null;
         try {
             if(!isCalendarLoaded()) throw new Exception("calendar is null");
@@ -71,13 +82,16 @@ public class CalendarManager {
     }
 
     public boolean saveCalendar(models.Calendar calendar)
-    //zapisuje aktualnie wczytany kalendarz
+    //zapisuje dowolny wczytany kalendarz
     {
-        ObjectOutputStream o = null;
+
         try {
-            o = new ObjectOutputStream(new FileOutputStream(App.homeFolderManager.getPath("databases") + calendar.name));
+            FileOutputStream fop = new FileOutputStream(App.homeFolderManager.getPath("databases") + calendar.name);
+            ObjectOutputStream o = new ObjectOutputStream(fop);
             o.writeObject(calendar);
             o.flush();
+            fop.close();
+            o.close();
             return true;
         } catch ( Exception e) {
             Logging.Logger.logError("Saving calendar failed");
@@ -86,13 +100,94 @@ public class CalendarManager {
         }
     }
 
-    public void renameCalendar(String newName) {
-        File f = new File(App.homeFolderManager.getPath("databases") + c.name);
-        if(f.exists())
-            f.delete();
+    public boolean renameCalendar(String oldName,String newName)
+    //zmienia nazwe dowolnego kalendarza
+    {
+        File f = new File(App.homeFolderManager.getPath("databases") + oldName);
+        File f2 = new File(App.homeFolderManager.getPath("databases") + newName);
+        if(f.exists() && !f2.exists() && newName.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}")) {
+            if (f.renameTo(f2)) {
+                return true;
+            } else {
+                System.err.println("Rename failed");
+                Logging.Logger.logError("Rename failed");
+                return false;
+            }
+        }
+        else
+        {
+            System.err.println("Invalid name for calendar");
+            Logging.Logger.logError("Invalid name for calendar");
+            return false;
+        }
+    }
 
-        c.name=newName;
-        saveCalendar();
+    public boolean renameCalendar(String newName)
+    //zmienia nazwe aktualnego kalendarza
+    {
+        if(!isCalendarLoaded())
+        {
+            System.err.println("No calendar");
+            Logging.Logger.logError("No calendar");
+        }
+        Path f = Paths.get(App.homeFolderManager.getPath("databases") + c.name);
+        Path f2 = Paths.get(App.homeFolderManager.getPath("databases") + newName);
+        if(newName.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}")) {
+            try {
+                Files.move(f, f2);
+                loadCalendar(newName);
+                c.name = newName;
+                saveCalendar();
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println("Rename failed");
+                Logging.Logger.logError("Rename failed");
+                return false;
+            }
+        }
+        else
+        {
+            System.err.println("Invalid name for calendar");
+            Logging.Logger.logError("Invalid name for calendar");
+            return false;
+        }
+    }
+
+    public boolean deleteCalendar()
+    {
+        if(!isCalendarLoaded())
+        {
+            System.err.println("No calendar");
+            Logging.Logger.logError("No calendar");
+        }
+        File f = new File(App.homeFolderManager.getPath("databases") + c.name);
+        if(f.delete())
+        {
+            c = null;
+            return true;
+        }
+        else
+        {
+            System.err.println("Deletion failed");
+            Logging.Logger.logError("Deletion failed");
+            return false;
+        }
+    }
+
+    public boolean deleteCalendar(String name)
+    {
+        File f = new File(App.homeFolderManager.getPath("databases") + name);
+        if(f.delete())
+        {
+            return true;
+        }
+        else
+        {
+            System.err.println("Deletion failed");
+            Logging.Logger.logError("Deletion failed");
+            return false;
+        }
     }
 
     public boolean isCalendarLoaded()
