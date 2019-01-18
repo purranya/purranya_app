@@ -1,12 +1,6 @@
 package application;
 
-import models.Calendar;
 import data.CalendarManager;
-import models.Label;
-import models.Note;
-import org.joda.time.DateTime;
-
-import java.lang.invoke.CallSite;
 
 import static application.App.calendarManager;
 
@@ -18,12 +12,10 @@ public class Main_dbtests {
     {
         App.initialize(null);
 
-        CalendarManager cm = calendarManager;
-        cm.loadCallendar("test");
-        //cm.renameCalendar("test2");
+        String[] l = App.homeFolderManager.getListOfFiles("databases");
 
-        System.out.println(cm.getCalendar_DEBUG());
-
+        for(String s : l)
+            System.out.println(s);
 
     }
 }

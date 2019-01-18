@@ -153,4 +153,18 @@ public class HomeFolderManager {
 
         return res;
     }
+
+    public String[] getListOfFiles(String dir) {
+        File databases = new File(getPath(dir));
+        ArrayList<String> list = new ArrayList<>();
+        for(File f : databases.listFiles())
+            if (f.isFile())
+                list.add(f.getName());
+
+        String[] res = new String[list.size()];
+        for(int i=0;i<res.length;i++)
+            res[i]=list.get(i);
+
+        return res;
+    }
 }

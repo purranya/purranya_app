@@ -23,7 +23,7 @@ public class CalendarManager {
     public List<Note> getAllNotes() { return c.notes; }
     public List<Label> getAllLabels() { return c.labels; }
 
-    public boolean loadCallendar(String name)
+    public boolean loadCalendar(String name)
             //wczytuje kalendarz z pliku o podanej nazwie
     {
         try {
@@ -36,6 +36,21 @@ public class CalendarManager {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public String[] getCalendarIndex()
+    {
+        String[] files = App.homeFolderManager.getListOfFiles("databases");
+
+        try {
+            for (String s : files)
+                if (!s.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}"))
+                    throw new Exception("Database folder contaminated, please delete any non-database files");
+        } catch (Exception e) {
+            Logging.Logger.logError(e.getMessage());
+            e.printStackTrace();
+        }
+        return files;
     }
 
     public boolean saveCalendar()
@@ -55,22 +70,29 @@ public class CalendarManager {
         }
     }
 
-    public void createCalendar(String name) { createCalendar(name,""); }
+    public boolean saveCalendar(models.Calendar calendar)
+    //zapisuje aktualnie wczytany kalendarz
+    {
+        ObjectOutputStream o = null;
+        try {
+            o = new ObjectOutputStream(new FileOutputStream(App.homeFolderManager.getPath("databases") + calendar.name));
+            o.writeObject(calendar);
+            o.flush();
+            return true;
+        } catch ( Exception e) {
+            Logging.Logger.logError("Saving calendar failed");
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public void renameCalendar(String newName) {
         File f = new File(App.homeFolderManager.getPath("databases") + c.name);
-        System.out.println(f.exists());
-        System.out.println(f.delete());
+        if(f.exists())
+            f.delete();
 
         c.name=newName;
         saveCalendar();
-    }
-
-    public void createCalendar(String name, String comment)
-            //tworzy nowy, pusty kalendarz
-    {
-        c = new Calendar(name,comment);
-
     }
 
     public boolean isCalendarLoaded()

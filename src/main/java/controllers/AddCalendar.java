@@ -1,7 +1,9 @@
 package controllers;
 
+import application.App;
 import application.Logging;
 import com.jfoenix.controls.JFXTextField;
+import data.CalendarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.HashMap;
+
 
 /** kontroler do obsługi dodawania kalendarzy */
 public class AddCalendar {
@@ -25,6 +30,17 @@ public class AddCalendar {
      * TODO wprowadzenie walidacji nazwy */
     @FXML
     void add(ActionEvent event) {
+        models.Calendar c = new models.Calendar(name.getText(),description.getText());
+        if(c.isValid()) {
+            App.calendarManager.saveCalendar(c);
+            stage.close();
+        }
+        else {
+            HashMap<String, String> errors = c.getValidationErrors();
+            if(errors.get("name")!=null)
+                validationText.setText(errors.get("name"));
+        }
+
     }
 
     /** (button) wyjście z okna dodawania kalendarza */

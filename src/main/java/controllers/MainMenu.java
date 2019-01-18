@@ -1,7 +1,6 @@
 package controllers;
 
 import application.App;
-import models.TestModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -68,8 +67,6 @@ public class MainMenu implements Initializable {
      * TODO w późniejszym czasie do usunięcia!*/
     @FXML
     void runTest(ActionEvent event) {
-        //App.primaryStageManager.popup("AddEvent", new AddEvent());
-        TestModel answer = Popup.display("Zapisz zmiany", "Czy na pewno chcesz zachować zmiany");
-        System.out.println(answer);
+
     }
 }
