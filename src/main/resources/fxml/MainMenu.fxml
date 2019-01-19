@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -60,15 +61,11 @@
                   <JFXButton layoutX="844.0" layoutY="9.0" onAction="#addCalendar" prefHeight="60.0" prefWidth="60.0" styleClass="jfx-button" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-            <JFXMasonryPane GridPane.rowIndex="1">
-               <children>
-                  <JFXButton onAction="#continueWithoutAccount" prefHeight="60.0" prefWidth="150.0" text="probny kalendarz" textAlignment="CENTER" wrapText="true" />
-               </children>
-            </JFXMasonryPane>
             <JFXMasonryPane GridPane.rowIndex="3">
                <children>
                   <JFXButton maxHeight="-Infinity" maxWidth="150.0" onAction="#changeToStickyNotes" prefHeight="150.0" text="Sticky Notes" />
                   <JFXButton maxWidth="150.0" onAction="#changeToPasswordManager" prefHeight="150.0" text="Menedżer haseł" />
+                  <JFXButton onAction="#continueWithoutAccount" prefHeight="60.0" prefWidth="150.0" text="probny kalendarz" textAlignment="CENTER" wrapText="true" />
                </children>
             </JFXMasonryPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -80,6 +77,7 @@
                   </Text>
                </children>
             </AnchorPane>
+            <HBox fx:id="calendarList" maxHeight="162.0" maxWidth="943.0" prefHeight="162.0" prefWidth="943.0" spacing="2.0" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>
