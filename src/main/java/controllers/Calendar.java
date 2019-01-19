@@ -167,6 +167,12 @@ public class Calendar implements Initializable {
         }
     }
 
+    /** (button) przejście do sceny zarządzającej etykietami */
+    @FXML
+    void manageLabels(ActionEvent event) {
+        App.primaryStageManager.setScene("LabelManager");
+    }
+
     /** (button) wyświetlenie miesiąca następnego niż na bieżącej scenie */
     @FXML
     void nextMonth(ActionEvent event) {

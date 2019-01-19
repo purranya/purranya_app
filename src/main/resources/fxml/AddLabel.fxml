@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="200.0" prefWidth="362.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddLabel">
+    <children>
+        <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="38.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />
+        <JFXButton layoutX="64.0" layoutY="116.0" onAction="#add" text="Dodaj" />
+        <JFXButton layoutX="243.0" layoutY="116.0" onAction="#cancel" text="Anuluj" />
+        <Text fx:id="validationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" />
+    </children>
+    <rotationAxis>
+        <Point3D />
+    </rotationAxis>
+</AnchorPane>

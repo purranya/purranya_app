@@ -583,7 +583,7 @@
                   <Font size="13.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="312.0" prefHeight="30.0" prefWidth="146.0" text="Zarządzaj etykietami" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton layoutX="312.0" onAction="#manageLabels" prefHeight="30.0" prefWidth="146.0" text="Zarządzaj etykietami" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="13.0" />
                </font>
