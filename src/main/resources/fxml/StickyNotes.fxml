@@ -10,7 +10,7 @@
     <children>
         <AnchorPane prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Text fx:id="date" layoutX="982.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+                <Text fx:id="date" layoutX="982.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-area" text="Text" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
                     <font>
                         <Font size="13.0" />
                     </font>

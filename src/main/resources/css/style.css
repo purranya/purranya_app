@@ -1,21 +1,33 @@
 .root {
     -fx-background-color: #212121;
     -fx-font-family: "DejaVu Sans";
+    -fx-font-size: 12px;
 }
 
-.text-field {
-    -fx-font-size: 12px;
+/*******************************************************************************
+ * Text                                                                        *
+*******************************************************************************/
+
+.text-area {
     -fx-fill: #C2DAFE;
 }
 
-.text-field-header {
+.text-header {
     -fx-font-size: 30px;
     -fx-fill: #FECBC8;
 }
 
+.text-validation {
+    -fx-font-size: 11px;
+    -fx-fill: #595959;
+}
+
+/*******************************************************************************
+ * Button                                                                      *
+*******************************************************************************/
+
 .jfx-button {
     -fx-background-color: #212121;
-    -fx-font-size: 12px;
     -fx-text-fill: #B9E6DF;
     -fx-border-color: #212121;
     -fx-border-width: 1;
@@ -23,18 +35,11 @@
     -fx-cursor: hand;
 }
 
-.jfx-button-bigger {
-    -fx-background-color: #262626;
-    -fx-font-size: 15px;
-    -fx-text-fill: #B9E6DF;
-    -fx-border-color: #212121;
-    -fx-border-width: 1;
-    -fx-border-radius: 8px;
-    -fx-cursor: hand;
-}
+/*******************************************************************************
+ * Field                                                                       *
+*******************************************************************************/
 
-.jfx-text-input, .jfx-password-input {
-    -fx-font-size: 12px;
+.jfx-text-field, .jfx-password-field, .jfx-combo-box {
     -fx-text-fill: #C2DAFE;
     -fx-prompt-text-fill: #89b2ac;
     -jfx-focus-color: #C2DAFE;
@@ -42,18 +47,20 @@
 }
 
 .text-area, .content {
-    -fx-font-size: 12px;
     -fx-text-fill: #C2DAFE;
     -fx-border-color: #212121;
-    -fx-border-style: outset;
     -fx-prompt-text-fill: #595959;
     -fx-background-color: #262626;
 }
 
-.text-validation {
-    -fx-font-size: 11px;
-    -fx-fill: #595959;
+option {
+    -fx-border-color: #212121;
+    -fx-text-fill: #C2DAFE;
 }
+
+/*******************************************************************************
+ * ScrollBar                                                                   *
+*******************************************************************************/
 
 .scroll-bar {
     -fx-background-color: #262626;
@@ -65,22 +72,68 @@
     -fx-background-radius: 2em;
 }
 
-.scroll-bar .increment-button,
-.scroll-bar .decrement-button {
-    -fx-background-color:transparent;
-}
-
 .scroll-bar .increment-arrow,
 .scroll-bar .decrement-arrow {
     -fx-shape: "";
     -fx-padding:0;
 }
 
-.date-picker {
-    -fx-show-week-numbers: false;
-    -fx-font-size: 12px;
-    -fx-text-fill: #C2DAFE;
-    -fx-prompt-text-fill: #89b2ac;
-    -jfx-focus-color: #C2DAFE;
-    -jfx-unfocus-color: #4f706b;
+/*******************************************************************************
+ * ScrollPane                                                                  *
+*******************************************************************************/
+
+.scroll-pane {
+    -fx-background-color: #212121;
 }
+
+.scroll-pane > .viewport {
+    -fx-background-color: #262626;
+}
+
+/*******************************************************************************
+ * DatePicker                                                                  *
+*******************************************************************************/
+
+.jfx-date-picker {
+    -jfx-default-color: #C2DAFE;
+    -fx-show-week-numbers: false;
+    -fx-cursor: hand;
+    -fx-text-fill: #C2DAFE;
+    -jfx-unfocus-color: #4f706b;
+    -fx-background-color: #212121;
+}
+
+.date-picker-popup {
+    -fx-font-size: 12px;
+    -fx-default-color: #C2DAFE;
+    -fx-background-color: #212121;
+    -fx-border-color: #C2DAFE;
+}
+
+.date-picker-popup > * {
+    -fx-font-size: 13px;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #262626;
+}
+
+.date-picker-popup .cell:hover {
+    -fx-background-color: #262626;
+    -fx-border-color: #262626;
+}
+
+.date-picker-popup .cell:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: #C2DAFE;
+}
+
+.date-picker-popup > * > .date-picker-list-view > .virtual-flow > .clipped-container > .sheet > .data-picker-list-cell {
+    -fx-background-color: #212121;
+    -fx-font-size: 12px;
+}
+
+.date-picker-popup > * > .date-picker-list-view > .virtual-flow > .clipped-container > .sheet > .data-picker-list-cell:hover {
+    -fx-background-color: #262626;
+}
+

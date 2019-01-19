@@ -11,17 +11,17 @@
    <children>
       <JFXButton alignment="TOP_CENTER" contentDisplay="TOP" layoutX="60.0" layoutY="373.0" onAction="#create" prefHeight="31.0" prefWidth="68.0" text="Utwórz" />
       <JFXButton layoutX="181.0" layoutY="373.0" onAction="#cancel" text="Powrót" />
-      <JFXTextField fx:id="login" labelFloat="true" layoutX="80.0" layoutY="40.0" promptText="Login" />
-      <Text fx:id="loginValidationText" layoutX="60.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login musi posiadać od 3 do 15 znaków.">
+      <JFXTextField fx:id="login" labelFloat="true" layoutX="63.0" layoutY="40.0" prefHeight="23.0" prefWidth="197.0" promptText="Login" />
+      <Text fx:id="loginValidationText" layoutX="63.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Login musi posiadać od 3 do 15 znaków.">
          <font>
             <Font size="12.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="email" labelFloat="true" layoutX="80.0" layoutY="108.0" promptText="E-mail" />
-      <Text fx:id="emailValidationText" layoutX="19.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wpisz poprawny e-mail, np. jan@kowalski.pl." />
-      <JFXPasswordField fx:id="password" labelFloat="true" layoutX="80.0" layoutY="190.0" promptText="Hasło" />
-      <Text fx:id="passwordValidationText" layoutX="53.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło musi posiadać 8-30 znaków." />
-      <JFXPasswordField fx:id="repeatedPassword" labelFloat="true" layoutX="80.0" layoutY="270.0" promptText="Powtórz hasło" />
-      <Text fx:id="repeatedPasswordValidationText" layoutX="70.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasła muszą być identyczne." />
+      <JFXTextField fx:id="email" labelFloat="true" layoutX="63.0" layoutY="108.0" prefHeight="23.0" prefWidth="197.0" promptText="E-mail" />
+      <Text fx:id="emailValidationText" layoutX="40.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Wpisz poprawny e-mail, np. jan@kowalski.pl." />
+      <JFXPasswordField fx:id="password" labelFloat="true" layoutX="63.0" layoutY="190.0" prefHeight="23.0" prefWidth="197.0" promptText="Hasło" />
+      <Text fx:id="passwordValidationText" layoutX="66.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Hasło musi posiadać 8-30 znaków." />
+      <JFXPasswordField fx:id="repeatedPassword" labelFloat="true" layoutX="63.0" layoutY="270.0" prefHeight="23.0" prefWidth="197.0" promptText="Powtórz hasło" />
+      <Text fx:id="repeatedPasswordValidationText" layoutX="81.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Hasła muszą być identyczne." />
    </children>
 </AnchorPane>
