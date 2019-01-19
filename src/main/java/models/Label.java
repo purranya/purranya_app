@@ -11,17 +11,17 @@ public class Label implements Serializable {
 
     public boolean isValid()
     {
-        boolean isTextValid = text.matches("[a-zA-Z0-9]");
+
         boolean isTextLengthValid = text.length()<33;
-        return isTextValid && isTextLengthValid;
+        return text.length()<33 && text.length()>0;
     }
 
     public HashMap<String,String> getValidationErrors()
     {
         HashMap<String,String>  errors = new HashMap<>();
 
-        if(!text.matches("[a-zA-Z0-9]"))
-            errors.put("text","Nazwa musi zawierać co najmniej 1 znak alfanumeryczny");
+        if(!(text.length()>0))
+            errors.put("text","Nazwa musi zawierać minimum 1 znak");
 
         if(!(text.length()<33))
             errors.put("text","Nazwa musi zawierać maksymalnie 32 znaki");

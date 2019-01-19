@@ -1,5 +1,6 @@
 package controllers;
 
+import application.App;
 import application.Logging;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -9,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import models.Label;
+
+import java.util.HashMap;
 
 /** kontroler do obsługi dodawania etykiet */
 public class AddLabel {
@@ -22,7 +26,18 @@ public class AddLabel {
      * TODO ściąganie danych z okna i przesyłanie do bazy*/
     @FXML
     void add(ActionEvent event) {
-
+        models.Label l = new Label(title.getText());
+        if(l.isValid())
+        {
+            App.calendarManager.addLabel(l);
+            stage.close();
+        }
+        else
+        {
+            HashMap<String,String> errors = l.getValidationErrors();
+            if(errors.get("text")!=null)
+                validationText.setText(errors.get("text"));
+        }
     }
 
     /** (button) wyjście z okna dodawania etykiety */
