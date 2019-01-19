@@ -24,14 +24,6 @@ public class PrimaryStageManager {
     private final int minHeight=768;
 
     private final String stageTitle="Purranya";
-    private final String[] scenes = {
-            "Calendar",
-            "MainMenu",
-            "StickyNotes",
-            "PasswordManager",
-            "LabelManager"
-    };
-
 
     public PrimaryStageManager(Stage primary) {
         try {
@@ -39,9 +31,6 @@ public class PrimaryStageManager {
 
             sceneContainer = new HashMap<>();
             sceneContainer.put("BlankScene",new Scene(new HBox()));
-
-            for(String scene : scenes)
-                loadScene(scene);
 
             primaryStage.setTitle(stageTitle);
             primaryStage.setWidth(minWidth);
@@ -62,8 +51,15 @@ public class PrimaryStageManager {
     }
 
     public void setScene(String sceneName) {
-        primaryStage.setScene(sceneContainer.get("BlankScene"));
-        primaryStage.setScene(sceneContainer.get(sceneName));
+        if(sceneContainer.get(sceneName)!=null) {
+            primaryStage.setScene(sceneContainer.get("BlankScene"));
+            primaryStage.setScene(sceneContainer.get(sceneName));
+        }
+        else
+        {
+            loadScene(sceneName);
+            setScene(sceneName);
+        }
     }
 
     public void loadScene(String sceneName) {
