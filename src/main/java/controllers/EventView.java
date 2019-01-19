@@ -13,8 +13,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/** kontroler do obsługi dodawania wydarzeń w kalendarzu */
-public class AddEvent {
+/** kontroler do edycji wydarzeń w kalendarzu */
+public class EventView {
     @FXML private JFXDatePicker dateOfStart;
     @FXML private JFXTextField title;
     @FXML private JFXComboBox<?> label;
@@ -25,27 +25,27 @@ public class AddEvent {
     private static Stage stage;
     private static Scene scene = loadScene();
 
-    /** (button) dodanie wydarzenia do kalendarza
+    /** (button) edytowanie wydarzenia do kalendarza
      * TODO ściąganie danych z okna i przesyłanie do bazy*/
     @FXML
-    void add(ActionEvent event) {
+    void edit(ActionEvent event) {
 
     }
 
-    /** (button) wyjście z okna dodawania wydarzenia do kalendarza */
+    /** (button) wyjście z okna edycji wydarzenia do kalendarza */
     @FXML
     void cancel(ActionEvent event) {
-       stage.close();
+        stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddEvent.class.getClassLoader().getResource("fxml/AddEvent.fxml")));
+            return new Scene(FXMLLoader.load(EventView.class.getClassLoader().getResource("fxml/EventView.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Popup AddEvent initialization failed");
-            Logging.Logger.logError("Popup AddEvent initialization failed");
+            System.err.println("Popup EventView initialization failed");
+            Logging.Logger.logError("Popup EventView initialization failed");
         }
         return null;
     }
@@ -56,11 +56,11 @@ public class AddEvent {
             stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setWidth(362);
-            stage.setHeight(543);
+            stage.setHeight(542);
             stage.setResizable(false);
             stage.setScene(scene);
         }
-        stage.setTitle("Dodaj wydarzenie - Purranya");
+        stage.setTitle("Edytuj wydarzenie - Purranya");
 
         stage.showAndWait();
     }
