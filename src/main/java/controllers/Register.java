@@ -41,39 +41,39 @@ public class Register {
         /* walidacja */
         if (login.getText().matches("^.{2,15}?$")) {
             loginIsOK = true;
-            loginValidationText.setFill(Color.GREEN);
+            loginValidationText.setFill(Color.rgb(185, 230, 223));
         }
         else {
             loginIsOK = false;
             loginValidationText.setText("Login musi posiadać od 3 do 15 znaków.");
-            loginValidationText.setFill(Color.RED);
+            loginValidationText.setFill(Color.rgb(254, 203, 200));
         }
         if (email.getText().matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{1,6})$")) {
             emailIsOK = true;
-            emailValidationText.setFill(Color.GREEN);
+            emailValidationText.setFill(Color.rgb(185, 230, 223));
         }
         else {
             emailIsOK = false;
             emailValidationText.setText("Wpisz poprawny e-mail, np. jan@kowalski.pl.");
-            emailValidationText.setFill(Color.RED);
+            emailValidationText.setFill(Color.rgb(254, 203, 200));
         }
         if (password.getText().matches("^.{8,30}?$")) {
             passwordIsOK = true;
-            passwordValidationText.setFill(Color.GREEN);
+            passwordValidationText.setFill(Color.rgb(185, 230, 223));
         }
         else {
             passwordIsOK = false;
             passwordValidationText.setText("Hasło musi posiadać 8-30 znaków.");
-            passwordValidationText.setFill(Color.RED);
+            passwordValidationText.setFill(Color.rgb(254, 203, 200));
         }
         if (repeatedPassword.getText().equals(password.getText()) && !repeatedPassword.getText().equals("")) {
             repeatedPasswordIsOK = true;
-            repeatedPasswordValidationText.setFill(Color.GREEN);
+            repeatedPasswordValidationText.setFill(Color.rgb(185, 230, 223));
         }
         else {
             repeatedPasswordIsOK = false;
             repeatedPasswordValidationText.setText("Hasła muszą być identyczne.");
-            repeatedPasswordValidationText.setFill(Color.RED);
+            repeatedPasswordValidationText.setFill(Color.rgb(254, 203, 200));
         }
         if(loginIsOK && emailIsOK && passwordIsOK && repeatedPasswordIsOK) {
             /** TODO wprowadzić obsługę tworzenia konta w bazie danych */
