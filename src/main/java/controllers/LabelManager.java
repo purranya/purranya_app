@@ -25,6 +25,7 @@ public class LabelManager implements Initializable {
     @FXML
     void add(ActionEvent event) {
         controllers.AddLabel.display();
+        System.out.println(App.calendarManager.getCalendar_DEBUG().labels.size());
     }
 
     /** (button) wyjście z okna obsługi etykiet */

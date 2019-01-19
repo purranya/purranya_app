@@ -11,14 +11,24 @@ public class Label implements Serializable {
 
     public boolean isValid()
     {
-
-        boolean isTextLengthValid = text.length()<33;
-        return text.length()<33 && text.length()>0;
+        boolean labelNameUnique = true;
+        for(String f : App.calendarManager.getLabels())
+            if(f.equals(text))
+                labelNameUnique = false;
+        boolean isTextLengthValid = text.length()<33 && text.length()>0;
+        return labelNameUnique && isTextLengthValid;
     }
 
     public HashMap<String,String> getValidationErrors()
     {
         HashMap<String,String>  errors = new HashMap<>();
+        boolean labelNameUnique = true;
+        for(String f : App.calendarManager.getLabels())
+            if(f.equals(text))
+                labelNameUnique = false;
+
+        if(!labelNameUnique)
+            errors.put("text","Etykieta o takiej nazwie już istnieje");
 
         if(!(text.length()>0))
             errors.put("text","Nazwa musi zawierać minimum 1 znak");
