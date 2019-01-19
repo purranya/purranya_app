@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Popup;
@@ -37,6 +38,7 @@ public class PrimaryStageManager {
             this.primaryStage = primary;
 
             sceneContainer = new HashMap<>();
+            sceneContainer.put("BlankScene",new Scene(new HBox()));
 
             for(String scene : scenes)
                 loadScene(scene);
@@ -60,6 +62,7 @@ public class PrimaryStageManager {
     }
 
     public void setScene(String sceneName) {
+        primaryStage.setScene(sceneContainer.get("BlankScene"));
         primaryStage.setScene(sceneContainer.get(sceneName));
     }
 
@@ -72,6 +75,12 @@ public class PrimaryStageManager {
             Logging.Logger.logError("SceneManager initialization failed");
             System.exit(1);
         }
+    }
+
+    public void reloadScene(String sceneName)
+    {
+        loadScene(sceneName);
+        setScene(sceneName);
     }
 
     /** metoda do obsługi popupów

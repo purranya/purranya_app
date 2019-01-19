@@ -1,5 +1,7 @@
 package data_util;
 
+import application.HomeFolderManager;
+
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +12,7 @@ public class DatabaseService {
     public DatabaseService(){}
 
     public ArrayList<String> getDatabasesIndex() {
-        HomeFolderService hfc = new HomeFolderService();
+        HomeFolderManager hfc = new HomeFolderManager();
         File[] directories = new File(hfc.getPath("databases")).listFiles(File::isDirectory);
         ArrayList<String> names = new ArrayList<>();
 
@@ -27,7 +29,7 @@ public class DatabaseService {
     }
 
     public Connection getDatabaseConnection(String database){
-        HomeFolderService hfc = new HomeFolderService();
+        HomeFolderManager hfc = new HomeFolderManager();
         ArrayList<String> index = getDatabasesIndex();
         if(!index.contains(database)){
             System.err.println("Brak takiej bazy w katalogu");
@@ -53,7 +55,7 @@ public class DatabaseService {
 
     public boolean createDatabase(String database) {
 
-        HomeFolderService hfc = new HomeFolderService();
+        HomeFolderManager hfc = new HomeFolderManager();
         if (OperationSystemData.os.equals(OperationSystemData.OS.WINDOWS)) {
             if (!hfc.createDirectory("\\databases\\" + database))
                 System.err.println("Nie udało się utworzyć katalogu dla bazy danych");
@@ -71,7 +73,7 @@ public class DatabaseService {
     }
 
     public boolean deleteDatabase(String database) {
-        HomeFolderService hfc = new HomeFolderService();
+        HomeFolderManager hfc = new HomeFolderManager();
         boolean success=false;
         if (OperationSystemData.os.equals(OperationSystemData.OS.WINDOWS)) {
             success = hfc.deleteDirectory("\\databases\\" + database);

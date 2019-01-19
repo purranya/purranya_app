@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -34,7 +35,7 @@ public class MainMenu implements Initializable {
     @FXML
     void addCalendar(ActionEvent event) {
         controllers.AddCalendar.display();
-        App.primaryStageManager.setScene("MainMenu");
+        App.primaryStageManager.reloadScene("Mainmenu");
     }
 
     /** (button) obsługa przycisku "Menedżer haseł */
@@ -71,12 +72,16 @@ public class MainMenu implements Initializable {
         date.setText(dateTime.dayOfMonth().getAsString() + " " + dateTime.monthOfYear().getAsText() + " " + dateTime.year().getAsString());
 
         //wyświetlanie wszystkich kalendarzy jako buttony
-        CalendarManager calendars = new CalendarManager();
+        CalendarManager calendars = App.calendarManager;
         for(String calendarName : calendars.getCalendarIndex()) {
             JFXButton buttonTemp = new JFXButton();
             buttonTemp.setPrefWidth(150);
             buttonTemp.setPrefHeight(150);
             buttonTemp.setText(calendarName);
+            buttonTemp.setOnAction(e -> {
+                calendars.loadCalendar(calendarName);
+                App.primaryStageManager.setScene("Calendar");
+            });
             calendarList.getChildren().add(buttonTemp);
         }
     }

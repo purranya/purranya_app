@@ -73,6 +73,7 @@ public class CalendarManager {
             o = new ObjectOutputStream(new FileOutputStream(App.homeFolderManager.getPath("databases") + c.name));
             o.writeObject(c);
             o.flush();
+            o.close();
             return true;
         } catch ( Exception e) {
             Logging.Logger.logError("Saving calendar failed");
