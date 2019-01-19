@@ -40,7 +40,6 @@ public class AddCalendar {
             if(errors.get("name")!=null)
                 validationText.setText(errors.get("name"));
         }
-
     }
 
     /** (button) wyjście z okna dodawania kalendarza */

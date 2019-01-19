@@ -1,9 +1,14 @@
 package controllers;
 
 import application.App;
+import com.jfoenix.controls.JFXButton;
+import data.CalendarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import org.joda.time.DateTime;
 
@@ -12,6 +17,7 @@ import java.util.ResourceBundle;
 
 /** kontroler obsługujący główne menu */
 public class MainMenu implements Initializable {
+    @FXML private HBox calendarList = new HBox(5);
     @FXML private Text user;
     @FXML private Text date;
 
@@ -28,6 +34,7 @@ public class MainMenu implements Initializable {
     @FXML
     void addCalendar(ActionEvent event) {
         controllers.AddCalendar.display();
+        App.primaryStageManager.setScene("MainMenu");
     }
 
     /** (button) obsługa przycisku "Menedżer haseł */
@@ -58,15 +65,19 @@ public class MainMenu implements Initializable {
     /** TODO dodać obsługę zalogowanego użytkownika! (dotyczy zmiennej user) */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //wyświetlanie aktualnej daty
         user.setText("");
         DateTime dateTime = DateTime.now();
         date.setText(dateTime.dayOfMonth().getAsString() + " " + dateTime.monthOfYear().getAsText() + " " + dateTime.year().getAsString());
-    }
 
-    /** FUNKCJA TESTOWA
-     * TODO w późniejszym czasie do usunięcia!*/
-    @FXML
-    void runTest(ActionEvent event) {
-
+        //wyświetlanie wszystkich kalendarzy jako buttony
+        CalendarManager calendars = new CalendarManager();
+        for(String calendarName : calendars.getCalendarIndex()) {
+            JFXButton buttonTemp = new JFXButton();
+            buttonTemp.setPrefWidth(150);
+            buttonTemp.setPrefHeight(150);
+            buttonTemp.setText(calendarName);
+            calendarList.getChildren().add(buttonTemp);
+        }
     }
 }

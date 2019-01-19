@@ -27,8 +27,8 @@ public class CalendarManager {
     public List<Note> getAllNotes() { return c.notes; }
     public List<Label> getAllLabels() { return c.labels; }
 
+    /** wczytuje kalendarz z pliku o podanej nazwie */
     public boolean loadCalendar(String name)
-            //wczytuje kalendarz z pliku o podanej nazwie
     {
         try {
             FileInputStream fip = new FileInputStream(App.homeFolderManager.getPath("databases") + name);
@@ -59,8 +59,8 @@ public class CalendarManager {
         return files;
     }
 
+    /** zapisuje aktualnie wczytany kalendarz */
     public boolean saveCalendar()
-            //zapisuje aktualnie wczytany kalendarz
     {
         if(!isCalendarLoaded())
         {
@@ -81,8 +81,8 @@ public class CalendarManager {
         }
     }
 
+    /** zapisuje dowolny wczytany kalendarz */
     public boolean saveCalendar(models.Calendar calendar)
-    //zapisuje dowolny wczytany kalendarz
     {
 
         try {
@@ -100,8 +100,8 @@ public class CalendarManager {
         }
     }
 
+    /** zmienia nazwę dowolnego kalendarza */
     public boolean renameCalendar(String oldName,String newName)
-    //zmienia nazwe dowolnego kalendarza
     {
         File f = new File(App.homeFolderManager.getPath("databases") + oldName);
         File f2 = new File(App.homeFolderManager.getPath("databases") + newName);
@@ -122,8 +122,8 @@ public class CalendarManager {
         }
     }
 
+    /** zmienia nazwę aktualnego kalendarza */
     public boolean renameCalendar(String newName)
-    //zmienia nazwe aktualnego kalendarza
     {
         if(!isCalendarLoaded())
         {
@@ -190,8 +190,8 @@ public class CalendarManager {
         }
     }
 
+    /** zwraca informację o tym, czy wczytano jakiś kalendarz */
     public boolean isCalendarLoaded()
-            //zwraca informacje o tym, czy wczytano jakiś kalendarz
     {
         return c!=null;
     }
