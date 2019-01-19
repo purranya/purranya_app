@@ -2,6 +2,7 @@ package controllers;
 
 import application.Logging;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,53 +13,55 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/** kontroler do obsługi dodawania notatek w StickyNotes */
-public class AddNote {
+/** kontroler do obsługi dodawania wydarzeń w kalendarzu */
+public class EventPopup {
+    @FXML private JFXDatePicker dateOfStart;
     @FXML private JFXTextField title;
     @FXML private JFXComboBox<?> label;
     @FXML private TextArea description;
+    @FXML private JFXDatePicker dateOfEnd;
     @FXML private Text validationText;
 
     private static Stage stage;
     private static Scene scene = loadScene();
 
-    /** (button) dodanie notatki do bazy
-     * TODO do zrobienia */
+    /** (button) dodanie wydarzenia do kalendarza
+     * TODO ściąganie danych z okna i przesyłanie do bazy*/
     @FXML
     void add(ActionEvent event) {
+
     }
 
-    /** (button) zamknięcie okna AddNote */
+    /** (button) wyjście z okna dodawania wydarzenia do kalendarza */
     @FXML
     void cancel(ActionEvent event) {
-        stage.close();
+       stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddNote.class.getClassLoader().getResource("fxml/AddNote.fxml")));
+            return new Scene(FXMLLoader.load(EventPopup.class.getClassLoader().getResource("fxml/EventPopup.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Popup AddNote initialization failed");
-            Logging.Logger.logError("Popup AddNote initialization failed");
+            System.err.println("Popup EventPopup initialization failed");
+            Logging.Logger.logError("Popup EventPopup initialization failed");
         }
         return null;
     }
 
     /** wyświetlanie popupu */
     static void display() {
-        if(stage == null) {
+        if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
             stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setWidth(362);
-            stage.setHeight(540);
+            stage.setHeight(543);
             stage.setResizable(false);
             stage.setScene(scene);
         }
-        stage.setTitle("Dodaj notatkę - Purranya");
+        stage.setTitle("Dodaj wydarzenie - Purranya");
 
         stage.showAndWait();
     }
-
 }

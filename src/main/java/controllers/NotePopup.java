@@ -1,46 +1,34 @@
 package controllers;
 
-import application.App;
 import application.Logging;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.Label;
 
-import java.util.HashMap;
-
-/** kontroler do obsługi dodawania etykiet */
-public class AddLabel {
+/** kontroler do obsługi dodawania notatek w StickyNotes */
+public class NotePopup {
     @FXML private JFXTextField title;
+    @FXML private JFXComboBox<?> label;
+    @FXML private TextArea description;
     @FXML private Text validationText;
 
     private static Stage stage;
     private static Scene scene = loadScene();
 
-    /** (button) dodanie etykiety
-     * TODO ściąganie danych z okna i przesyłanie do bazy*/
+    /** (button) dodanie notatki do bazy
+     * TODO do zrobienia */
     @FXML
     void add(ActionEvent event) {
-        models.Label l = new Label(title.getText());
-        if(l.isValid())
-        {
-            App.calendarManager.addLabel(l);
-            stage.close();
-        }
-        else
-        {
-            HashMap<String,String> errors = l.getValidationErrors();
-            if(errors.get("text")!=null)
-                validationText.setText(errors.get("text"));
-        }
     }
 
-    /** (button) wyjście z okna dodawania etykiety */
+    /** (button) zamknięcie okna NotePopup */
     @FXML
     void cancel(ActionEvent event) {
         stage.close();
@@ -49,27 +37,28 @@ public class AddLabel {
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddLabel.class.getClassLoader().getResource("fxml/AddLabel.fxml")));
+            return new Scene(FXMLLoader.load(NotePopup.class.getClassLoader().getResource("fxml/NotePopup.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Popup AddEvent initialization failed");
-            Logging.Logger.logError("Popup AddEvent initialization failed");
+            System.err.println("Popup NotePopup initialization failed");
+            Logging.Logger.logError("Popup NotePopup initialization failed");
         }
         return null;
     }
 
     /** wyświetlanie popupu */
     static void display() {
-        if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
+        if(stage == null) {
             stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setWidth(362);
-            stage.setHeight(200);
+            stage.setHeight(540);
             stage.setResizable(false);
             stage.setScene(scene);
         }
-        stage.setTitle("Dodaj etykietę - Purranya");
+        stage.setTitle("Dodaj notatkę - Purranya");
 
         stage.showAndWait();
     }
+
 }

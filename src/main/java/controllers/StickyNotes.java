@@ -19,7 +19,7 @@ public class StickyNotes implements Initializable {
     /** (button) dodanie nowej notatki */
     @FXML
     void addNote(ActionEvent event) {
-        controllers.AddNote.display();
+        NotePopup.display();
     }
 
     /** wyjście ze Sticky Notes */

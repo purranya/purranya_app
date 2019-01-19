@@ -1,18 +1,13 @@
 package controllers;
 
 import application.App;
-import application.Logging;
 import com.jfoenix.controls.JFXButton;
 import data.CalendarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import org.joda.time.DateTime;
 
 import java.net.URL;
@@ -29,7 +24,7 @@ public class LabelManager implements Initializable {
      * TODO zrobić obsługę! */
     @FXML
     void add(ActionEvent event) {
-        controllers.AddLabel.display();
+        LabelPopup.display();
         App.primaryStageManager.reloadScene("LabelManager");
     }
 

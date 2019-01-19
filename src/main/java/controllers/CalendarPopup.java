@@ -3,7 +3,6 @@ package controllers;
 import application.App;
 import application.Logging;
 import com.jfoenix.controls.JFXTextField;
-import data.CalendarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +16,7 @@ import java.util.HashMap;
 
 
 /** kontroler do obsługi dodawania kalendarzy */
-public class AddCalendar {
+public class CalendarPopup {
     @FXML private JFXTextField name;
     @FXML private Text validationText;
     @FXML private TextArea description;
@@ -51,11 +50,11 @@ public class AddCalendar {
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(AddCalendar.class.getClassLoader().getResource("fxml/AddCalendar.fxml")));
+            return new Scene(FXMLLoader.load(CalendarPopup.class.getClassLoader().getResource("fxml/CalendarPopup.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Popup AddCalendar initialization failed");
-            Logging.Logger.logError("Popup AddCalendar initialization failed");
+            System.err.println("Popup CalendarPopup initialization failed");
+            Logging.Logger.logError("Popup CalendarPopup initialization failed");
         }
         return null;
     }

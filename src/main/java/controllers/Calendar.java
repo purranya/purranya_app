@@ -190,7 +190,7 @@ public class Calendar implements Initializable {
     /** (button) przejście do popupu umożliwiającej dodanie wydarzenia */
     @FXML
     void addEvent(ActionEvent event) {
-        controllers.AddEvent.display();
+        EventPopup.display();
     }
 
     /** (button) wyjście z kalendarza */

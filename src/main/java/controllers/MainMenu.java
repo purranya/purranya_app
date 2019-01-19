@@ -31,7 +31,7 @@ public class MainMenu implements Initializable {
     /** (button) Dodanie nowego kalendarza do bazy */
     @FXML
     void addCalendar(ActionEvent event) {
-        controllers.AddCalendar.display();
+        CalendarPopup.display();
         App.primaryStageManager.reloadScene("MainMenu");
     }
 
