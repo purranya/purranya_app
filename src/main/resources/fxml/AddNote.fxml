@@ -15,7 +15,7 @@
         <TextArea fx:id="description" layoutX="64.0" layoutY="163.0" prefHeight="246.0" prefWidth="235.0" promptText="Treść notatki" wrapText="true" />
         <JFXButton layoutX="62.0" layoutY="432.0" onAction="#add" text="Dodaj" />
         <JFXButton layoutX="236.0" layoutY="432.0" onAction="#cancel" text="Anuluj" />
-      <Text fx:id="validationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" />
+      <Text fx:id="validationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Tytuł może zawierać 32 znaki." />
     </children>
    <rotationAxis>
       <Point3D />

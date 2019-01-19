@@ -28,13 +28,13 @@ public class Label implements Serializable {
                 labelNameUnique = false;
 
         if(!labelNameUnique)
-            errors.put("text","Etykieta o takiej nazwie już istnieje");
+            errors.put("text","Etykieta o takiej nazwie już istnieje!");
 
         if(!(text.length()>0))
-            errors.put("text","Nazwa musi zawierać minimum 1 znak");
+            errors.put("text","Nazwa musi zawierać minimum 1 znak.");
 
         if(!(text.length()<33))
-            errors.put("text","Nazwa musi zawierać maksymalnie 32 znaki");
+            errors.put("text","Nazwa może zawierać maksymalnie 32 znaki.");
 
         return errors;
     }

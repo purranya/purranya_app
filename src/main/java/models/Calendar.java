@@ -51,7 +51,7 @@ public class Calendar implements Serializable {
         if(name==null || !name.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}"))
             errors.put("name","Nazwa może zawierać 32 znaki.");
         if(comment==null ||  comment.length()>500)
-            errors.put("comment","Komentarz może zawierać do 500 znaków");
+            errors.put("comment","Komentarz może zawierać do 500 znaków.");
 
         boolean calendarNameUnique = true;
         for(String f : App.calendarManager.getCalendarIndex())
@@ -59,7 +59,7 @@ public class Calendar implements Serializable {
                 calendarNameUnique = false;
 
         if(!calendarNameUnique)
-            errors.put("name","Kalendarz o podanej nazwie już istnieje");
+            errors.put("name","Kalendarz o podanej nazwie już istnieje!");
 
         return errors;
     }
