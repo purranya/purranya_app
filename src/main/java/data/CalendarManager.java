@@ -255,4 +255,21 @@ public class CalendarManager {
             return false;
         return true;
     }
+
+    public String[] getLabels() {
+        String[] result = new String[this.c.labels.size()];
+
+        for (int i = 0; i < result.length; i++)
+            result[i] = this.c.labels.get(i).text;
+
+        return result;
+    }
+
+    public Label getLabelByText(String text)
+    {
+        for(Label l : c.labels)
+            if(l.text==text) return l;
+
+        return null;
+    }
 }
