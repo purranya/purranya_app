@@ -20,7 +20,7 @@ public class CalendarManager {
 
     public CalendarManager(){ }
 
-    public Calendar getCalendar_DEBUG() { return c; }
+    //public Calendar getCalendar_DEBUG() { return c; }
 
     public String getCalendarName() { return c.name; }
     public String getCalendarComment() { return c.comment; }
