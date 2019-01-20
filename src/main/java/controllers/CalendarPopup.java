@@ -25,9 +25,7 @@ public class CalendarPopup {
     private static Stage stage;
     private static Scene scene = loadScene();
 
-    /** (button) dodanie kalendarza
-     * TODO sciaganie danych z okna
-     * TODO wprowadzenie walidacji nazwy */
+    /** (button) dodanie kalendarza */
     @FXML
     void add(ActionEvent event) {
         models.Calendar c = new models.Calendar(name.getText(),description.getText());

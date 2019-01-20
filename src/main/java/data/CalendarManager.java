@@ -237,7 +237,7 @@ public class CalendarManager {
         return null;
     }
 
-    public boolean deleteLabelById(int id)
+    private boolean deleteLabelById(int id)
     {
         Label l = getLabelById(id);
         if(l!=null)
@@ -272,5 +272,15 @@ public class CalendarManager {
             result.add(l.text);
 
         return result;
+    }
+
+    public boolean deleteLabel(Label label)
+    {
+        Label nullLabel = getLabelById(0);
+        for(Note n : c.notes)
+            if(n.label==label)
+                n.label=nullLabel;
+
+        return deleteLabelById(label.id);
     }
 }

@@ -25,8 +25,7 @@ public class EventView {
     private static Stage stage;
     private static Scene scene = loadScene();
 
-    /** (button) edytowanie wydarzenia do kalendarza
-     * TODO ściąganie danych z okna i przesyłanie do bazy*/
+    /** (button) edytowanie wydarzenia do kalendarza */
     @FXML
     void edit(ActionEvent event) {
 

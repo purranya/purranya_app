@@ -24,8 +24,7 @@ public class LabelManager implements Initializable {
 
     private DateTime currentDateTime;
 
-    /** (button) dodawanie etykiety
-     * TODO zrobić obsługę! */
+    /** (button) dodawanie etykiety */
     @FXML
     void add(ActionEvent event) {
         LabelPopup.displayAdd();
@@ -35,10 +34,9 @@ public class LabelManager implements Initializable {
     /** (button) wyjście z okna obsługi etykiet */
     @FXML
     void cancel(ActionEvent event) {
-        App.primaryStageManager.setScene("Calendar");
+        App.primaryStageManager.reloadScene("Calendar");
     }
 
-    /** TODO zmienic funkcjonowanie popupu edytowania etykiety */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         currentDateTime = DateTime.now();
@@ -61,6 +59,16 @@ public class LabelManager implements Initializable {
                 App.primaryStageManager.reloadScene("LabelManager");
             });
             JFXButton delete = new JFXButton("Usuń");
+            delete.setOnAction(e->{
+                /** TODO dodać popup z pytaniem */
+                boolean answer = true; // pytanie tutaj
+                if(answer==true) {
+                    App.calendarManager.deleteLabel(label);
+                    App.calendarManager.saveCalendar();
+                    App.primaryStageManager.reloadScene("LabelManager");
+                }
+
+            });
             delete.setStyle("-fx-border-color: #89b2ac");
             HBox hBox = new HBox(labelTemp, delete);
             labelList.getChildren().addAll(hBox);

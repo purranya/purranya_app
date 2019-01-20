@@ -71,7 +71,7 @@ public class MainMenu implements Initializable {
             buttonTemp.setText(calendarName);
             buttonTemp.setOnAction(e -> {
                 calendars.loadCalendar(calendarName);
-                App.primaryStageManager.setScene("Calendar");
+                App.primaryStageManager.reloadScene("Calendar");
             });
             calendarList.getChildren().add(buttonTemp);
         }

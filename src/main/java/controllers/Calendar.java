@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
+import models.Note;
 import org.joda.time.*;
 
 import java.net.URL;
@@ -13,8 +14,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /** kontroler obsługujący kalendarz
- * TODO dodać obsługę wydarzeń
- * TODO dodać obsługę przycisku zarządzania etykietami */
+ * TODO dodać obsługę wydarzeń */
 public class Calendar implements Initializable {
     @FXML private Text header;
     @FXML private Text date;
@@ -217,9 +217,6 @@ public class Calendar implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         currentDateTime = DateTime.now();
-        ///////
-        System.out.println("Ilość notatek: " + App.calendarManager.getCalendar_DEBUG().notes.size());
-        //////
         date.setText(currentDateTime.dayOfMonth().getAsString() + " " + currentDateTime.monthOfYear().getAsText() + " " + currentDateTime.year().getAsString());
         createCalendar(currentDateTime);
     }

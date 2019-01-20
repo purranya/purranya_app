@@ -38,8 +38,7 @@ public class EventPopup implements Initializable {
     private static Stage stage;
     private static Scene scene = loadScene();
 
-    /** (button) dodanie wydarzenia do kalendarza
-     * TODO ściąganie danych z okna i przesyłanie do bazy*/
+    /** (button) dodanie wydarzenia do kalendarza */
     @FXML
     void add(ActionEvent event) {
         Note n = new Note(title.getText(),description.getText(),false,App.calendarManager.getLabelByText(label.getValue().getText()), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue()!=null?(DateUtils.toDateTime(dateOfEnd.getValue())):null);

@@ -87,7 +87,7 @@ public class LabelPopup implements Initializable {
         stage.close();
     }
 
-    /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
+    /** załadowanie sceny */
     private static Scene loadScene() {
         try {
             return new Scene(FXMLLoader.load(LabelPopup.class.getClassLoader().getResource("fxml/LabelPopup.fxml")));
