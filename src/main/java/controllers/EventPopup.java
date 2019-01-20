@@ -34,6 +34,7 @@ public class EventPopup implements Initializable {
     @FXML private TextArea description;
     @FXML private JFXDatePicker dateOfEnd;
     @FXML private Text validationText;
+    @FXML private Text validationData;
 
     private static Stage stage;
     private static Scene scene = loadScene();

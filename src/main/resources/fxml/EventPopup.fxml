@@ -16,7 +16,8 @@
       <TextArea fx:id="description" layoutX="64.0" layoutY="250.0" prefHeight="182.0" prefWidth="235.0" promptText="Opis wydarzenia..." wrapText="true" />
       <JFXButton layoutX="62.0" layoutY="445.0" onAction="#add" text="Dodaj" />
       <JFXButton layoutX="236.0" layoutY="445.0" onAction="#cancel" text="Anuluj" />
-      <JFXDatePicker fx:id="dateOfEnd" layoutX="64.0" layoutY="143.0" prefHeight="26.0" prefWidth="235.0" promptText="Data rozpoczęcia" showWeekNumbers="true" />
+      <JFXDatePicker fx:id="dateOfEnd" layoutX="64.0" layoutY="132.0" prefHeight="26.0" prefWidth="235.0" promptText="Data zakończenia" showWeekNumbers="true" />
       <Text fx:id="validationText" layoutX="64.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Tytuł może zawierać 32 znaki." />
+      <Text fx:id="validationData" layoutX="62.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="[tekst do walidacji daty]" />
    </children>
 </AnchorPane>

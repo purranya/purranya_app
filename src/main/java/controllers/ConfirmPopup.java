@@ -58,7 +58,7 @@ public class ConfirmPopup implements Initializable {
             stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setWidth(362);
-            stage.setHeight(200);
+            stage.setHeight(214);
             stage.setResizable(false);
             stage.setTitle("Potwierdź");
 
