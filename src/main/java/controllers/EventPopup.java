@@ -99,7 +99,7 @@ public class EventPopup implements Initializable {
             stage.setResizable(false);
             stage.setScene(scene);
         }
-        stage.setTitle("Dodaj wydarzenie - Purranya");
+        stage.setTitle("Dodaj wydarzenie");
 
         stage.showAndWait();
     }

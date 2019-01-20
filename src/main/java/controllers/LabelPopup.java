@@ -107,7 +107,7 @@ public class LabelPopup implements Initializable {
             stage.setWidth(362);
             stage.setHeight(200);
             stage.setResizable(false);
-            stage.setTitle("Etykieta - Purranya");
+            stage.setTitle("Etykieta");
         }
         stage.setScene(loadScene());
         stage.showAndWait();

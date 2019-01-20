@@ -20,7 +20,7 @@ public class CalendarManager {
 
     public CalendarManager(){ }
 
-    //public Calendar getCalendar_DEBUG() { return c; }
+    public Calendar getCalendar() { return c; }
 
     public String getCalendarName() { return c.name; }
     public String getCalendarComment() { return c.comment; }
@@ -107,7 +107,7 @@ public class CalendarManager {
     {
         File f = new File(App.homeFolderManager.getPath("databases") + oldName);
         File f2 = new File(App.homeFolderManager.getPath("databases") + newName);
-        if(f.exists() && !f2.exists() && newName.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}")) {
+        if(f.exists() && newName.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}")) {
             if (f.renameTo(f2)) {
                 return true;
             } else {

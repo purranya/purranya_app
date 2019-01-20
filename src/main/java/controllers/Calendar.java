@@ -194,12 +194,11 @@ public class Calendar implements Initializable {
         App.primaryStageManager.reloadScene("Calendar");
     }
 
-    /** (button) usunięcie bieżącego kalendarza
-     * TODO czy robić potwierdzenie? */
+    /** (button) usunięcie bieżącego kalendarza */
     @FXML
     void delete(ActionEvent event) {
         boolean answer = ConfirmPopup.display("Czy na pewno chcesz usunąć kalendarz \"" + App.calendarManager.getCalendarName() + "\"?");
-        if(answer==true) {
+        if(answer) {
             App.calendarManager.deleteCalendar();
             App.primaryStageManager.reloadScene("MainMenu");
         }
@@ -209,13 +208,13 @@ public class Calendar implements Initializable {
      * TODO wczytywanie informacji z bieżącego kalendarza (może w konstruktorze */
     @FXML
     void edit(ActionEvent event) {
-        CalendarPopup.display();
+        CalendarPopup.displayEdit();
     }
 
     /** (button) wyjście z kalendarza */
     @FXML
     void cancel(ActionEvent event) {
-        App.primaryStageManager.setScene("MainMenu");
+        App.primaryStageManager.reloadScene("MainMenu");
     }
 
     @Override
