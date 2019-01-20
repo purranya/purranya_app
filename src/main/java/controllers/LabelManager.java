@@ -6,6 +6,9 @@ import data.CalendarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import org.joda.time.DateTime;
@@ -34,26 +37,31 @@ public class LabelManager implements Initializable {
         App.primaryStageManager.setScene("Calendar");
     }
 
+    /** TODO zmienic funkcjonowanie popupu edytowania etykiety */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         currentDateTime = DateTime.now();
         date.setText(currentDateTime.dayOfMonth().getAsString() + " " + currentDateTime.monthOfYear().getAsText() + " " + currentDateTime.year().getAsString());
 
 
-        //wyświetlanie wszystkich etykiet jako buttony
+        //wyświetlanie wszystkich etykiet jako buttony oraz przycisku do ich usunięcia
         CalendarManager labels = App.calendarManager;
         for(String labelName : labels.getLabels()) {
             if(labelName.equals("null"))
                 continue;
             JFXButton labelTemp = new JFXButton();
-            labelTemp.setPrefWidth(400);
+            labelTemp.setPrefWidth(600);
             labelTemp.setPrefHeight(30);
             labelTemp.setText(labelName);
-            //labelTemp.setOnAction(e -> {
-            //    calendars.loadCalendar(calendarName);
-            //    App.primaryStageManager.setScene("Calendar");
-            //});
-            labelList.getChildren().add(labelTemp);
+            labelTemp.setOnAction(e -> {
+                //zmienic zeby edytowalo a nie dodawalo nowe
+                LabelPopup.display();
+                App.primaryStageManager.reloadScene("LabelManager");
+            });
+            JFXButton delete = new JFXButton("Usuń");
+            delete.setStyle("-fx-border-color: #89b2ac");
+            HBox hBox = new HBox(labelTemp, delete);
+            labelList.getChildren().addAll(hBox);
         }
     }
 }

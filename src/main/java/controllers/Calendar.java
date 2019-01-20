@@ -193,6 +193,20 @@ public class Calendar implements Initializable {
         EventPopup.display();
     }
 
+    /** (button) usunięcie bieżącego kalendarza
+     * TODO czy robić potwierdzenie? */
+    @FXML
+    void delete(ActionEvent event) {
+
+    }
+
+    /** edycja bieżącego kalendarza
+     * TODO wczytywanie informacji z bieżącego kalendarza (może w konstruktorze */
+    @FXML
+    void edit(ActionEvent event) {
+        CalendarPopup.display();
+    }
+
     /** (button) wyjście z kalendarza */
     @FXML
     void cancel(ActionEvent event) {

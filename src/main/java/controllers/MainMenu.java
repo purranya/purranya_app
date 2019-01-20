@@ -47,12 +47,6 @@ public class MainMenu implements Initializable {
         App.primaryStageManager.setScene("StickyNotes");
     }
 
-    /** TEST
-     * TODO usunąć po przeprowadzeniu testów */
-    @FXML
-    void continueWithoutAccount(ActionEvent event) { App.primaryStageManager.setScene("Calendar");
-    }
-
     /** (button) obsługa przycisku "Załóż konto"
      * TODO ustawić wyświetlanie przycisku w zależności od tego, czy jest zalogowany użytkownik */
     @FXML
