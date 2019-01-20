@@ -56,11 +56,6 @@ public class EventPopup implements Initializable {
                 validationText.setFill(Color.rgb(254, 203, 200));
                 validationText.setText(errors.get("text"));
             }
-            else if(errors.get("content")!=null)
-            {
-                validationText.setFill(Color.rgb(254, 203, 200));
-                validationText.setText(errors.get("content"));
-            }
             else if(errors.get("enddate")!=null)
             {
                 validationText.setFill(Color.rgb(254, 203, 200));

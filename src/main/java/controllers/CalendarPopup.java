@@ -42,10 +42,6 @@ public class CalendarPopup {
                 validationText.setFill(Color.rgb(254, 203, 200));
                 validationText.setText(errors.get("name"));
             }
-            else if(errors.get("comment")!=null) {
-                validationText.setFill(Color.rgb(254, 203, 200));
-                validationText.setText(errors.get("comment"));
-            }
         }
     }
 

@@ -37,10 +37,9 @@ public class Calendar implements Serializable {
     public boolean isValid()
     {
         boolean calendarNameValid = name!=null && name.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}");
-        boolean calendarComValid = ValidationUtil.StringLengthBetween(comment,1,500);
         boolean calendarNameUnique = !ValidationUtil.tableContains(App.calendarManager.getCalendarIndex(),name);
 
-        return calendarComValid && calendarNameValid && calendarNameUnique;
+        return calendarNameValid && calendarNameUnique;
     }
 
     public HashMap<String,String> getValidationErrors()
@@ -48,8 +47,6 @@ public class Calendar implements Serializable {
         HashMap<String,String> errors = new HashMap<>();
         if(name==null || !name.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}"))
             errors.put("name","Nazwa może zawierać 32 znaki.");
-        if(!ValidationUtil.StringLengthBetween(comment,1,500))
-            errors.put("comment","Komentarz może zawierać od 1 do 500 znaków.");
 
         boolean calendarNameNotUnique = ValidationUtil.tableContains(App.calendarManager.getCalendarIndex(),name);
 

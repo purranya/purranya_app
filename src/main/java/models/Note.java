@@ -36,22 +36,18 @@ public class Note implements Serializable {
     public boolean isValid()
     {
         boolean isTitleLengthValid = ValidationUtil.StringLengthBetween(title,1,32);
-        boolean isContentValid = ValidationUtil.StringLengthBetween(content,1,500);
         boolean isEndDateValid = (endDate==null || ( endDate!=null && endDate.isAfter(startDate)));
-        return isTitleLengthValid && isContentValid && isEndDateValid;
+        return isTitleLengthValid && isEndDateValid;
     }
 
     public HashMap<String,String> getValidationErrors()
     {
         boolean isTitleLengthValid = ValidationUtil.StringLengthBetween(title,1,32);
-        boolean isContentValid = ValidationUtil.StringLengthBetween(content,1,500);
         boolean isEndDateValid = (endDate==null || ( endDate!=null && endDate.isAfter(startDate)));
 
         HashMap<String,String>  errors = new HashMap<>();
         if(!isTitleLengthValid)
             errors.put("text","Tytuł może mieć od 1 do 33 znaków");
-        if(!isContentValid)
-            errors.put("content","Opis może mieć od 1 do 500 znaków");
         if(!isEndDateValid)
             errors.put("enddate","Data końcowa musi być większa niż data początkowa");
         return errors;
