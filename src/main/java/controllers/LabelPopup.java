@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -29,14 +30,17 @@ public class LabelPopup {
         models.Label l = new Label(title.getText());
         if(l.isValid())
         {
+            validationText.setFill(Color.rgb(185, 230, 223));
             App.calendarManager.addLabel(l);
             stage.close();
         }
         else
         {
             HashMap<String,String> errors = l.getValidationErrors();
-            if(errors.get("text")!=null)
+            if(errors.get("text")!=null) {
+                validationText.setFill(Color.rgb(254, 203, 200));
                 validationText.setText(errors.get("text"));
+            }
         }
     }
 

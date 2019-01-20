@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,13 +32,16 @@ public class CalendarPopup {
     void add(ActionEvent event) {
         models.Calendar c = new models.Calendar(name.getText(),description.getText());
         if(c.isValid()) {
+            validationText.setFill(Color.rgb(185, 230, 223));
             App.calendarManager.saveCalendar(c);
             stage.close();
         }
         else {
             HashMap<String, String> errors = c.getValidationErrors();
-            if(errors.get("name")!=null)
+            if(errors.get("name")!=null) {
+                validationText.setFill(Color.rgb(254, 203, 200));
                 validationText.setText(errors.get("name"));
+            }
         }
     }
 
