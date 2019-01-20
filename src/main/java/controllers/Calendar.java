@@ -198,7 +198,11 @@ public class Calendar implements Initializable {
      * TODO czy robić potwierdzenie? */
     @FXML
     void delete(ActionEvent event) {
-
+        boolean answer = ConfirmPopup.display("Czy na pewno chcesz usunąć kalendarz \"" + App.calendarManager.getCalendarName() + "\"?");
+        if(answer==true) {
+            App.calendarManager.deleteCalendar();
+            App.primaryStageManager.reloadScene("MainMenu");
+        }
     }
 
     /** edycja bieżącego kalendarza

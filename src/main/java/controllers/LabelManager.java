@@ -60,7 +60,7 @@ public class LabelManager implements Initializable {
             });
             JFXButton delete = new JFXButton("Usuń");
             delete.setOnAction(e->{
-                boolean answer = ConfirmPopup.display("Czy na pewno chcesz usunąć etykiete \"" + label.text + "\"");
+                boolean answer = ConfirmPopup.display("Czy na pewno chcesz usunąć etykiete \"" + label.text + "\"?");
                 if(answer==true) {
                     App.calendarManager.deleteLabel(label);
                     App.calendarManager.saveCalendar();
