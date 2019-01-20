@@ -14,11 +14,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /** kontroler obsługujący kalendarz
- * TODO dodać obsługę wydarzeń */
+ * TODO dodać obsługę wydarzeń
+ * TODO zrobić coś z */
 public class Calendar implements Initializable {
     @FXML private Text header;
     @FXML private Text date;
 
+    //dni miesiąca
     @FXML private Text dayNumber00;
     @FXML private Text dayNumber01;
     @FXML private Text dayNumber02;
@@ -61,6 +63,50 @@ public class Calendar implements Initializable {
     @FXML private Text dayNumber54;
     @FXML private Text dayNumber55;
     @FXML private Text dayNumber56;
+
+    //skrócona lista wydarzeń
+    @FXML private Text events00;
+    @FXML private Text events01;
+    @FXML private Text events02;
+    @FXML private Text events03;
+    @FXML private Text events04;
+    @FXML private Text events05;
+    @FXML private Text events06;
+    @FXML private Text events10;
+    @FXML private Text events11;
+    @FXML private Text events12;
+    @FXML private Text events13;
+    @FXML private Text events14;
+    @FXML private Text events15;
+    @FXML private Text events16;
+    @FXML private Text events20;
+    @FXML private Text events21;
+    @FXML private Text events22;
+    @FXML private Text events23;
+    @FXML private Text events24;
+    @FXML private Text events25;
+    @FXML private Text events26;
+    @FXML private Text events30;
+    @FXML private Text events31;
+    @FXML private Text events32;
+    @FXML private Text events33;
+    @FXML private Text events34;
+    @FXML private Text events35;
+    @FXML private Text events36;
+    @FXML private Text events40;
+    @FXML private Text events41;
+    @FXML private Text events42;
+    @FXML private Text events43;
+    @FXML private Text events44;
+    @FXML private Text events45;
+    @FXML private Text events46;
+    @FXML private Text events50;
+    @FXML private Text events51;
+    @FXML private Text events52;
+    @FXML private Text events53;
+    @FXML private Text events54;
+    @FXML private Text events55;
+    @FXML private Text events56;
 
     private DateTime currentDateTime;
 
@@ -197,7 +243,7 @@ public class Calendar implements Initializable {
     /** (button) usunięcie bieżącego kalendarza */
     @FXML
     void delete(ActionEvent event) {
-        boolean answer = ConfirmPopup.display("Czy na pewno chcesz usunąć kalendarz \"" + App.calendarManager.getCalendarName() + "\"?");
+        boolean answer = ConfirmPopup.display("Czy na pewno chcesz usunąć kalendarz\n \"" + App.calendarManager.getCalendarName() + "\"?");
         if(answer) {
             App.calendarManager.deleteCalendar();
             App.primaryStageManager.reloadScene("MainMenu");

@@ -64,7 +64,6 @@
             <JFXMasonryPane GridPane.rowIndex="3">
                <children>
                   <JFXButton maxHeight="-Infinity" maxWidth="150.0" onAction="#changeToStickyNotes" prefHeight="150.0" text="Sticky Notes" />
-                  <JFXButton maxWidth="150.0" onAction="#changeToPasswordManager" prefHeight="150.0" text="Menedżer haseł" />
                </children>
             </JFXMasonryPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
