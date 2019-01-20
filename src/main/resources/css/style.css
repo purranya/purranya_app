@@ -53,8 +53,15 @@
     -fx-background-color: #262626;
 }
 
-option {
-    -fx-border-color: #212121;
+.jfx-combo-box .list-view {
+    -fx-border-color: #262626;
+}
+
+.jfx-combo-box .list-cell {
+    -fx-background-color: #212121;
+}
+
+.jfx-combo-box .label {
     -fx-text-fill: #C2DAFE;
 }
 
