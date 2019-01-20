@@ -43,6 +43,8 @@ public class EventPopup implements Initializable {
     @FXML
     void add(ActionEvent event) {
         Note n = new Note(title.getText(),description.getText(),false,App.calendarManager.getLabelByText(label.getValue().getText()), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue()!=null?(DateUtils.toDateTime(dateOfEnd.getValue())):null);
+        if(n.startDate.isEqual(n.endDate))
+            n.endDate=null;
         if(n.isValid())
         {
             App.calendarManager.addNote(n);
