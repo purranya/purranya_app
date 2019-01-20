@@ -191,6 +191,7 @@ public class Calendar implements Initializable {
     @FXML
     void addEvent(ActionEvent event) {
         EventPopup.display();
+        App.primaryStageManager.reloadScene("Calendar");
     }
 
     /** (button) usunięcie bieżącego kalendarza
@@ -216,6 +217,9 @@ public class Calendar implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         currentDateTime = DateTime.now();
+        ///////
+        System.out.println("Ilość notatek: " + App.calendarManager.getCalendar_DEBUG().notes.size());
+        //////
         date.setText(currentDateTime.dayOfMonth().getAsString() + " " + currentDateTime.monthOfYear().getAsText() + " " + currentDateTime.year().getAsString());
         createCalendar(currentDateTime);
     }

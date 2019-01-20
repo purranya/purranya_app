@@ -12,6 +12,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CalendarManager {
@@ -225,7 +226,7 @@ public class CalendarManager {
         for(Label l : c.labels)
             if(l.id==id) return l;
 
-        return null;
+        return getLabelById(0);
     }
 
     public Note getNoteById(int id)
@@ -256,20 +257,20 @@ public class CalendarManager {
         return true;
     }
 
-    public String[] getLabels() {
-        String[] result = new String[this.c.labels.size()];
-
-        for (int i = 0; i < result.length; i++)
-            result[i] = this.c.labels.get(i).text;
-
-        return result;
-    }
-
     public Label getLabelByText(String text)
     {
         for(Label l : c.labels)
-            if(l.text==text) return l;
+            if(l.text.equals(text)) return l;
 
-        return null;
+        return getLabelByText("");
+    }
+
+    public List<String> getLabelList() {
+        ArrayList<String> result = new ArrayList<>();
+
+        for (Label l : c.labels)
+            result.add(l.text);
+
+        return result;
     }
 }

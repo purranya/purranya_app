@@ -32,6 +32,7 @@ public class LabelPopup {
         {
             validationText.setFill(Color.rgb(185, 230, 223));
             App.calendarManager.addLabel(l);
+            App.calendarManager.saveCalendar();
             stage.close();
         }
         else

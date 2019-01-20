@@ -1,6 +1,7 @@
 package models;
 
 import application.App;
+import data_util.ValidationUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,18 +30,15 @@ public class Calendar implements Serializable {
         this.nextLabelId = 1;
 
         Label l = new Label();
-        l.id=0;l.text="null";
+        l.id=0;l.text="";
         this.labels.add(l);
     }
 
     public boolean isValid()
     {
         boolean calendarNameValid = name!=null && name.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}");
-        boolean calendarComValid = comment!=null && comment.length()<=500;
-        boolean calendarNameUnique = true;
-        for(String f : App.calendarManager.getCalendarIndex())
-            if(f.equals(name))
-                calendarNameUnique = false;
+        boolean calendarComValid = ValidationUtil.StringLengthBetween(comment,1,500);
+        boolean calendarNameUnique = !ValidationUtil.tableContains(App.calendarManager.getCalendarIndex(),name);
 
         return calendarComValid && calendarNameValid && calendarNameUnique;
     }
@@ -50,15 +48,12 @@ public class Calendar implements Serializable {
         HashMap<String,String> errors = new HashMap<>();
         if(name==null || !name.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}"))
             errors.put("name","Nazwa może zawierać 32 znaki.");
-        if(comment==null ||  comment.length()>500)
-            errors.put("comment","Komentarz może zawierać do 500 znaków.");
+        if(!ValidationUtil.StringLengthBetween(comment,1,500))
+            errors.put("comment","Komentarz może zawierać od 1 do 500 znaków.");
 
-        boolean calendarNameUnique = true;
-        for(String f : App.calendarManager.getCalendarIndex())
-            if(f.equals(name))
-                calendarNameUnique = false;
+        boolean calendarNameNotUnique = ValidationUtil.tableContains(App.calendarManager.getCalendarIndex(),name);
 
-        if(!calendarNameUnique)
+        if(calendarNameNotUnique)
             errors.put("name","Kalendarz o podanej nazwie już istnieje!");
 
         return errors;

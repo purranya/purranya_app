@@ -1,6 +1,7 @@
 package models;
 
 import application.App;
+import data_util.ValidationUtil;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,30 +12,22 @@ public class Label implements Serializable {
 
     public boolean isValid()
     {
-        boolean labelNameUnique = true;
-        for(String f : App.calendarManager.getLabels())
-            if(f.equals(text))
-                labelNameUnique = false;
-        boolean isTextLengthValid = text.length()<33 && text.length()>0;
+        boolean labelNameUnique = !ValidationUtil.listContains(App.calendarManager.getAllLabels(),this);
+        boolean isTextLengthValid = ValidationUtil.StringLengthBetween(text,1,32);
         return labelNameUnique && isTextLengthValid;
     }
 
     public HashMap<String,String> getValidationErrors()
     {
         HashMap<String,String>  errors = new HashMap<>();
-        boolean labelNameUnique = true;
-        for(String f : App.calendarManager.getLabels())
-            if(f.equals(text))
-                labelNameUnique = false;
+        boolean labelNameNotUnique = ValidationUtil.listContains(App.calendarManager.getAllLabels(),this);
 
-        if(!labelNameUnique)
+        if(labelNameNotUnique)
             errors.put("text","Etykieta o takiej nazwie już istnieje!");
 
-        if(!(text.length()>0))
-            errors.put("text","Nazwa musi zawierać minimum 1 znak.");
 
-        if(!(text.length()<33))
-            errors.put("text","Nazwa może zawierać maksymalnie 32 znaki.");
+        if(!ValidationUtil.StringLengthBetween(text,1,32))
+            errors.put("text","Etykieta może zawierać od 1 do 32 znaków.");
 
         return errors;
     }
@@ -49,5 +42,11 @@ public class Label implements Serializable {
     @Override
     public String toString() {
         return id + "-\"" + text + "\"";
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        return this.text.equals(((Label)o).text);
     }
 }

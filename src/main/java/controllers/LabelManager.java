@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import models.Label;
 import org.joda.time.DateTime;
 
 import java.net.URL;
@@ -46,13 +47,13 @@ public class LabelManager implements Initializable {
 
         //wyświetlanie wszystkich etykiet jako buttony oraz przycisku do ich usunięcia
         CalendarManager labels = App.calendarManager;
-        for(String labelName : labels.getLabels()) {
-            if(labelName.equals("null"))
+        for(Label labelName : labels.getAllLabels()) {
+            if(labelName.text.equals(""))
                 continue;
             JFXButton labelTemp = new JFXButton();
             labelTemp.setPrefWidth(600);
             labelTemp.setPrefHeight(30);
-            labelTemp.setText(labelName);
+            labelTemp.setText(labelName.text);
             labelTemp.setOnAction(e -> {
                 //zmienic zeby edytowalo a nie dodawalo nowe
                 LabelPopup.display();
