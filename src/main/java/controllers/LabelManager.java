@@ -28,7 +28,7 @@ public class LabelManager implements Initializable {
      * TODO zrobić obsługę! */
     @FXML
     void add(ActionEvent event) {
-        LabelPopup.display();
+        LabelPopup.displayAdd();
         App.primaryStageManager.reloadScene("LabelManager");
     }
 
@@ -47,16 +47,17 @@ public class LabelManager implements Initializable {
 
         //wyświetlanie wszystkich etykiet jako buttony oraz przycisku do ich usunięcia
         CalendarManager labels = App.calendarManager;
-        for(Label labelName : labels.getAllLabels()) {
-            if(labelName.text.equals(""))
+        for(Label label : labels.getAllLabels()) {
+            if(label.text.equals(""))
                 continue;
             JFXButton labelTemp = new JFXButton();
             labelTemp.setPrefWidth(600);
             labelTemp.setPrefHeight(30);
-            labelTemp.setText(labelName.text);
+            labelTemp.setText(label.text);
+            System.out.println(label.id);
             labelTemp.setOnAction(e -> {
                 //zmienic zeby edytowalo a nie dodawalo nowe
-                LabelPopup.display();
+                LabelPopup.displayEdit(label.id);
                 App.primaryStageManager.reloadScene("LabelManager");
             });
             JFXButton delete = new JFXButton("Usuń");
