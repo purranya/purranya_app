@@ -2,6 +2,7 @@ package data;
 
 import application.App;
 import application.Logging;
+import data_util.DateUtils;
 import models.Calendar;
 import models.Label;
 import models.Note;
@@ -243,27 +244,27 @@ public class CalendarManager {
         for(Note n : c.notes) {
             if(n.endDate==null)
             {
-                if(n.startDate.isEqual(date))
+                if(DateUtils.dateEquals(date,n.startDate))
                     res.add(n);
             }
             else
             {
-                boolean starts = n.startDate.isEqual(date);
-                boolean ends = n.endDate.isEqual(date);
+                boolean starts = (DateUtils.dateEquals(date,n.startDate));
+                boolean ends = (DateUtils.dateEquals(date,n.endDate));
                 boolean between = n.startDate.isBefore(date) && n.endDate.isAfter(date);
 
                 if(starts || ends || between)
                     res.add(n);
             }
         }
-        res.sort((o1,o2)->{
+         res.sort((o1,o2)->{
             if(o1.creaionDate.isAfter(o2.creaionDate))
-                return 1;
-            else if(o1.creaionDate.isBefore(o2.creaionDate))
                 return -1;
+            else if (o1.creaionDate.isBefore(o2.creaionDate))
+                return 1;
             else
                 return 0;
-        });
+});
         return res;
     }
 
