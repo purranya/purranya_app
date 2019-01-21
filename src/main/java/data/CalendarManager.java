@@ -256,6 +256,14 @@ public class CalendarManager {
                     res.add(n);
             }
         }
+        res.sort((o1,o2)->{
+            if(o1.creaionDate.isAfter(o2.creaionDate))
+                return 1;
+            else if(o1.creaionDate.isBefore(o2.creaionDate))
+                return -1;
+            else
+                return 0;
+        });
         return res;
     }
 
