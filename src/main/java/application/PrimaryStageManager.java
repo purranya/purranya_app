@@ -1,20 +1,27 @@
 package application;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Random;
 
 public class PrimaryStageManager {
     private HashMap<String, Scene> sceneContainer;
@@ -32,15 +39,31 @@ public class PrimaryStageManager {
             sceneContainer = new HashMap<>();
             sceneContainer.put("BlankScene",new Scene(new HBox()));
 
-            primaryStage.setTitle(stageTitle);
-            primaryStage.setWidth(minWidth);
-            primaryStage.setHeight(minHeight);
-            primaryStage.setMinWidth(minWidth);
-            primaryStage.setMinHeight(minHeight);
+            Stage intro = new Stage();
+            intro.initStyle(StageStyle.UNDECORATED);
+            intro.setWidth(633);
+            intro.setHeight(559);
+            intro.setScene(loadingScene());
 
-            setScene("MainMenu");
+            double duration = (double)((new Random()).nextInt()%1000 + 3000);
+            intro.show();
+            PauseTransition delay = new PauseTransition(Duration.millis(duration));
+            delay.setOnFinished( event -> {
+                            intro.close();
+                            primaryStage.setTitle(stageTitle);
+                            primaryStage.setWidth(minWidth);
+                            primaryStage.setHeight(minHeight);
+                            primaryStage.setMinWidth(minWidth);
+                            primaryStage.setMinHeight(minHeight);
 
-            primaryStage.show();
+                            setScene("MainMenu");
+
+                            primaryStage.show();
+        });
+            delay.play();
+
+
+
 
         } catch ( Exception e ) {
             e.printStackTrace();
@@ -48,6 +71,15 @@ public class PrimaryStageManager {
             Logging.Logger.logError("SceneManager initialization failed");
             System.exit(1);
         }
+    }
+
+    private Scene loadingScene()
+    {
+        Image image = new Image("img/loading_bar.gif");
+        ImageView view = new ImageView(image);
+        AnchorPane pane = new AnchorPane(view);
+        Scene scene = new Scene(pane);
+        return scene;
     }
 
     public void setScene(String sceneName) {
