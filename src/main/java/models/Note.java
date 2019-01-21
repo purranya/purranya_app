@@ -21,6 +21,8 @@ public class Note implements Serializable {
     public DateTime startDate;
     public DateTime endDate;
 
+    public DateTime creaionDate;
+
     public Note() {
     }
 
@@ -31,6 +33,8 @@ public class Note implements Serializable {
         this.label = label;
         this.startDate = startDate;
         this.endDate = endDate;
+
+        this.creaionDate = DateTime.now();
     }
 
     public boolean isValid()

@@ -237,6 +237,28 @@ public class CalendarManager {
         return null;
     }
 
+    public List<Note> getNotesByDate(DateTime date)
+    {
+        ArrayList<Note> res = new ArrayList<>();
+        for(Note n : c.notes) {
+            if(n.endDate==null)
+            {
+                if(n.startDate.isEqual(date))
+                    res.add(n);
+            }
+            else
+            {
+                boolean starts = n.startDate.isEqual(date);
+                boolean ends = n.endDate.isEqual(date);
+                boolean between = n.startDate.isBefore(date) && n.endDate.isAfter(date);
+
+                if(starts || ends || between)
+                    res.add(n);
+            }
+        }
+        return res;
+    }
+
     private boolean deleteLabelById(int id)
     {
         Label l = getLabelById(id);
