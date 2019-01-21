@@ -37,12 +37,11 @@ public class EventPopup implements Initializable {
     @FXML private Text validationData;
 
     private static Stage stage;
-    private static Scene scene = loadScene();
 
     /** (button) dodanie wydarzenia do kalendarza */
     @FXML
     void add(ActionEvent event) {
-        Note n = new Note(title.getText(),description.getText(),false,App.calendarManager.getLabelByText(label.getValue().getText()), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue()!=null?(DateUtils.toDateTime(dateOfEnd.getValue())):null);
+        Note n = new Note(title.getText(),description.getText(),false,label.getValue()!=null?App.calendarManager.getLabelByText(label.getValue().getText()):App.calendarManager.getLabelByText(""), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue()!=null?(DateUtils.toDateTime(dateOfEnd.getValue())):null);
         if(n.startDate.isEqual(n.endDate))
             n.endDate=null;
         if(n.isValid())
@@ -58,10 +57,10 @@ public class EventPopup implements Initializable {
                 validationText.setFill(Color.rgb(254, 203, 200));
                 validationText.setText(errors.get("text"));
             }
-            else if(errors.get("enddate")!=null)
+            if(errors.get("enddate")!=null)
             {
-                validationText.setFill(Color.rgb(254, 203, 200));
-                validationText.setText(errors.get("enddate"));
+                validationData.setFill(Color.rgb(254, 203, 200));
+                validationData.setText(errors.get("enddate"));
             }
         }
     }
@@ -98,10 +97,10 @@ public class EventPopup implements Initializable {
             stage.setWidth(362);
             stage.setHeight(543);
             stage.setResizable(false);
-            stage.setScene(scene);
+            stage.setTitle("Dodaj wydarzenie");
         }
-        stage.setTitle("Dodaj wydarzenie");
 
+        stage.setScene(loadScene());
         stage.showAndWait();
     }
 }
