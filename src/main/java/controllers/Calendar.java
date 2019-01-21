@@ -47,17 +47,24 @@ public class Calendar implements Initializable {
                 Text dayLabel = new Text(Integer.toString(day.getDayOfMonth()));
                 dayLabel.getStyleClass().add("text-area");
                 JFXButton[] events = new JFXButton[3];
+                JFXButton moreEvents = new JFXButton("Wyświetl więcej");
+                moreEvents.getStyleClass().add("jfx-button-details");
 
                 VBox dayField = new VBox(dayLabel);
 
                 List<Note> notes = App.calendarManager.getNotesByDate(day);
 
+                int eventCounter = 0;
                 for (int i = 0; i < 3 && i < notes.size(); i++) {
                     if (notes.get(i).title.length() > 15)
                         events[i] = new JFXButton(notes.get(i).title.substring(0, 12) + "...");
                     else
                         events[i] = new JFXButton(notes.get(i).title);
                     dayField.getChildren().add(events[i]);
+                    eventCounter++;
+                }
+                if (eventCounter == 3) {
+                    dayField.getChildren().add(moreEvents);
                 }
 
                 days.add(dayField, day_i, week_i);
