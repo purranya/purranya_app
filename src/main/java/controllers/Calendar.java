@@ -1,6 +1,7 @@
 package controllers;
 
 import application.App;
+import com.jfoenix.controls.JFXButton;
 import data_util.DateUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,8 +45,8 @@ public class Calendar implements Initializable {
         for (int week_i = 0; week_i < 6; week_i++) {
             for (int day_i = 0; day_i < 7; day_i++) {
                 Text dayLabel = new Text(Integer.toString(day.getDayOfMonth()));
-
-                Text[] events = new Text[3];
+                dayLabel.getStyleClass().add("text-area");
+                JFXButton[] events = new JFXButton[3];
 
                 VBox dayField = new VBox(dayLabel);
 
@@ -53,9 +54,9 @@ public class Calendar implements Initializable {
 
                 for (int i = 0; i < 3 && i < notes.size(); i++) {
                     if (notes.get(i).title.length() > 15)
-                        events[i] = new Text(notes.get(i).title.substring(0, 12) + "...");
+                        events[i] = new JFXButton(notes.get(i).title.substring(0, 12) + "...");
                     else
-                        events[i] = new Text(notes.get(i).title);
+                        events[i] = new JFXButton(notes.get(i).title);
                     dayField.getChildren().add(events[i]);
                 }
 
