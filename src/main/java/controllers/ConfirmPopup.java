@@ -52,7 +52,6 @@ public class ConfirmPopup implements Initializable {
         return null;
     }
 
-    /** TODO wyrównać tekst */
     public static boolean display(String mes) {
         if(stage==null) {
             stage = new Stage();

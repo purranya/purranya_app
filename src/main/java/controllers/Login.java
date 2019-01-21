@@ -11,8 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/** kontroler do obsługi okna logowania
- * TODO przebudować całą scenę (dostosować do okienka popup) */
+/** kontroler do obsługi okna logowania */
 public class Login {
     @FXML private JFXTextField login;
     @FXML private JFXPasswordField password;

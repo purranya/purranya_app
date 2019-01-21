@@ -104,9 +104,7 @@ public class Calendar implements Initializable {
     }
 
     /**
-     * edycja bieżącego kalendarza
-     * TODO wczytywanie informacji z bieżącego kalendarza (może w konstruktorze
-     */
+     * edycja bieżącego kalendarza */
     @FXML
     void edit(ActionEvent event) {
         CalendarPopup.displayEdit();
