@@ -37,6 +37,15 @@ public class Note implements Serializable {
         this.creaionDate = DateTime.now();
     }
 
+    public void set(String title, String content, boolean isArchived, Label label, DateTime startDate, DateTime endDate) {
+        this.title = title;
+        this.content = content;
+        this.isArchived = isArchived;
+        this.label = label;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     public boolean isValid()
     {
         boolean isTitleLengthValid = ValidationUtil.StringLengthBetween(title,1,32);

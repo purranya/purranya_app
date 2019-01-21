@@ -49,21 +49,29 @@ public class Calendar implements Initializable {
                 JFXButton[] events = new JFXButton[3];
                 JFXButton moreEvents = new JFXButton("Wyświetl więcej");
                 moreEvents.getStyleClass().add("jfx-button-details");
+                final DateTime link = day;
+                moreEvents.setOnAction(e -> {
+                    DayView.display(link);
+                });
 
                 VBox dayField = new VBox(dayLabel);
 
                 List<Note> notes = App.calendarManager.getNotesByDate(day);
 
-                int eventCounter = 0;
                 for (int i = 0; i < 3 && i < notes.size(); i++) {
                     if (notes.get(i).title.length() > 15)
                         events[i] = new JFXButton(notes.get(i).title.substring(0, 12) + "...");
                     else
                         events[i] = new JFXButton(notes.get(i).title);
+                    final int index = i;
+                    events[i].setOnAction(e->{
+                        EventPopup.displayEdit(notes.get(index).id);
+                        App.primaryStageManager.reloadScene("Calendar");
+                    });
                     dayField.getChildren().add(events[i]);
-                    eventCounter++;
                 }
-                if (eventCounter == 3) {
+
+                if (notes.size()>3) {
                     dayField.getChildren().add(moreEvents);
                 }
 
@@ -79,7 +87,7 @@ public class Calendar implements Initializable {
      */
     @FXML
     void addEvent(ActionEvent event) {
-        EventPopup.display();
+        EventPopup.displayAdd();
         App.primaryStageManager.reloadScene("Calendar");
     }
 
