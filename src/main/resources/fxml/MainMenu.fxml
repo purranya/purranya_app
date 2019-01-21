@@ -33,7 +33,7 @@
                   <Font size="13.0" />
                </font>
             </Text>
-            <Text fx:id="date" layoutX="882.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-area" text="[data]" textAlignment="RIGHT" wrappingWidth="127.6708984375" AnchorPane.rightAnchor="14.3291015625" AnchorPane.topAnchor="7.9716796875">
+            <Text fx:id="date" layoutX="882.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-area" text="[data]" textAlignment="RIGHT" wrappingWidth="127.6708984375" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
                <font>
                   <Font size="13.0" />
                </font>

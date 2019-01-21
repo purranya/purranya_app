@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -20,26 +21,23 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class DayView implements Initializable {
-    @FXML private Text date;
     @FXML private VBox eventList;
-
-    @FXML
-    void cancel(ActionEvent event) {
-        App.primaryStageManager.setScene("Calendar");
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        date.setText(currentDate.toString("dd MMMM YYYY"));
         List<Note> notes = App.calendarManager.getNotesByDate(currentDate);
         for(Note note : notes)
         {
             JFXButton button = new JFXButton(note.title);
+            JFXButton delete = new JFXButton("Usuń");
+            delete.setStyle("-fx-border-color: #89b2ac");
+            HBox hBox = new HBox(button, delete);
+            button.setPrefWidth(360);
             button.setOnAction(e->{
                 EventPopup.displayEdit(note.id);
                 stage.setScene(loadScene());
             });
-            eventList.getChildren().add(button);
+            eventList.getChildren().add(hBox);
 
         }
     }
@@ -51,7 +49,7 @@ public class DayView implements Initializable {
         if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
             stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setWidth(362);
+            stage.setWidth(450);
             stage.setHeight(543);
             stage.setResizable(false);
             stage.setTitle("Wydarzenia");
@@ -64,7 +62,7 @@ public class DayView implements Initializable {
     /** załadowanie sceny */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(LabelPopup.class.getClassLoader().getResource("fxml/DayView.fxml")));
+            return new Scene(FXMLLoader.load(DayView.class.getClassLoader().getResource("fxml/DayView.fxml")));
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Popup EventPopup initialization failed");
