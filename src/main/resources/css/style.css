@@ -16,6 +16,11 @@
     -fx-fill: #FECBC8;
 }
 
+.text-day {
+    -fx-font-weight: bold;
+    -fx-fill: #FECBC8;
+}
+
 .text-validation {
     -fx-font-size: 11px;
     -fx-fill: #595959;

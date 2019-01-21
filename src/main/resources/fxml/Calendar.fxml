@@ -70,7 +70,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton layoutY="7.0" prefHeight="31.0" prefWidth="147.0" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="7.0" />
+                                    <JFXButton fx:id="moreEvents00" layoutY="7.0" prefHeight="31.0" prefWidth="147.0" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="7.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -89,7 +89,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents01" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -108,7 +108,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents02" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -127,7 +127,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents03" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -146,7 +146,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents04" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -165,7 +165,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents05" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -184,7 +184,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents06" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -203,7 +203,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents10" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -222,7 +222,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents11" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -241,7 +241,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents12" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -260,7 +260,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents13" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -279,7 +279,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents14" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -298,7 +298,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents15" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -317,7 +317,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents16" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -336,7 +336,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents20" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -355,7 +355,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents21" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -374,7 +374,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents22" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -393,7 +393,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents23" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -412,7 +412,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents24" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -431,7 +431,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents25" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -450,7 +450,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents26" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -469,7 +469,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents30" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -488,7 +488,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents31" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -507,7 +507,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents32" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -526,7 +526,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents33" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -545,7 +545,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents34" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -564,7 +564,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents35" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -583,7 +583,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents36" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -602,7 +602,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents40" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -621,7 +621,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents41" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -640,7 +640,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents42" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -659,7 +659,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents43" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -678,7 +678,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents44" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -697,7 +697,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents45" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -716,7 +716,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents46" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -735,7 +735,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents50" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -754,7 +754,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents51" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -773,7 +773,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents52" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -792,7 +792,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents53" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -811,7 +811,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents54" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -830,7 +830,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents55" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
@@ -849,7 +849,7 @@
                            <bottom>
                               <AnchorPane prefHeight="2.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXButton fx:id="moreEvents56" styleClass="jfx-button-details" text="Wyświetl więcej" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
