@@ -32,6 +32,8 @@ public class PrimaryStageManager {
 
     private final String stageTitle="Purranya";
 
+
+
     public PrimaryStageManager(Stage primary) {
         try {
             this.primaryStage = primary;
@@ -44,6 +46,7 @@ public class PrimaryStageManager {
             intro.setWidth(633);
             intro.setHeight(559);
             intro.setScene(loadingScene());
+            primaryStage.getIcons().add(new Image("img/PurranyaLogo4.png"));
 
             double duration = (double)((new Random()).nextInt()%1000 + 3000);
             intro.show();
@@ -55,6 +58,7 @@ public class PrimaryStageManager {
                             primaryStage.setHeight(minHeight);
                             primaryStage.setMinWidth(minWidth);
                             primaryStage.setMinHeight(minHeight);
+
 
                             setScene("MainMenu");
 
