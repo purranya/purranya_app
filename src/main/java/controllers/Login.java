@@ -1,7 +1,6 @@
 package controllers;
 
-import application.App;
-import application.Logging;
+import app.Logging;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;

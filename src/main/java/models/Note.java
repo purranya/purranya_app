@@ -1,8 +1,7 @@
 package models;
 
-import application.App;
-import application.GlobalOptions;
-import data_util.ValidationUtil;
+import app.GlobalOptions;
+import utils.ValidationUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -48,14 +47,14 @@ public class Note implements Serializable {
 
     public boolean isValid()
     {
-        boolean isTitleLengthValid = ValidationUtil.StringLengthBetween(title,1,32);
+        boolean isTitleLengthValid = ValidationUtils.StringLengthBetween(title,1,32);
         boolean isEndDateValid = (endDate==null || ( endDate!=null && endDate.isAfter(startDate)));
         return isTitleLengthValid && isEndDateValid;
     }
 
     public HashMap<String,String> getValidationErrors()
     {
-        boolean isTitleLengthValid = ValidationUtil.StringLengthBetween(title,1,32);
+        boolean isTitleLengthValid = ValidationUtils.StringLengthBetween(title,1,32);
         boolean isEndDateValid = (endDate==null || ( endDate!=null && endDate.isAfter(startDate)));
 
         HashMap<String,String>  errors = new HashMap<>();

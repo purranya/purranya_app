@@ -1,13 +1,11 @@
 package controllers;
 
-import application.App;
+import app.App;
 import com.jfoenix.controls.JFXButton;
 import data.CalendarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;

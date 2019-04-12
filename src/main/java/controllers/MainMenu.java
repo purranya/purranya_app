@@ -1,6 +1,6 @@
 package controllers;
 
-import application.App;
+import app.App;
 import com.jfoenix.controls.JFXButton;
 import data.CalendarManager;
 import javafx.event.ActionEvent;

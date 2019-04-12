@@ -1,4 +1,4 @@
-package application;
+package app;
 
 import java.io.IOException;
 import java.util.Locale;

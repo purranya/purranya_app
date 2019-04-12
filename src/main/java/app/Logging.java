@@ -1,4 +1,4 @@
-package application;
+package app;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -7,7 +7,7 @@ import org.joda.time.format.DateTimeFormatter;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import static application.GlobalOptions.logDateFormat;
+import static app.GlobalOptions.logDateFormat;
 
 public class Logging {
     public static Logging Logger = new Logging();

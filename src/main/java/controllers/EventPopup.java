@@ -1,11 +1,10 @@
 package controllers;
 
-import application.App;
-import application.Logging;
+import app.App;
+import app.Logging;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,8 +19,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Label;
 import models.Note;
-import org.joda.time.DateTime;
-import data_util.DateUtils;
+import utils.DateUtils;
 
 import java.net.URL;
 import java.util.HashMap;

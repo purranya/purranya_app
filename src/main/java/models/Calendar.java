@@ -1,7 +1,7 @@
 package models;
 
-import application.App;
-import data_util.ValidationUtil;
+import app.App;
+import utils.ValidationUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class Calendar implements Serializable {
     public boolean isValid()
     {
         boolean calendarNameValid = name!=null && name.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}");
-        boolean calendarNameUnique = !ValidationUtil.tableContains(App.calendarManager.getCalendarIndex(),name);
+        boolean calendarNameUnique = !ValidationUtils.tableContains(App.calendarManager.getCalendarIndex(),name);
 
         return calendarNameValid && calendarNameUnique;
     }
@@ -48,7 +48,7 @@ public class Calendar implements Serializable {
         if(name==null || !name.matches("^[a-zA-Z0-9][a-zA-Z0-9 -_]{0,31}"))
             errors.put("name","Nazwa może zawierać 32 znaki.");
 
-        boolean calendarNameNotUnique = ValidationUtil.tableContains(App.calendarManager.getCalendarIndex(),name);
+        boolean calendarNameNotUnique = ValidationUtils.tableContains(App.calendarManager.getCalendarIndex(),name);
 
         if(calendarNameNotUnique)
             errors.put("name","Kalendarz o podanej nazwie już istnieje!");

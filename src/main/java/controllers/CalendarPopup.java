@@ -1,9 +1,8 @@
 package controllers;
 
-import application.App;
-import application.Logging;
+import app.App;
+import app.Logging;
 import com.jfoenix.controls.JFXTextField;
-import data_util.ValidationUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

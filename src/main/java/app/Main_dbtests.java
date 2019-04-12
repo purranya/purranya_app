@@ -1,8 +1,4 @@
-package application;
-
-import data.CalendarManager;
-
-import static application.App.calendarManager;
+package app;
 
 public class Main_dbtests {
 

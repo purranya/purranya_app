@@ -1,6 +1,6 @@
 package controllers;
 
-import application.Logging;
+import app.Logging;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

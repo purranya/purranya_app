@@ -1,6 +1,6 @@
 package controllers;
 
-import application.App;
+import app.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

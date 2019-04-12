@@ -1,4 +1,4 @@
-package application;
+package app;
 
 public class GlobalOptions {
 

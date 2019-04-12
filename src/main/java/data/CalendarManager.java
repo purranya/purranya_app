@@ -1,13 +1,12 @@
 package data;
 
-import application.App;
-import application.Logging;
-import data_util.DateUtils;
+import app.App;
+import app.Logging;
+import utils.DateUtils;
 import models.Calendar;
 import models.Label;
 import models.Note;
 import org.joda.time.DateTime;
-import org.omg.CORBA.Object;
 
 import java.io.*;
 import java.nio.file.Files;

@@ -1,6 +1,6 @@
 package controllers;
 
-import application.Logging;
+import app.Logging;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
