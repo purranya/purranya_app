@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -12,12 +13,14 @@
    <children>
       <JFXDatePicker fx:id="dateOfStart" layoutX="64.0" layoutY="92.0" prefHeight="26.0" prefWidth="235.0" promptText="Data rozpoczęcia" showWeekNumbers="true" />
       <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="34.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />
-      <JFXComboBox fx:id="label" labelFloat="true" layoutX="64.0" layoutY="200.0" prefHeight="26.0" prefWidth="235.0" promptText="Etykieta" />
-      <TextArea fx:id="description" layoutX="64.0" layoutY="250.0" prefHeight="182.0" prefWidth="235.0" promptText="Opis wydarzenia..." wrapText="true" />
+      <JFXComboBox fx:id="label" labelFloat="true" layoutX="64.0" layoutY="271.0" prefHeight="26.0" prefWidth="235.0" promptText="Etykieta" />
+      <TextArea fx:id="description" layoutX="64.0" layoutY="321.0" prefHeight="111.0" prefWidth="235.0" promptText="Opis wydarzenia..." wrapText="true" />
       <JFXButton fx:id="action" layoutX="62.0" layoutY="445.0" />
       <JFXButton layoutX="236.0" layoutY="445.0" onAction="#cancel" text="Anuluj" />
-      <JFXDatePicker fx:id="dateOfEnd" layoutX="64.0" layoutY="132.0" prefHeight="26.0" prefWidth="235.0" promptText="Data zakończenia" showWeekNumbers="true" />
+      <JFXDatePicker fx:id="dateOfEnd" layoutX="62.0" layoutY="176.0" prefHeight="26.0" prefWidth="235.0" promptText="Data zakończenia" showWeekNumbers="true" />
       <Text fx:id="validationText" layoutX="64.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Tytuł może zawierać 32 znaki." />
       <Text fx:id="validationData" layoutX="62.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text=" " />
+      <JFXTimePicker layoutX="64.0" layoutY="134.0" prefHeight="26.0" prefWidth="235.0" />
+      <JFXTimePicker layoutX="62.0" layoutY="222.0" prefHeight="26.0" prefWidth="235.0" />
    </children>
 </AnchorPane>

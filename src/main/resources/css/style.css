@@ -110,7 +110,7 @@
 }
 
 /*******************************************************************************
- * DatePicker                                                                  *
+ * DatePicker  + TimePicker                                                    *
 *******************************************************************************/
 
 .jfx-date-picker {
@@ -154,5 +154,14 @@
 
 .date-picker-popup > * > .date-picker-list-view > .virtual-flow > .clipped-container > .sheet > .data-picker-list-cell:hover {
     -fx-background-color: #262626;
+}
+
+.jfx-time-picker {
+    -jfx-default-color: #C2DAFE;
+    -fx-show-week-numbers: false;
+    -fx-cursor: hand;
+    -fx-text-fill: #C2DAFE;
+    -jfx-unfocus-color: #4f706b;
+    -fx-background-color: #212121;
 }
 
