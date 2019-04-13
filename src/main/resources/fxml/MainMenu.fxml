@@ -12,15 +12,17 @@
 
 <AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenu">
    <children>
-      <JFXButton layoutX="906.0" layoutY="730.0" onAction="#register" styleClass="jfx-button-regular" text="[Utwórz konto]" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </JFXButton>
-      <Text layoutX="14.0" layoutY="747.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-area" text="2018-2019 ⓒ Purranya" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
-         <font>
-            <Font size="13.0" />
-         </font></Text>
+      <AnchorPane layoutY="731.0" prefHeight="37.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <JFXButton layoutX="808.0" layoutY="-2.0" onAction="#register" prefHeight="37.0" prefWidth="106.0" text="[Utwórz konto]" />
+            <JFXButton layoutX="914.0" layoutY="-2.0" onAction="#settings" prefHeight="37.0" prefWidth="83.0" text="[Ustawienia]" />
+            <Text layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-area" text="2018-2019 ⓒ Purranya" AnchorPane.bottomAnchor="10.7373046875" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
       <AnchorPane prefHeight="30.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton fx:id="logInOut" layoutY="-1.0" maxHeight="30.0" onAction="#loginLogout" prefHeight="30.0" prefWidth="106.0" text="[Zaloguj się]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">

@@ -54,6 +54,12 @@ public class MainMenu implements Initializable {
         Register.display();
     }
 
+    @FXML
+    void settings(ActionEvent event) {
+        SettingsPopup.display();
+        App.primaryStageManager.reloadScene("MainMenu");
+    }
+
     /** TODO dodać obsługę zalogowanego użytkownika! (dotyczy zmiennej user) */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
