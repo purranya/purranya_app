@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -22,6 +23,9 @@ import java.util.ResourceBundle;
 
 /** kontroler do obsługi dodawania kalendarzy */
 public class CalendarPopup implements Initializable {
+    @FXML
+    private AnchorPane mainPane;
+
     @FXML private JFXTextField name;
     @FXML private Text validationText;
     @FXML private TextArea description;
@@ -32,6 +36,8 @@ public class CalendarPopup implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
+
         if(!editscene)
         {
             action.setText("Dodaj");

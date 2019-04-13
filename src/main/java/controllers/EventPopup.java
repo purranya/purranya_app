@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -27,6 +28,8 @@ import java.util.ResourceBundle;
 
 /** kontroler do obsługi dodawania wydarzeń w kalendarzu */
 public class EventPopup implements Initializable {
+    @FXML
+    private AnchorPane mainPane;
     @FXML private JFXDatePicker dateOfStart;
     @FXML private JFXTextField title;
     @FXML private JFXComboBox<javafx.scene.control.Label> label;
@@ -43,6 +46,8 @@ public class EventPopup implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
+
         for(Label l : App.calendarManager.getAllLabels())
             this.label.getItems().add(new javafx.scene.control.Label(l.text));
         if(!editscene)

@@ -1,5 +1,6 @@
 package controllers;
 
+import app.App;
 import app.Logging;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -16,6 +18,8 @@ import java.util.ResourceBundle;
 public class SettingsPopup implements Initializable {
     private static Stage stage;
 
+    @FXML
+    private AnchorPane mainPane;
     @FXML
     private JFXComboBox<javafx.scene.control.Label> layout;
 
@@ -57,6 +61,8 @@ public class SettingsPopup implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
+
         String[] themes = {"blue", "chill", "dark", "pastel", "red"};
 
         for(String s : themes)

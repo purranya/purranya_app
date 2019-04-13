@@ -2,6 +2,7 @@ package controllers;
 
 import app.App;
 import com.jfoenix.controls.JFXButton;
+import javafx.scene.layout.AnchorPane;
 import utils.DateUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,9 @@ public class Calendar implements Initializable {
     private static DateTime currentMonth;
 
     @FXML
+    private AnchorPane mainPane;
+
+    @FXML
     private Text header;
 
     @FXML
@@ -30,6 +34,8 @@ public class Calendar implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
+
         currentMonth = new DateTime(DateTime.now().year().get(), DateTime.now().monthOfYear().get(), 1, 0, 0, 0);
         createCalendar();
     }

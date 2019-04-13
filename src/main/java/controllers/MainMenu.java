@@ -6,6 +6,7 @@ import data.CalendarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import org.joda.time.DateTime;
@@ -15,6 +16,8 @@ import java.util.ResourceBundle;
 
 /** kontroler obsługujący główne menu */
 public class MainMenu implements Initializable {
+    @FXML
+    private AnchorPane mainPane;
     @FXML private HBox calendarList = new HBox(5);
     @FXML private Text user;
     @FXML private Text date;
@@ -33,12 +36,6 @@ public class MainMenu implements Initializable {
     void addCalendar(ActionEvent event) {
         CalendarPopup.displayAdd();
         App.primaryStageManager.reloadScene("MainMenu");
-    }
-
-    /** (button) obsługa przycisku "Menedżer haseł */
-    @FXML
-    void changeToPasswordManager(ActionEvent event) {
-        App.primaryStageManager.setScene("PasswordManager");
     }
 
     /** (button) obsługa przycisku "Sticky Notes */
@@ -63,6 +60,8 @@ public class MainMenu implements Initializable {
     /** TODO dodać obsługę zalogowanego użytkownika! (dotyczy zmiennej user) */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
+
         //wyświetlanie aktualnej daty
         user.setText("");
         DateTime dateTime = DateTime.now();

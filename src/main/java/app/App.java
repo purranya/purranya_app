@@ -8,9 +8,10 @@ public class App extends Application {
     public static HomeFolderManager homeFolderManager;
     public static PrimaryStageManager primaryStageManager;
     public static CalendarManager calendarManager;
+    public static GlobalOptions globalOptions;
 
     public static void initialize(Stage primary) {
-
+        globalOptions = new GlobalOptions();
         homeFolderManager = new HomeFolderManager();
         calendarManager = new CalendarManager();
         if(primary!=null)primaryStageManager = new PrimaryStageManager(primary);

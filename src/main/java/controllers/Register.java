@@ -1,22 +1,30 @@
 package controllers;
 
+import app.App;
 import app.Logging;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /** kontroler do obsługi tworzenia konta */
-public class Register {
+public class Register implements Initializable {
     private static Stage stage;
     private static Scene scene = loadScene();
 
+    @FXML
+    private AnchorPane mainPane;
     @FXML private JFXTextField login;
     @FXML private JFXTextField email;
     @FXML private JFXPasswordField password;
@@ -107,5 +115,10 @@ public class Register {
         stage.setTitle("Utwórz konto - Purranya");
 
         stage.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
     }
 }

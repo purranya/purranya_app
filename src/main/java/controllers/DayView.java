@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -19,10 +20,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class DayView implements Initializable {
+    @FXML
+    private AnchorPane mainPane;
     @FXML private VBox eventList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
+
         List<Note> notes = App.calendarManager.getNotesByDate(currentDate);
         for(Note note : notes)
         {

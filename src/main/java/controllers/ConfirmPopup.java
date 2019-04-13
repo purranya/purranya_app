@@ -1,5 +1,6 @@
 package controllers;
 
+import app.App;
 import app.Logging;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -15,6 +17,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ConfirmPopup implements Initializable {
+    @FXML
+    private AnchorPane mainPane;
     @FXML private Text popupText;
     @FXML private JFXButton yes;
     @FXML private JFXButton no;
@@ -25,6 +29,8 @@ public class ConfirmPopup implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + App.globalOptions.getUserOptions("stylesheet") + ".css");
+
         popupText.setText(message);
     }
 
