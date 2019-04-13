@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="362.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConfirmPopup">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConfirmPopup">
    <children>
       <Text fx:id="popupText" layoutX="64.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-area" text="Czy na pewno chcesz usunąć etykietę?" textAlignment="CENTER" />
       <JFXButton fx:id="yes" layoutX="64.0" layoutY="121.0" onAction="#confirm" text="Tak" />

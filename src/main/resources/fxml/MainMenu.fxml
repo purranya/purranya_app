@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenu">
+<AnchorPane minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenu">
    <children>
       <AnchorPane layoutY="731.0" prefHeight="37.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -53,7 +53,7 @@
           <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="439.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="60.0" prefWidth="944.0" stylesheets="@../css/style.css">
+            <AnchorPane prefHeight="60.0" prefWidth="944.0" stylesheets="@../css/dark.css">
                <children>
                   <Text fill="#971515" layoutX="27.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-header" text="Lista kalendarzy" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                      <font>

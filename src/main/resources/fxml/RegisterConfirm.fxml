@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="136.0" minWidth="244.0" prefHeight="136.0" prefWidth="244.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterConfirm">
+<AnchorPane minHeight="136.0" minWidth="244.0" prefHeight="136.0" prefWidth="244.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterConfirm">
    <children>
       <Text layoutX="45.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-area" text="Konto zostało utworzone!" />
       <JFXButton layoutX="88.0" layoutY="68.0" onAction="#cancel" text="Powrót" />

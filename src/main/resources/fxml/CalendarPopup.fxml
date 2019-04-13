@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="305.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="362.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CalendarPopup">
+<AnchorPane maxHeight="305.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CalendarPopup">
     <children>
         <JFXTextField fx:id="name" labelFloat="true" layoutX="64.0" layoutY="35.0" prefHeight="26.0" prefWidth="235.0" promptText="Nazwa" />
         <JFXButton fx:id="action" layoutX="64.0" layoutY="221.0" />

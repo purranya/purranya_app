@@ -5,15 +5,19 @@ import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class SettingsPopup {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SettingsPopup implements Initializable {
     private static Stage stage;
 
     @FXML
-    private JFXComboBox<?> layout;
+    private JFXComboBox<javafx.scene.control.Label> layout;
 
     @FXML
     void cancel(ActionEvent event) {
@@ -22,7 +26,6 @@ public class SettingsPopup {
 
     @FXML
     void confirm(ActionEvent event) {
-
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
@@ -52,4 +55,11 @@ public class SettingsPopup {
         stage.showAndWait();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        String[] themes = {"blue", "chill", "dark", "pastel", "red"};
+
+        for(String s : themes)
+            this.layout.getItems().add(new javafx.scene.control.Label(s));
+    }
 }
