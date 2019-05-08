@@ -52,7 +52,7 @@
 *******************************************************************************/
 
 .jfx-text-field, .jfx-password-field, .jfx-combo-box {
-    -fx-text-fill: #353b6d  ;
+    -fx-text-fill: #c8a29e  ;
     -fx-prompt-text-fill: #bb7087 ;
     -jfx-focus-color: #40656b  ;
     -jfx-unfocus-color: #4f706b;

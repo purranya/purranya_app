@@ -55,7 +55,7 @@
     -fx-text-fill: #dfe1d4;
     -fx-prompt-text-fill: #aa97b3;
     -jfx-focus-color: #dfe1d4;
-    -jfx-unfocus-color: #4f706b;
+    -jfx-unfocus-color: #aa97b3;
 }
 
 .text-area, .content {
@@ -112,13 +112,14 @@
 /*******************************************************************************
  * DatePicker                                                                  *
 *******************************************************************************/
+/* w tym skinie jest jeden kolor, który trzeba zamienić, ale nie ma od niego zmiennej*/
 
 .jfx-date-picker {
     -jfx-default-color: #dfe1d4;
     -fx-show-week-numbers: false;
     -fx-cursor: hand;
     -fx-text-fill: #dfe1d4;
-    -jfx-unfocus-color: #4f706b;
+    -jfx-unfocus-color: #aa97b3;
     -fx-background-color: #651c2d;
 }
 
@@ -156,3 +157,11 @@
     -fx-background-color: #a71d2c;
 }
 
+.jfx-time-picker {
+    -jfx-default-color: #a71d2c;
+    -fx-show-week-numbers: false;
+    -fx-cursor: hand;
+    -fx-text-fill: #a71d2c;
+    -jfx-unfocus-color: #a0a0a0;
+    -fx-background-color: #651c2d;
+}

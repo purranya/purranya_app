@@ -9,7 +9,7 @@
 *******************************************************************************/
 
 .text-area {
-    -fx-fill: #339086 ;
+    -fx-fill: #b9db59 ;
 }
 
 .text-header {
@@ -52,7 +52,7 @@
 *******************************************************************************/
 
 .jfx-text-field, .jfx-password-field, .jfx-combo-box {
-    -fx-text-fill: #339086 ;
+    -fx-text-fill: #b9db59 ;
     -fx-prompt-text-fill: #b9db59;
     -jfx-focus-color: #59b7c1 ;
     -jfx-unfocus-color: #4f706b;
@@ -74,7 +74,7 @@
 }
 
 .jfx-combo-box .label {
-    -fx-text-fill: #59b7c1 ;
+    -fx-text-fill: #b9db59 ;
 }
 
 /*******************************************************************************
@@ -87,7 +87,7 @@
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: #339086 ;
+    -fx-background-color: #b9db59 ;
     -fx-background-radius: 2em;
 }
 
@@ -114,10 +114,10 @@
 *******************************************************************************/
 
 .jfx-date-picker {
-    -jfx-default-color: #339086 ;
+    -jfx-default-color: #b9db59 ;
     -fx-show-week-numbers: false;
     -fx-cursor: hand;
-    -fx-text-fill: #59b7c1 ;
+    -fx-text-fill: #b9db59 ;
     -jfx-unfocus-color: #4f706b;
     -fx-background-color: #339086;
 }
@@ -126,7 +126,7 @@
     -fx-font-size: 12px;
     -fx-default-color: #59b7c1 ;
     -fx-background-color: #339086 ;
-    -fx-border-color: #339086 ;
+    -fx-border-color: #59b7c1 ;
 }
 
 .date-picker-popup > * {
@@ -144,7 +144,7 @@
 
 .date-picker-popup .cell:focused {
     -fx-background-color: transparent;
-    -fx-border-color: #339086 ;
+    -fx-border-color: #b9db59 ;
 }
 
 .date-picker-popup > * > .date-picker-list-view > .virtual-flow > .clipped-container > .sheet > .data-picker-list-cell {
@@ -156,3 +156,11 @@
     -fx-background-color: #27a0a3 ;
 }
 
+.jfx-time-picker {
+    -jfx-default-color: #b9db59;
+    -fx-show-week-numbers: false;
+    -fx-cursor: hand;
+    -fx-text-fill: #b9db59;
+    -jfx-unfocus-color: #4f706b;
+    -fx-background-color: #27a0a3;
+}

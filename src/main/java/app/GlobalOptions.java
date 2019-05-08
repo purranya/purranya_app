@@ -16,6 +16,6 @@ public class GlobalOptions {
     }
 
     public GlobalOptions() {
-        userOptions.put("stylesheet", "chill");
+        userOptions.put("stylesheet", "red");
     }
 }
