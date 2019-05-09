@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class GlobalOptions {
     public static String dateFormat = "yyyy/MM/dd HH:mm:ss";
     public static String logDateFormat = "yyyy-MM-dd-HH-mm-ss";
-    private HashMap<String, String> userOptions = new HashMap<>();
+    public static HashMap<String, String> userOptions = new HashMap<>();
 
     public String getUserOptions(String arg) {
         return userOptions.get(arg);
@@ -15,7 +15,8 @@ public class GlobalOptions {
         this.userOptions = userOptions;
     }
 
+    //ciemny motyw jest domyślny!
     public GlobalOptions() {
-        userOptions.put("stylesheet", "red");
+        userOptions.put("stylesheet", "dark");
     }
 }

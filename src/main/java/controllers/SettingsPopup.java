@@ -1,7 +1,9 @@
 package controllers;
 
 import app.App;
+import app.GlobalOptions;
 import app.Logging;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +24,8 @@ public class SettingsPopup implements Initializable {
     private AnchorPane mainPane;
     @FXML
     private JFXComboBox<javafx.scene.control.Label> layout;
+    @FXML
+    private JFXButton apply;
 
     @FXML
     void cancel(ActionEvent event) {
@@ -30,6 +34,9 @@ public class SettingsPopup implements Initializable {
 
     @FXML
     void confirm(ActionEvent event) {
+        System.out.println(layout.getValue().getText());
+        GlobalOptions.userOptions.replace("stylesheet", layout.getValue().getText());
+        stage.close();
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
