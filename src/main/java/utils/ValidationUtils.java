@@ -1,30 +1,11 @@
 package utils;
 
-import java.util.List;
-
 public class ValidationUtils {
-    public static <T> boolean tableContains(T[] array, T object) {
-        boolean res = false;
-
-        for (T obj : array)
-            if (obj.equals(object))
-                res = true;
-
-        return res;
+    public static boolean length(String str, Integer start, Integer end) {
+        return (str.length() >= start && str.length() <= end);
     }
 
-    public static <T> boolean listContains(List<T> list, T object) {
-        boolean res = false;
-
-        for (T obj : list)
-            if (obj.equals(object))
-                res = true;
-
-        return res;
-    }
-
-    public static boolean StringLengthBetween(String text, int minimal,int maximal)
-    {
-        return text.length()>=minimal && text.length()<maximal;
+    public static boolean name(String str) {
+        return str.matches("^[-a-zA-Z0-9_ĄĆĘŁŃÓŚŹŻąćęłńóśźż]+$");
     }
 }

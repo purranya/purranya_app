@@ -1,25 +1,21 @@
 package app;
 
-import data.CalendarManager;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import models.transfer_models.Login;
 
 public class App extends Application {
-    public static HomeFolderManager homeFolderManager;
-    public static PrimaryStageManager primaryStageManager;
-    public static CalendarManager calendarManager;
-    public static GlobalOptions globalOptions;
 
-    public static void initialize(Stage primary) {
-        globalOptions = new GlobalOptions();
-        homeFolderManager = new HomeFolderManager();
-        calendarManager = new CalendarManager();
-        if(primary!=null)primaryStageManager = new PrimaryStageManager(primary);
-    }
+    public static Login login = null;
+    public static boolean isAuthorized = false;
 
     @Override
-    public void start(Stage primaryStage){
-        App.initialize(primaryStage);
+    public void start(Stage primaryStage)
+    {
+        System.out.println("java version: "+System.getProperty("java.version"));
+        System.out.println("javafx.version: " + System.getProperty("javafx.version"));
+        PrimaryStageManager.initialize(primaryStage);
+        new PrimaryStageManager().loadScene("MainMenu");
     }
 
     public static void main(String[] args) {

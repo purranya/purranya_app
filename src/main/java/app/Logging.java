@@ -4,67 +4,90 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-import static app.GlobalOptions.logDateFormat;
 
 public class Logging {
-    public static Logging Logger = new Logging();
-    private FileOutputStream errorLog = null;
-    private FileOutputStream eventLog = null;
-    HomeFolderManager hfs;
 
-    private Logging(){}
-
-    public void logError(String error)
+    public static void logError(String error)
     {
+        GlobalOptions globalOptions = new GlobalOptions();
+        HomeFolderManager homeFolderManager = new HomeFolderManager();
+
+        boolean logToFile = globalOptions.get("logging.file").equals("true");
+        boolean logToConsole = globalOptions.get("logging.console").equals("true");
+
         DateTime dt = new DateTime();
-        DateTimeFormatter fmt = DateTimeFormat.forPattern(logDateFormat);
+        DateTimeFormatter fmt = DateTimeFormat.forPattern(globalOptions.get("date.format.log"));
         String date = fmt.print(dt);
-        if(hfs==null) hfs = new HomeFolderManager();
-        if(errorLog==null) {
-            try {
-                String path = hfs.getErrorLogPath() + "-" + date + ".txt";
-                errorLog = new FileOutputStream(new File(path));
-            } catch ( Exception e) {
-                System.err.println("Zapisywanie loga nie powiodło się");
-                e.printStackTrace();
+
+        String logEntry = "error-" + date + " : " + error;
+
+        if(logToFile)
+        {
+            FileOutputStream errorLog;
+            String filename = "errorlog-" + date + ".log";
+            Path path = homeFolderManager.getPath("logs").resolve(filename);
+
+            try
+            {
+                if (Files.notExists(path))
+                    Files.createFile(path);
+
+                errorLog = new FileOutputStream(path.toFile());
+
+                errorLog.write((logEntry + "\n").getBytes());
+            } catch (IOException io)
+            {
+                System.err.println("Creating log file failed");
             }
         }
-
-        String log = date + " " + error + "\n";
-        try {
-            errorLog.write(log.getBytes());
-        } catch ( Exception e) {
-            System.err.println("Zapisywanie loga nie powiodło się");
-            e.printStackTrace();
+        if(logToConsole)
+        {
+            System.err.println(logEntry);
         }
 
     }
 
     public void logEvent(String event)
     {
+        GlobalOptions globalOptions = new GlobalOptions();
+        HomeFolderManager homeFolderManager = new HomeFolderManager();
+
+        boolean logToFile = globalOptions.get("logging.file").equals("true");
+        boolean logToConsole = globalOptions.get("logging.console").equals("true");
+
         DateTime dt = new DateTime();
-        DateTimeFormatter fmt = DateTimeFormat.forPattern(logDateFormat);
+        DateTimeFormatter fmt = DateTimeFormat.forPattern(globalOptions.get("date.format.log"));
         String date = fmt.print(dt);
-        if(hfs==null) hfs = new HomeFolderManager();
-        if(eventLog==null) {
-            try {
-                String path = hfs.getEventLogPath() + "-" + date + ".txt";
-                eventLog = new FileOutputStream(new File(path));
-            } catch ( Exception e) {
-                System.err.println("Zapisywanie loga nie powiodło się");
-                e.printStackTrace();
+
+        String logEntry = "event-" + date + " : " + event;
+
+        if(logToFile)
+        {
+            FileOutputStream eventLog;
+            String filename = "eventlog-" + date + ".log";
+            Path path = homeFolderManager.getPath("logs").resolve(filename);
+
+            try
+            {
+                if (Files.notExists(path))
+                    Files.createFile(path);
+
+                eventLog = new FileOutputStream(path.toFile());
+
+                eventLog.write((logEntry + "\n").getBytes());
+            } catch (IOException io)
+            {
+                System.err.println("Creating log file failed");
             }
         }
-
-        String log = date + " " + event + "\n";
-        try {
-            eventLog.write(log.getBytes());
-        } catch ( Exception e) {
-            System.err.println("Zapisywanie loga nie powiodło się");
-            e.printStackTrace();
+        if(logToConsole)
+        {
+            System.out.println(logEntry);
         }
     }
 }

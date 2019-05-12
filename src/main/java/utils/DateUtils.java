@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class DateUtils {
 
     /**
-     * Convert {@link java.time.LocalDate} to {@link org.joda.time.DateTime}
+     * Convert {@link LocalDate} to {@link DateTime}
      */
     public static DateTime toDateTime(LocalDate localDate) {
         return new DateTime(DateTimeZone.UTC).withDate(
@@ -17,7 +17,7 @@ public class DateUtils {
     }
 
     /**
-     * Convert {@link org.joda.time.DateTime} to {@link java.time.LocalDate}
+     * Convert {@link DateTime} to {@link LocalDate}
      */
     public static LocalDate toLocalDate(DateTime dateTime) {
         DateTime dateTimeUtc = dateTime.withZone(DateTimeZone.UTC);
