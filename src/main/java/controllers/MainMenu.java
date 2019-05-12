@@ -37,7 +37,7 @@ public class MainMenu implements Initializable
     void loginLogout(ActionEvent event)
     {
         //jeżeli niezalogowany
-        //Login.display();
+        Login.display();
     }
 
     /**
