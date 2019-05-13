@@ -11,22 +11,28 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /** kontroler do obsługi okna logowania */
 public class Login implements Initializable {
-    @FXML
-    private AnchorPane mainPane;
+    @FXML private AnchorPane mainPane;
     @FXML private JFXTextField login;
     @FXML private JFXPasswordField password;
 
     private static Stage stage;
-    private static Scene scene = loadScene();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        mainPane.getStylesheets().add(getClass().getResource("/css/") + (new GlobalOptions()).get("stylesheet") + ".css");
+    }
 
     @FXML
     void cancel(ActionEvent event) {
@@ -52,33 +58,42 @@ public class Login implements Initializable {
         }
     }
 
+    @FXML
+    void keyPressed(KeyEvent event)
+    {
+        if(event.getCode().equals(KeyCode.ENTER))
+        {
+            login(null);
+        }
+    }
+
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            return new Scene(FXMLLoader.load(Login.class.getClassLoader().getResource("fxml/Login.fxml")));
-        } catch (Exception e) {
+            URL url = Login.class.getClassLoader().getResource("fxml/Login.fxml");
+            if (url == null)
+                throw new IOException("Cannot get url");
+            return new Scene(FXMLLoader.load(url));
+        } catch (IOException e) {
             Logging.logError("Popup Login initialization failed\n" + e.toString());
         }
         return null;
     }
 
     /** wyświetlanie popupu */
-    static void display() {
-        if(stage ==null) { //zapobieganie wyświetlania okna więcej niż 1 raz
-            stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setWidth(336);
-            stage.setHeight(235);
-            stage.setResizable(false);
-            stage.setScene(scene);
-        }
+    static void display()
+    {
+        stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setWidth(336);
+        stage.setHeight(235);
+        stage.setResizable(false);
+
         stage.setTitle("Zaloguj się - Purranya");
 
-        stage.showAndWait();
-    }
+        stage.setScene(loadScene());
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        mainPane.getStylesheets().add(getClass().getResource("/css/") + (new GlobalOptions()).get("stylesheet") + ".css");
+        stage.showAndWait();
+        stage = null;
     }
 }

@@ -60,7 +60,7 @@
                         <Font size="31.0" />
                      </font>
                   </Text>
-                  <JFXButton layoutX="844.0" layoutY="9.0" onAction="#addCalendar" prefHeight="60.0" prefWidth="60.0" styleClass="jfx-button" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <JFXButton fx:id="addCalendarBtn" layoutX="844.0" layoutY="9.0" onAction="#addCalendar" prefHeight="60.0" prefWidth="60.0" styleClass="jfx-button" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
             <JFXMasonryPane GridPane.rowIndex="3">

@@ -1,5 +1,7 @@
 package controllers;
 
+import api_client.Server;
+import app.App;
 import app.GlobalOptions;
 import app.PrimaryStageManager;
 import com.jfoenix.controls.JFXButton;
@@ -9,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import models.db_models.Calendar;
+import models.transfer_models.UserCalendarIndex;
 import org.joda.time.DateTime;
 
 import java.net.URL;
@@ -27,17 +31,24 @@ public class MainMenu implements Initializable
     private Text date;
     @FXML
     private JFXButton logInOut;
+    @FXML
+    private JFXButton addCalendarBtn;
 
-    /**
-     * (button) Obsługa przycisku "Zaloguj się"
-     * TODO dodać obsługę zalogowanego/niezalogowanego użytkownika
-     * TODO dodać przycisk na utworzenie konta w zależności od tego, czy użytkownik jest zalogowany
-     */
     @FXML
     void loginLogout(ActionEvent event)
     {
-        //jeżeli niezalogowany
-        Login.display();
+        if(!App.isAuthorized)
+        {
+            Login.display();
+            if(App.isAuthorized)
+                new PrimaryStageManager().loadScene("MainMenu");
+        }
+        else
+        {
+            App.login=null;
+            App.isAuthorized=false;
+            new PrimaryStageManager().loadScene("MainMenu");
+        }
     }
 
     /**
@@ -72,8 +83,8 @@ public class MainMenu implements Initializable
     @FXML
     void settings(ActionEvent event)
     {
-        //SettingsPopup.display();
-        //App.primaryStageManager.reloadScene("MainMenu");
+        SettingsPopup.display();
+        new PrimaryStageManager().loadScene("MainMenu");
     }
 
     /**
@@ -85,26 +96,33 @@ public class MainMenu implements Initializable
         mainPane.getStylesheets().add(getClass().getResource("/css/") + (new GlobalOptions()).get("stylesheet") + ".css");
 
         //wyświetlanie aktualnej daty
-        user.setText("");
         DateTime dateTime = DateTime.now();
         date.setText(dateTime.dayOfMonth().getAsString() + " " + dateTime.monthOfYear().getAsText() + " " + dateTime.year().getAsString());
 
-        /*
-        //wyświetlanie wszystkich kalendarzy jako buttony
-        CalendarManager calendars = App.calendarManager;
-        for (String calendarName : calendars.getCalendarIndex())
+        if(App.isAuthorized)
         {
-            JFXButton buttonTemp = new JFXButton();
-            buttonTemp.setPrefWidth(150);
-            buttonTemp.setPrefHeight(150);
-            buttonTemp.setText(calendarName);
-            buttonTemp.setOnAction(e ->
+            logInOut.setText("Wyloguj");
+            user.setText(App.login.getUsername());
+
+            UserCalendarIndex index = Server.getCalendarIndex(App.login.getUsername(),App.login.getPassword());
+
+            for(Calendar calendar : index.getCalendars())
             {
-                calendars.loadCalendar(calendarName);
-                App.primaryStageManager.reloadScene("Calendar");
-            });
-            calendarList.getChildren().add(buttonTemp);
+                JFXButton buttonTemp = new JFXButton();
+                buttonTemp.setPrefWidth(150);
+                buttonTemp.setPrefHeight(150);
+                buttonTemp.setText(calendar.getName());
+                buttonTemp.setOnAction(e ->
+                {
+                    //Tutaj odpalanie kalendarza
+                });
+                calendarList.getChildren().add(buttonTemp);
+            }
         }
-        */
+        else
+        {
+            user.setText("");
+            addCalendarBtn.setDisable(true);
+        }
     }
 }

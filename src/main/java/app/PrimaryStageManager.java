@@ -40,7 +40,7 @@ public class PrimaryStageManager
 
         intro.show();
 
-        double duration = 3000;
+        double duration = 1;
         PauseTransition delay = new PauseTransition(Duration.millis(duration));
         delay.setOnFinished(event ->
         {
