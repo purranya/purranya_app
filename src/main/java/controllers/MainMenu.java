@@ -39,7 +39,7 @@ public class MainMenu implements Initializable
     {
         if(!App.isAuthorized)
         {
-            Login.display();
+            LoginPopup.display();
             if(App.isAuthorized)
                 new PrimaryStageManager().loadScene("MainMenu");
         }
@@ -57,7 +57,7 @@ public class MainMenu implements Initializable
     @FXML
     void addCalendar(ActionEvent event)
     {
-        //CalendarPopup.displayAdd();
+        CalendarPopup.displayAdd();
         new PrimaryStageManager().loadScene("MainMenu");
     }
 
@@ -87,9 +87,6 @@ public class MainMenu implements Initializable
         new PrimaryStageManager().loadScene("MainMenu");
     }
 
-    /**
-     * TODO dodać obsługę zalogowanego użytkownika! (dotyczy zmiennej user)
-     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {

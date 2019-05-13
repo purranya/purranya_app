@@ -7,16 +7,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" maxHeight="305.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CalendarPopup">
+<AnchorPane fx:id="mainPane" maxHeight="305.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CalendarPopup" onKeyPressed="#keyPressed">
     <children>
         <JFXTextField fx:id="name" labelFloat="true" layoutX="64.0" layoutY="35.0" prefHeight="26.0" prefWidth="235.0" promptText="Nazwa" />
-        <JFXButton fx:id="action" layoutX="64.0" layoutY="221.0" />
+        <TextArea fx:id="description" layoutX="64.0" layoutY="104.0" prefHeight="97.0" prefWidth="235.0" promptText="Opis kalendarza" wrapText="true" />
+        <JFXButton fx:id="action" layoutX="64.0" layoutY="221.0" text="Zapisz" onAction="#submit"/>
         <JFXButton layoutX="236.0" layoutY="221.0" onAction="#cancel" text="Anuluj" />
       <Text fx:id="validationText" layoutX="64.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Nazwa może zawierać 32 znaki." wrappingWidth="235.0000079870224">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <TextArea fx:id="description" layoutX="64.0" layoutY="104.0" prefHeight="97.0" prefWidth="235.0" promptText="Opis kalendarza" wrapText="true" />
     </children>
 </AnchorPane>

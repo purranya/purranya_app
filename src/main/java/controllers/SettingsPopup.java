@@ -36,7 +36,6 @@ public class SettingsPopup implements Initializable {
 
     @FXML
     void confirm(ActionEvent event) {
-        System.out.println(layout.getValue().getText());
         (new GlobalOptions()).set("stylesheet", layout.getValue().getText());
         stage.close();
     }
@@ -75,7 +74,7 @@ public class SettingsPopup implements Initializable {
             theme = (new GlobalOptions()).get("stylesheet");
         else
             theme = tempTheme;
-        
+
         mainPane.getStylesheets().add(getClass().getResource("/css/") + theme + ".css");
 
         String[] themes = {"blue", "chill", "dark", "pastel", "red"};

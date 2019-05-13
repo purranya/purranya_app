@@ -22,7 +22,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /** kontroler do obsługi okna logowania */
-public class Login implements Initializable {
+public class LoginPopup implements Initializable {
     @FXML private AnchorPane mainPane;
     @FXML private JFXTextField login;
     @FXML private JFXPasswordField password;
@@ -70,12 +70,12 @@ public class Login implements Initializable {
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            URL url = Login.class.getClassLoader().getResource("fxml/Login.fxml");
+            URL url = LoginPopup.class.getClassLoader().getResource("fxml/LoginPopup.fxml");
             if (url == null)
                 throw new IOException("Cannot get url");
             return new Scene(FXMLLoader.load(url));
         } catch (IOException e) {
-            Logging.logError("Popup Login initialization failed\n" + e.toString());
+            Logging.logError("Popup LoginPopup initialization failed\n" + e.toString());
         }
         return null;
     }
