@@ -1,12 +1,11 @@
 package api_client;
 
 import javax.net.ssl.*;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.HashMap;
@@ -64,7 +63,7 @@ public class HTTPSClient
         {
             HttpsURLConnection conn = (HttpsURLConnection)(new URL(url+getParams)).openConnection();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_16));
 
             while(reader.ready())
             {
@@ -114,14 +113,12 @@ public class HTTPSClient
             conn.setRequestMethod("POST");
 
             conn.setDoOutput(true);
-            DataOutputStream writer = new DataOutputStream(conn.getOutputStream());
-            writer.writeBytes(postParams);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(), StandardCharsets.UTF_8));
+            writer.write(postParams);
             writer.flush();
             writer.close();
 
-
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
 
             while(reader.ready())
             {
