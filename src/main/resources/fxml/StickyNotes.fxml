@@ -27,6 +27,6 @@
                 </JFXButton>
             </children>
         </AnchorPane>
-      <JFXMasonryPane layoutY="30.0" prefHeight="737.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+      <JFXMasonryPane fx:id="notes" layoutY="30.0" prefHeight="737.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
     </children>
 </AnchorPane>

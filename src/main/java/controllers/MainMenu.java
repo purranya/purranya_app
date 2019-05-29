@@ -33,6 +33,8 @@ public class MainMenu implements Initializable
     private JFXButton logInOut;
     @FXML
     private JFXButton addCalendarBtn;
+    @FXML
+    private JFXButton stickyNotesBtn;
 
     @FXML
     void loginLogout(ActionEvent event)
@@ -67,7 +69,7 @@ public class MainMenu implements Initializable
     @FXML
     void changeToStickyNotes(ActionEvent event)
     {
-        //App.primaryStageManager.setScene("StickyNotes");
+        new PrimaryStageManager().loadScene("StickyNotes");
     }
 
     /**
@@ -98,7 +100,7 @@ public class MainMenu implements Initializable
 
         if(App.isAuthorized)
         {
-            logInOut.setText("Wyloguj");
+            logInOut.setText("[Wyloguj]");
             user.setText(App.login.getUsername());
 
             UserCalendarIndex index = Server.getCalendarIndex(App.login.getUsername(),App.login.getPassword());
@@ -120,6 +122,7 @@ public class MainMenu implements Initializable
         {
             user.setText("");
             addCalendarBtn.setDisable(true);
+            stickyNotesBtn.setDisable(true);
         }
     }
 }
