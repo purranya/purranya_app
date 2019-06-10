@@ -7,16 +7,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" maxHeight="305.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CalendarPopup" onKeyPressed="#keyPressed">
+<AnchorPane fx:id="mainPane" maxHeight="305.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="305.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CalendarPopup">
     <children>
         <JFXTextField fx:id="name" labelFloat="true" layoutX="64.0" layoutY="35.0" prefHeight="26.0" prefWidth="235.0" promptText="Nazwa" />
-        <TextArea fx:id="description" layoutX="64.0" layoutY="104.0" prefHeight="97.0" prefWidth="235.0" promptText="Opis kalendarza" wrapText="true" />
-        <JFXButton fx:id="action" layoutX="64.0" layoutY="221.0" text="Zapisz" onAction="#submit"/>
+        <TextArea fx:id="description" layoutX="64.0" layoutY="92.0" prefHeight="95.0" prefWidth="235.0" promptText="Opis kalendarza" wrapText="true" />
+        <JFXButton fx:id="action" layoutX="64.0" layoutY="221.0" onAction="#submit" text="Zapisz" />
         <JFXButton layoutX="236.0" layoutY="221.0" onAction="#cancel" text="Anuluj" />
-      <Text fx:id="validationText" layoutX="64.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Nazwa może zawierać 32 znaki." wrappingWidth="235.0000079870224">
+      <Text fx:id="titleValidationText" layoutX="64.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Nazwa może zawierać 32 znaki." wrappingWidth="235.0000079870224">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
+      <Text fx:id="descriptionValidationText" layoutX="64.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" wrappingWidth="235.0000079870224" />
     </children>
 </AnchorPane>
