@@ -6,6 +6,7 @@ import app.App;
 import app.GlobalOptions;
 import app.Logging;
 import com.jfoenix.controls.JFXTextField;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import models.db_models.Calendar;
 
 import java.io.IOException;
@@ -83,6 +85,14 @@ public class CalendarPopup implements Initializable {
                 Logging.logError("Saving Calendar failed\n");
             stage.close();
         }
+
+        PauseTransition delay = new PauseTransition(Duration.millis(4000));
+        delay.setOnFinished(pauseEvent ->
+        {
+            titleValidationText.setText("");
+            descriptionValidationText.setText("");
+        });
+        delay.play();
     }
 
     @FXML
