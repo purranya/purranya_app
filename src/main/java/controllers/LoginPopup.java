@@ -55,6 +55,10 @@ public class LoginPopup implements Initializable {
                 App.login = login;
                 stage.close();
             }
+            else
+            {
+                //tu info
+            }
         }
     }
 
