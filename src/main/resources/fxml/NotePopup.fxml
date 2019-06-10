@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.TextArea?>
@@ -11,11 +10,12 @@
 <AnchorPane fx:id="mainPane" prefHeight="530.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NotePopup">
     <children>
         <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="38.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />
-        <JFXComboBox fx:id="label" labelFloat="true" layoutX="64.0" layoutY="108.0" prefHeight="26.0" prefWidth="235.0" promptText="Etykieta" />
-        <TextArea fx:id="description" layoutX="64.0" layoutY="163.0" prefHeight="246.0" prefWidth="235.0" promptText="Treść notatki" wrapText="true" />
+        <TextArea fx:id="description" layoutX="64.0" layoutY="107.0" prefHeight="289.0" prefWidth="235.0" promptText="Treść notatki" wrapText="true" />
         <JFXButton layoutX="62.0" layoutY="432.0" onAction="#add" text="Dodaj" />
         <JFXButton layoutX="236.0" layoutY="432.0" onAction="#cancel" text="Anuluj" />
-      <Text fx:id="validationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Tytuł może zawierać 32 znaki." />
+      <Text fx:id="titleValidationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Tytuł może zawierać 32 znaki." />
+      <JFXButton layoutX="155.0" layoutY="433.0" onAction="#delete" text="Usuń" />
+      <Text fx:id="descriptionValidationText" layoutX="64.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" wrappingWidth="235.0000079870224" />
     </children>
    <rotationAxis>
       <Point3D />
