@@ -27,11 +27,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CalendarPopup implements Initializable {
+    public Text titleValidationText;
+    public Text descriptionValidationText;
     @FXML
     private AnchorPane mainPane;
 
     @FXML private JFXTextField name;
-    @FXML private Text validationText;
     @FXML private TextArea description;
     @FXML private Button action;
 
@@ -59,17 +60,23 @@ public class CalendarPopup implements Initializable {
         model.setName(name.getText());
         model.setComment(description.getText());
 
-        if(!model.isNameValid())
+        titleValidationText.setText("");
+        descriptionValidationText.setText("");
+
+        boolean nameValid = model.isNameValid();
+        boolean commentValid = model.isCommentValid();
+
+        if(!nameValid)
         {
-            validationText.setText("Nazwa jest niepoprawna");
-            validationText.setFill(Color.rgb(254, 203, 200));
+            titleValidationText.setText("Nazwa jest niepoprawna");
+            titleValidationText.setFill(Color.rgb(254, 203, 200));
         }
-        else if(!model.isCommentValid())
+        else if(!commentValid)
         {
-            validationText.setText("Opis jest niepoprawny");
-            validationText.setFill(Color.rgb(254, 203, 200));
+            descriptionValidationText.setText("Opis jest niepoprawny");
+            descriptionValidationText.setFill(Color.rgb(254, 203, 200));
         }
-        else
+        if(nameValid && commentValid)
         {
             boolean status = Server.modelAction(App.login.getUsername(),App.login.getPassword(),model,modelAction);
             if(!status)
