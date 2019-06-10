@@ -29,7 +29,7 @@ public class PrimaryStageManager
     public static void initialize(Stage primary)
     {
         primaryStage = primary;
-        primaryStage.getIcons().add(new Image("img/PurranyaLogo4.png"));
+        primaryStage.getIcons().add(new Image("img/PurranyaSmallLogo.png"));
         primaryStage.setTitle(stageTitle);
         primaryStage.setWidth(minWidth);
         primaryStage.setHeight(minHeight);
@@ -67,7 +67,9 @@ public class PrimaryStageManager
             primaryStage.setScene(s);
         } catch (IOException e)
         {
-            Logging.logError("SceneManager initialization failed\n" + e.toString());
+            Logging.logError("SceneManager " +
+                    "initialization failed\n"
+                    + e.toString());
             System.exit(1);
         }
     }
@@ -81,7 +83,6 @@ public class PrimaryStageManager
         intro.setScene(loadingScene());
         return intro;
     }
-
 
     private static Scene loadingScene()
     {
