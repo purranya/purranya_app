@@ -71,7 +71,7 @@ public class CalendarPopup implements Initializable {
             titleValidationText.setText("Nazwa jest niepoprawna");
             titleValidationText.setFill(Color.rgb(254, 203, 200));
         }
-        else if(!commentValid)
+        if(!commentValid)
         {
             descriptionValidationText.setText("Opis jest niepoprawny");
             descriptionValidationText.setFill(Color.rgb(254, 203, 200));
