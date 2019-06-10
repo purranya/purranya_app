@@ -4,12 +4,14 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" maxHeight="235.0" maxWidth="336.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="336.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginPopup" onKeyPressed="#keyPressed">
+<AnchorPane fx:id="mainPane" maxHeight="245.0" maxWidth="336.0" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="250.0" prefWidth="336.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginPopup">
    <children>
       <JFXTextField fx:id="login" labelFloat="true" layoutX="64.0" layoutY="40.0" prefHeight="31.0" prefWidth="214.0" promptText="Login" />
       <JFXPasswordField fx:id="password" labelFloat="true" layoutX="64.0" layoutY="95.0" prefHeight="31.0" prefWidth="214.0" promptText="Hasło" />
-      <JFXButton layoutX="64.0" layoutY="150.0" onAction="#login" text="Zaloguj" />
-      <JFXButton layoutX="215.0" layoutY="150.0" onAction="#cancel" text="Anuluj" />
+      <JFXButton layoutX="64.0" layoutY="164.0" onAction="#login" text="Zaloguj" />
+      <JFXButton layoutX="215.0" layoutY="164.0" onAction="#cancel" text="Anuluj" />
+      <Text fx:id="validationText" layoutX="64.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" wrappingWidth="214.00000476837158" />
    </children>
 </AnchorPane>
