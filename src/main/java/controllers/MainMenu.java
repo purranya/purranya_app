@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 /** kontroler obsługujący główne menu */
 public class MainMenu implements Initializable
 {
+    public JFXButton registerBtn;
     @FXML
     private AnchorPane mainPane;
     @FXML
@@ -79,7 +80,10 @@ public class MainMenu implements Initializable
     @FXML
     void register(ActionEvent event)
     {
-        //Register.display();
+
+        RegisterPopup.display();
+        if (App.isAuthorized)
+            new PrimaryStageManager().loadScene("MainMenu");
     }
 
     @FXML
@@ -102,6 +106,8 @@ public class MainMenu implements Initializable
         {
             logInOut.setText("[Wyloguj]");
             user.setText(App.login.getUsername());
+            registerBtn.setVisible(false);
+
 
             UserCalendarIndex index = Server.getCalendarIndex(App.login.getUsername(),App.login.getPassword());
 

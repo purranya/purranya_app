@@ -26,11 +26,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /** kontroler do obsługi okna logowania */
-public class LoginPopup implements Initializable {
-    public Text validationText;
+public class RegisterPopup implements Initializable {
+    @FXML public Text loginValidationText;
+    @FXML public Text passwordValidationText;
+    @FXML public Text repeatedPasswordValidationText;
     @FXML private AnchorPane mainPane;
     @FXML private JFXTextField login;
     @FXML private JFXPasswordField password;
+    @FXML public JFXPasswordField repeatedPassword;
 
     private static Stage stage;
 
@@ -45,17 +48,38 @@ public class LoginPopup implements Initializable {
     }
 
     @FXML
-    void login(ActionEvent event) {
+    void register(ActionEvent event) {
 
         models.transfer_models.Login login = new models.transfer_models.Login();
         login.setUsername(this.login.getText());
         login.setPassword(this.password.getText());
 
-        validationText.setText("");
+        loginValidationText.setText("");
+        passwordValidationText.setText("");
+        repeatedPasswordValidationText.setText("");
 
-        if(login.isValid())
+        boolean loginValid = login.isUsernameValid();
+        boolean passwValid = login.isPasswordValid();
+        boolean repeatedPwValid = password.getText().equals(repeatedPassword.getText());
+
+        if(!loginValid)
         {
-            boolean status = Server.logIn(login.getUsername(),login.getPassword());
+            loginValidationText.setText("Nazwa użytkownika jest niepoprawna");
+            loginValidationText.setFill(Color.rgb(254, 203, 200));
+        }
+        if(!passwValid)
+        {
+            passwordValidationText.setText("Hasło jest niepoprawne");
+            passwordValidationText.setFill(Color.rgb(254, 203, 200));
+        }
+        if(!repeatedPwValid)
+        {
+            repeatedPasswordValidationText.setText("Hasła nie zgadzają się");
+            repeatedPasswordValidationText.setFill(Color.rgb(254, 203, 200));
+        }
+        if(loginValid && passwValid && repeatedPwValid)
+        {
+            boolean status = Server.register(login.getUsername(),login.getPassword());
             if(status)
             {
                 App.isAuthorized = true;
@@ -64,20 +88,18 @@ public class LoginPopup implements Initializable {
             }
             else
             {
-                validationText.setText("Logowanie nie powiodło się");
-                validationText.setFill(Color.rgb(254, 203, 200));
+                loginValidationText.setText("");
+                passwordValidationText.setText("");
+                repeatedPasswordValidationText.setText("Rejestracja nie powiodła się");
+                repeatedPasswordValidationText.setFill(Color.rgb(254, 203, 200));
             }
         }
-        else
-        {
-            validationText.setText("Logowanie nie powiodło się");
-            validationText.setFill(Color.rgb(254, 203, 200));
-        }
-
         PauseTransition delay = new PauseTransition(Duration.millis(4000));
         delay.setOnFinished(pauseEvent ->
         {
-            validationText.setText("");
+            loginValidationText.setText("");
+            passwordValidationText.setText("");
+            repeatedPasswordValidationText.setText("");
         });
         delay.play();
     }
@@ -87,19 +109,19 @@ public class LoginPopup implements Initializable {
     {
         if(event.getCode().equals(KeyCode.ENTER))
         {
-            login(null);
+            register(null);
         }
     }
 
     /** załadowanie sceny do zmiennej - zwraca scenę jeśli się powiodło lub null, jeśli nie, zwraca nulla */
     private static Scene loadScene() {
         try {
-            URL url = LoginPopup.class.getClassLoader().getResource("fxml/LoginPopup.fxml");
+            URL url = RegisterPopup.class.getClassLoader().getResource("fxml/RegisterPopup.fxml");
             if (url == null)
                 throw new IOException("Cannot get url");
             return new Scene(FXMLLoader.load(url));
         } catch (IOException e) {
-            Logging.logError("Popup LoginPopup initialization failed\n" + e.toString());
+            Logging.logError("Popup RegisterPopup initialization failed\n" + e.toString());
         }
         return null;
     }
@@ -110,10 +132,10 @@ public class LoginPopup implements Initializable {
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setWidth(336);
-        stage.setHeight(250);
+        stage.setHeight(350);
         stage.setResizable(false);
 
-        stage.setTitle("Zaloguj się - Purranya");
+        stage.setTitle("Zarejestruj się - Purranya");
 
         stage.setScene(loadScene());
 

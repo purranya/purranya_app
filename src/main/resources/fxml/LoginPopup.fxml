@@ -12,6 +12,6 @@
       <JFXPasswordField fx:id="password" labelFloat="true" layoutX="64.0" layoutY="95.0" prefHeight="31.0" prefWidth="214.0" promptText="Hasło" />
       <JFXButton layoutX="64.0" layoutY="164.0" onAction="#login" text="Zaloguj" />
       <JFXButton layoutX="215.0" layoutY="164.0" onAction="#cancel" text="Anuluj" />
-      <Text fx:id="validationText" layoutX="64.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" wrappingWidth="214.00000476837158" />
+      <Text fx:id="validationText" layoutX="64.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="" wrappingWidth="214.00000476837158" />
    </children>
 </AnchorPane>
