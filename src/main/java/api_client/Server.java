@@ -209,7 +209,7 @@ public class Server
             {
                 params.put("login", om.writeValueAsString(l));
                 params.put("model", om.writeValueAsString(note));
-                response = new HTTPSClient().post("https://127.0.0.1:8443//note1/" + action.toString(), params);
+                response = new HTTPSClient().post("https://127.0.0.1:8443//note/" + action.toString(), params);
             } catch (Exception e)
             {
                 System.err.println("Could not connect to server");
