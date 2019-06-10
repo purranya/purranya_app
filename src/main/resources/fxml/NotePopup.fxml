@@ -11,11 +11,11 @@
     <children>
         <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="38.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />
         <TextArea fx:id="description" layoutX="64.0" layoutY="107.0" prefHeight="289.0" prefWidth="235.0" promptText="Treść notatki" wrapText="true" />
-        <JFXButton layoutX="62.0" layoutY="432.0" onAction="#submit" text="Dodaj" />
+        <JFXButton layoutX="62.0" layoutY="432.0" onAction="#submit" text="Zapisz" />
         <JFXButton layoutX="236.0" layoutY="432.0" onAction="#cancel" text="Anuluj" />
-      <Text fx:id="titleValidationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Tytuł może zawierać 32 znaki." />
+      <Text fx:id="titleValidationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="" />
       <JFXButton layoutX="155.0" layoutY="433.0" onAction="#delete" text="Usuń" />
-      <Text fx:id="descriptionValidationText" layoutX="64.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" wrappingWidth="235.0000079870224" />
+      <Text fx:id="descriptionValidationText" layoutX="64.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="" wrappingWidth="235.0000079870224" />
     </children>
    <rotationAxis>
       <Point3D />
