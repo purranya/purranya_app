@@ -5,13 +5,13 @@ import api_client.Server;
 import app.App;
 import app.GlobalOptions;
 import app.Logging;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -20,24 +20,30 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.db_models.Calendar;
+import models.db_models.Note;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CalendarPopup implements Initializable {
-    @FXML
-    private AnchorPane mainPane;
+/** kontroler do obsługi dodawania notatek w StickyNotes */
+public class NotePopup implements Initializable {
 
-    @FXML private JFXTextField name;
-    @FXML private Text validationText;
+    @FXML private AnchorPane mainPane;
+    @FXML private JFXTextField title;
+    @FXML private JFXComboBox<?> label;
     @FXML private TextArea description;
-    @FXML private Button action;
+    @FXML private Text validationText;
 
     private static Stage stage;
     private static ModelAction modelAction;
-    private static Calendar model;
+    private static Note model;
+
+    /** (button) za mknięcie okna NotePopup */
+    @FXML
+    void cancel(ActionEvent event) {
+        stage.close();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,18 +51,15 @@ public class CalendarPopup implements Initializable {
 
         if(modelAction.equals(ModelAction.EDIT))
         {
-            name.setText(model.getName());
+            title.setText(model.getName());
             description.setText(model.getComment());
         }
     }
 
-    /**
-     * @TODO dodać do styli kolor niepoprawnej walidacji
-     */
     @FXML
     void submit(ActionEvent event)
     {
-        model.setName(name.getText());
+        model.setName(title.getText());
         model.setComment(description.getText());
 
         if(!model.isNameValid())
@@ -73,7 +76,7 @@ public class CalendarPopup implements Initializable {
         {
             boolean status = Server.modelAction(App.login.getUsername(),App.login.getPassword(),model,modelAction);
             if(!status)
-                Logging.logError("Saving Calendar failed\n");
+                Logging.logError("Saving Note failed\n");
             stage.close();
         }
     }
@@ -87,19 +90,14 @@ public class CalendarPopup implements Initializable {
         }
     }
 
-    @FXML
-    void cancel(ActionEvent event) {
-        stage.close();
-    }
-
     private static Scene loadScene() {
         try {
-            URL url = CalendarPopup.class.getClassLoader().getResource("fxml/CalendarPopup.fxml");
+            URL url = NotePopup.class.getClassLoader().getResource("fxml/NotePopup.fxml");
             if (url == null)
                 throw new IOException("Cannot get url");
             return new Scene(FXMLLoader.load(url));
         } catch (IOException e) {
-            Logging.logError("Popup CalendarPopup initialization failed\n" + e.toString());
+            Logging.logError("Popup NotePopup initialization failed\n" + e.toString());
         }
         return null;
     }
@@ -109,17 +107,17 @@ public class CalendarPopup implements Initializable {
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setWidth(362);
-        stage.setHeight(305);
+        stage.setHeight(540);
         stage.setResizable(false);
 
-        stage.setTitle("Kalendarz - Purranya");
+        stage.setTitle("Notatka - Purranya");
         stage.setScene(loadScene());
 
         stage.showAndWait();
         stage = null;
     }
 
-    static void displayEdit(Calendar calendar) {
+    static void displayEdit(Note calendar) {
         modelAction = ModelAction.EDIT;
         model = calendar;
         display();
@@ -127,8 +125,9 @@ public class CalendarPopup implements Initializable {
 
     static void displayAdd() {
         modelAction = ModelAction.ADD;
-        model = new Calendar();
+        model = new Note();
         display();
     }
+
 
 }

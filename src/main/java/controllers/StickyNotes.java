@@ -32,7 +32,8 @@ public class StickyNotes implements Initializable {
     /** (button) dodanie nowej notatki */
     @FXML
     void addNote(ActionEvent event) {
-        //NotePopup.display();
+        NotePopup.displayAdd();
+        new PrimaryStageManager().loadScene("StickyNotes");
     }
 
     /** wyjście ze Sticky Notes */
@@ -58,7 +59,8 @@ public class StickyNotes implements Initializable {
             {
                 button = new JFXButton(n.getName());
                 button.setOnAction((e)->{
-                    //tutaj wyświetlenie popupa
+                    NotePopup.displayEdit(n);
+                    new PrimaryStageManager().loadScene("StickyNotes");
                 });
 
                 notes.getChildren().add(button);
