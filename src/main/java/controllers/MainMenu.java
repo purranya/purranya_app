@@ -2,6 +2,7 @@ package controllers;
 
 import api_client.Server;
 import app.App;
+import app.CalendarManager;
 import app.GlobalOptions;
 import app.PrimaryStageManager;
 import com.jfoenix.controls.JFXButton;
@@ -12,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import models.db_models.Calendar;
+import models.transfer_models.UserCalendar;
 import models.transfer_models.UserCalendarIndex;
 import org.joda.time.DateTime;
 
@@ -108,7 +110,6 @@ public class MainMenu implements Initializable
             user.setText(App.login.getUsername());
             registerBtn.setVisible(false);
 
-
             UserCalendarIndex index = Server.getCalendarIndex(App.login.getUsername(),App.login.getPassword());
 
             for(Calendar calendar : index.getCalendars())
@@ -119,7 +120,10 @@ public class MainMenu implements Initializable
                 buttonTemp.setText(calendar.getName());
                 buttonTemp.setOnAction(e ->
                 {
-                    //Tutaj odpalanie kalendarza
+                    UserCalendar userCalendar = Server.getCalendar(App.login.getUsername(),App.login.getPassword(),calendar);
+                    CalendarManager.initialize(userCalendar);
+                    new PrimaryStageManager().loadScene("Calendar");
+
                 });
                 calendarList.getChildren().add(buttonTemp);
             }
