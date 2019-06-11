@@ -58,6 +58,8 @@ public class DateUtils {
 
     public static boolean dateEquals(DateTime d1, DateTime d2)
     {
-        return d1.year().get() == d2.year().get() && d1.monthOfYear().get() == d2.monthOfYear().get() && d1.dayOfMonth().get() == d2.dayOfMonth().get();
+        return d1.year().get() == d2.year().get()
+                && d1.monthOfYear().get() == d2.monthOfYear().get()
+                && d1.dayOfMonth().get() == d2.dayOfMonth().get();
     }
 }
