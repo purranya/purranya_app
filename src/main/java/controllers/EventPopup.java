@@ -127,7 +127,7 @@ public class EventPopup implements Initializable
 
         if(startDateEntered && startTimeEntered && !endDateEntered && !endTimeEntered)
         {
-            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(), timeOfStart.getValue());
+            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(), timeOfStart.getValue()));
             model.setEndDate(model.getStartDate());
         }
 
