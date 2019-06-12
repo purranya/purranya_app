@@ -64,7 +64,8 @@ public class Calendar implements Initializable {
                 moreEvents.getStyleClass().add("jfx-button-details");
                 final DateTime link = day;
                 moreEvents.setOnAction(e -> {
-                    //DayView.display(link);
+                    DayView.display(link);
+                    new PrimaryStageManager().loadScene("Calendar");
                 });
 
                 VBox dayField = new VBox(dayLabel);
