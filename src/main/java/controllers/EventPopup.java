@@ -9,8 +9,8 @@ import app.Logging;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTimePicker;
 import javafx.animation.PauseTransition;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,16 +27,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.db_models.Event;
+import models.db_models.Label;
+import org.joda.time.DateTime;
 import utils.DateUtils;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 /** kontroler do obsługi dodawania wydarzeń w kalendarzu */
 public class EventPopup implements Initializable
 {
+    public JFXTimePicker timeOfStart;
+    public JFXTimePicker timeOfEnd;
     @FXML
     private AnchorPane mainPane;
     @FXML
@@ -44,7 +49,7 @@ public class EventPopup implements Initializable
     @FXML
     private JFXTextField title;
     @FXML
-    private JFXComboBox<javafx.scene.control.Label> label;
+    private JFXComboBox<Label> label;
     @FXML
     private TextArea description;
     @FXML
@@ -53,6 +58,8 @@ public class EventPopup implements Initializable
     private Text validationText;
     @FXML
     private Text validationData;
+    @FXML
+    private Text dateValidationText;
     @FXML
     private Button action;
 
@@ -66,106 +73,31 @@ public class EventPopup implements Initializable
     {
         mainPane.getStylesheets().add(getClass().getResource("/css/") + (new GlobalOptions()).get("stylesheet") + ".css");
 
-        for (Label l : App.calendarManager.getAllLabels())
-            this.label.getItems().add(new javafx.scene.control.Label(l.text));
-        if (!editscene)
-        {
-            action.setText("Dodaj");
-            action.setOnAction(e ->
-            {
-                Note n = new Note(title.getText(), description.getText(), false, label.getValue() != null ? App.calendarManager.getLabelByText(label.getValue().getText()) : App.calendarManager.getLabelByText(""), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue() != null ? (DateUtils.toDateTime(dateOfEnd.getValue())) : null);
-                if (n.startDate.isEqual(n.endDate))
-                    n.endDate = null;
-                if (n.isValid())
-                {
-                    App.calendarManager.addNote(n);
-                    App.calendarManager.saveCalendar();
-                    stage.close();
-                } else
-                {
-                    HashMap<String, String> errors = n.getValidationErrors();
-                    if (errors.get("text") != null)
-                    {
-                        validationText.setFill(Color.rgb(254, 203, 200));
-                        validationText.setText(errors.get("text"));
-                    }
-                    if (errors.get("enddate") != null)
-                    {
-                        validationData.setFill(Color.rgb(254, 203, 200));
-                        validationData.setText(errors.get("enddate"));
-                    }
-                }
-            });
-        } else
-        {
-            Note n = App.calendarManager.getNoteById(noteId);
-            title.setText(n.title);
-            description.setText(n.content);
-            dateOfStart.setValue(DateUtils.toLocalDate(n.startDate));
-            if (n.endDate != null)
-                dateOfEnd.setValue(DateUtils.toLocalDate(n.endDate));
-            ObservableList<javafx.scene.control.Label> list = label.getItems();
-            javafx.scene.control.Label currentLabel = null;
-            for (javafx.scene.control.Label labelFromList : list)
-                if (labelFromList.getText().equals(n.label.text))
-                    currentLabel = labelFromList;
-            label.setValue(currentLabel);
-            action.setText("Edytuj");
-            action.setOnAction(e ->
-            {
-                Note note = new Note(title.getText(), description.getText(), false, label.getValue() != null ? App.calendarManager.getLabelByText(label.getValue().getText()) : App.calendarManager.getLabelByText(""), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue() != null ? (DateUtils.toDateTime(dateOfEnd.getValue())) : null);
-                if (note.isValid())
-                {
-                    validationText.setFill(Color.rgb(185, 230, 223));
-                    n.set(title.getText(), description.getText(), false, label.getValue() != null ? App.calendarManager.getLabelByText(label.getValue().getText()) : App.calendarManager.getLabelByText(""), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue() != null ? (DateUtils.toDateTime(dateOfEnd.getValue())) : null);
-                    App.calendarManager.saveCalendar();
-                    stage.close();
-                } else
-                {
-                    HashMap<String, String> errors = note.getValidationErrors();
-                    if (errors.get("text") != null)
-                    {
-                        validationText.setFill(Color.rgb(254, 203, 200));
-                        validationText.setText(errors.get("text"));
-                    }
-                    if (errors.get("enddate") != null)
-                    {
-                        validationData.setFill(Color.rgb(254, 203, 200));
-                        validationData.setText(errors.get("enddate"));
-                    }
-                }
-            });
-        }
-    }
+        CalendarManager calendarManager = new CalendarManager();
 
-    /**
-     * (button) dodanie wydarzenia do kalendarza
-     */
-    @FXML
-    void add(ActionEvent event)
-    {
-        Note n = new Note(title.getText(), description.getText(), false, label.getValue() != null ? App.calendarManager.getLabelByText(label.getValue().getText()) : App.calendarManager.getLabelByText(""), DateUtils.toDateTime(dateOfStart.getValue()), dateOfEnd.getValue() != null ? (DateUtils.toDateTime(dateOfEnd.getValue())) : null);
-        if (n.startDate.isEqual(n.endDate))
-            n.endDate = null;
-        if (n.isValid())
+        for (Label l : calendarManager.getAllLabels())
+            this.label.getItems().add(l);
+
+        if(modelAction.equals(ModelAction.EDIT))
         {
-            App.calendarManager.addNote(n);
-            App.calendarManager.saveCalendar();
-            stage.close();
-        } else
-        {
-            HashMap<String, String> errors = n.getValidationErrors();
-            if (errors.get("text") != null)
+            Label currentLabel = calendarManager.getLabelById(model.getLabel_id());
+            if(currentLabel.getId()!=null)
             {
-                validationText.setFill(Color.rgb(254, 203, 200));
-                validationText.setText(errors.get("text"));
-            }
-            if (errors.get("enddate") != null)
-            {
-                validationData.setFill(Color.rgb(254, 203, 200));
-                validationData.setText(errors.get("enddate"));
+                label.setValue(currentLabel);
+
+                title.setText(model.getName());
+                description.setText(model.getComment());
+
+                DateTime startDate = model.getStartDate();
+                dateOfStart.setValue(LocalDate.of(startDate.getYear(),startDate.getMonthOfYear(),startDate.getDayOfMonth()));
+                timeOfStart.setValue(LocalTime.of(startDate.getHourOfDay(),startDate.getMinuteOfHour(),startDate.getSecondOfMinute()));
+
+                DateTime endDate = model.getEndDate();
+                dateOfEnd.setValue(LocalDate.of(endDate.getYear(),endDate.getMonthOfYear(),endDate.getDayOfMonth()));
+                timeOfEnd.setValue(LocalTime.of(endDate.getHourOfDay(),endDate.getMinuteOfHour(),endDate.getSecondOfMinute()));
             }
         }
+
     }
 
     @FXML
@@ -176,19 +108,27 @@ public class EventPopup implements Initializable
         model.setName(title.getText());
         model.setComment(description.getText());
 
-        model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue()));
-        model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue()));
+        if(dateOfStart.getValue()!=null && timeOfStart !=null)
+            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(),timeOfStart.getValue()));
+        if(dateOfEnd.getValue()!=null && timeOfEnd !=null)
+            model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue(),timeOfEnd.getValue()));
+        else if(dateOfEnd.getValue()==null && timeOfEnd ==null)
+            model.setEndDate(DateUtils.toDateTime(dateOfStart.getValue(),timeOfStart.getValue()));
 
-        long id = calendarManager.getLa
+        model.setCalendar_id(calendarManager.getCalendar().getId());
 
-        model.
+        Label selectedLabel = label.getValue();
+        if(selectedLabel!=null)
+            model.setLabel_id(selectedLabel.getId());
 
         validationText.setText("");
         validationData.setText("");
-
+        dateValidationText.setText("");
 
         boolean nameValid = model.isNameValid();
         boolean commentValid = model.isCommentValid();
+        boolean dateValid = model.isEndDateValid() && model.isStartDateValid();
+        boolean labelValid = model.isLabelIdValid();
 
         if (!nameValid)
         {
@@ -200,19 +140,34 @@ public class EventPopup implements Initializable
             validationData.setText("Opis jest niepoprawny");
             validationData.setFill(Color.rgb(254, 203, 200));
         }
-        if (nameValid && commentValid)
+        if(!dateValid)
+        {
+            dateValidationText.setText("Daty są niepoprawne");
+            dateValidationText.setFill(Color.rgb(254, 203, 200));
+        }
+        if (!labelValid)
+        {
+            validationText.setText("");
+            validationData.setText("");
+            dateValidationText.setText("Należy wybrać etykietę");
+            dateValidationText.setFill(Color.rgb(254, 203, 200));
+        }
+        if(nameValid && commentValid && dateValid && labelValid)
         {
             boolean status = Server.modelAction(App.login.getUsername(), App.login.getPassword(), model, modelAction);
             if (!status)
-                Logging.logError("Saving Calendar failed\n");
+                Logging.logError("Saving Event failed\n");
+            else
+                CalendarManager.reloacCalendar();
             stage.close();
         }
 
         PauseTransition delay = new PauseTransition(Duration.millis(4000));
         delay.setOnFinished(pauseEvent ->
         {
-            titleValidationText.setText("");
-            descriptionValidationText.setText("");
+            validationText.setText("");
+            validationData.setText("");
+            dateValidationText.setText("");
         });
         delay.play();
     }
@@ -258,7 +213,7 @@ public class EventPopup implements Initializable
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setWidth(362);
-        stage.setHeight(305);
+        stage.setHeight(500);
         stage.setResizable(false);
 
         stage.setTitle("Wydarzenie - Purranya");

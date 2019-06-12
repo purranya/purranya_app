@@ -1,5 +1,7 @@
 package controllers;
 
+import api_client.ModelAction;
+import api_client.Server;
 import app.App;
 import app.CalendarManager;
 import app.GlobalOptions;
@@ -76,8 +78,8 @@ public class Calendar implements Initializable {
                         events[i] = new JFXButton(dayEvents.get(i).getName());
                     final int index = i;
                     events[i].setOnAction(e->{
-                        //EventPopup.displayEdit(notes.get(index).id);
-                        //App.primaryStageManager.reloadScene("Calendar");
+                        EventPopup.displayEdit(dayEvents.get(index));
+                        new PrimaryStageManager().loadScene("Calendar");
                     });
                     dayField.getChildren().add(events[i]);
                 }
@@ -98,8 +100,8 @@ public class Calendar implements Initializable {
      */
     @FXML
     void addEvent(ActionEvent event) {
-        //EventPopup.displayAdd();
-        //App.primaryStageManager.reloadScene("Calendar");
+        EventPopup.displayAdd();
+        new PrimaryStageManager().loadScene("Calendar");
     }
 
     /**
@@ -107,11 +109,9 @@ public class Calendar implements Initializable {
      */
     @FXML
     void delete(ActionEvent event) {
-        //boolean answer = ConfirmPopup.display("Czy na pewno chcesz usunąć kalendarz\n \"" + App.calendarManager.getCalendarName() + "\"?");
-        //if (answer) {
-        //    App.calendarManager.deleteCalendar();
-        //    App.primaryStageManager.reloadScene("MainMenu");
-        //}
+        CalendarManager calendarManager = new CalendarManager();
+        Server.modelAction(App.login.getUsername(),App.login.getPassword(),calendarManager.getCalendar(), ModelAction.DELETE);
+        new PrimaryStageManager().loadScene("MainMenu");
     }
 
     /**
@@ -120,6 +120,7 @@ public class Calendar implements Initializable {
     void edit(ActionEvent event) {
         CalendarManager calendarManager = new CalendarManager();
         CalendarPopup.displayEdit(calendarManager.getCalendar());
+        new PrimaryStageManager().loadScene("Calendar");
     }
 
     /**
@@ -135,7 +136,7 @@ public class Calendar implements Initializable {
      */
     @FXML
     void manageLabels(ActionEvent event) {
-        //App.primaryStageManager.reloadScene("LabelManager");
+        new PrimaryStageManager().loadScene("LabelManager");
 
     }
 

@@ -9,7 +9,7 @@
 <AnchorPane fx:id="mainPane" prefHeight="200.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LabelPopup">
     <children>
         <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="38.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />
-        <JFXButton fx:id="action" layoutX="64.0" layoutY="116.0" />
+        <JFXButton fx:id="action" layoutX="64.0" layoutY="116.0" text="Zapisz" onAction="#submit" />
         <JFXButton layoutX="243.0" layoutY="116.0" onAction="#cancel" text="Anuluj" />
         <Text fx:id="validationText" layoutX="64.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Nazwa musi zawierać minimum 1 znak." />
     </children>

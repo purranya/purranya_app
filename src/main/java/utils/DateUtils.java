@@ -4,16 +4,17 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class DateUtils {
 
     /**
      * Convert {@link LocalDate} to {@link DateTime}
      */
-    public static DateTime toDateTime(LocalDate localDate) {
+    public static DateTime toDateTime(LocalDate localDate, LocalTime localTime) {
         return new DateTime(DateTimeZone.UTC).withDate(
                 localDate.getYear(), localDate.getMonthValue(), localDate.getDayOfMonth()
-        ).withTime(0, 0, 0, 0);
+        ).withTime(localTime.getHour(), localTime.getMinute(), localTime.getSecond(), 0);
     }
 
     /**

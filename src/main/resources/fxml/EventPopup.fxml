@@ -9,19 +9,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" maxHeight="542.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventPopup">
+<AnchorPane fx:id="mainPane" maxHeight="542.0" maxWidth="362.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="362.0" stylesheets="@../css/dark.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventPopup" onKeyPressed="#keyPressed">
    <children>
       <JFXDatePicker fx:id="dateOfStart" layoutX="64.0" layoutY="92.0" prefHeight="26.0" prefWidth="235.0" promptText="Data rozpoczęcia" showWeekNumbers="true" />
       <JFXTextField fx:id="title" labelFloat="true" layoutX="64.0" layoutY="34.0" prefHeight="26.0" prefWidth="235.0" promptText="Tytuł" />
       <JFXComboBox fx:id="label" labelFloat="true" layoutX="64.0" layoutY="288.0" prefHeight="26.0" prefWidth="235.0" promptText="Etykieta" />
       <TextArea fx:id="description" layoutX="64.0" layoutY="331.0" prefHeight="80.0" prefWidth="235.0" promptText="Opis wydarzenia..." wrapText="true" />
-      <JFXButton fx:id="action" layoutX="62.0" layoutY="445.0" />
+      <JFXButton fx:id="action" layoutX="62.0" layoutY="445.0" text="Zapisz" onAction="#submit"/>
       <JFXButton layoutX="236.0" layoutY="445.0" onAction="#cancel" text="Anuluj" />
       <JFXDatePicker fx:id="dateOfEnd" layoutX="62.0" layoutY="176.0" prefHeight="26.0" prefWidth="235.0" promptText="Data zakończenia" showWeekNumbers="true" />
       <Text fx:id="validationText" layoutX="64.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Tytuł może zawierać 32 znaki." />
       <Text fx:id="validationData" layoutX="64.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text=" text" wrappingWidth="235.0000079870224" />
-      <JFXTimePicker layoutX="64.0" layoutY="134.0" prefHeight="26.0" prefWidth="235.0" />
-      <JFXTimePicker layoutX="62.0" layoutY="222.0" prefHeight="26.0" prefWidth="235.0" />
+      <JFXTimePicker fx:id="timeOfStart" layoutX="64.0" layoutY="134.0" prefHeight="26.0" prefWidth="235.0" />
+      <JFXTimePicker fx:id="timeOfEnd" layoutX="62.0" layoutY="222.0" prefHeight="26.0" prefWidth="235.0" />
       <Text fx:id="dateValidationText" layoutX="64.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-validation" text="Text" wrappingWidth="234.9999971985817" />
    </children>
 </AnchorPane>

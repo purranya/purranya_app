@@ -3,6 +3,7 @@ package controllers;
 import api_client.ModelAction;
 import api_client.Server;
 import app.App;
+import app.CalendarManager;
 import app.GlobalOptions;
 import app.Logging;
 import com.jfoenix.controls.JFXTextField;
@@ -83,6 +84,8 @@ public class CalendarPopup implements Initializable {
             boolean status = Server.modelAction(App.login.getUsername(),App.login.getPassword(),model,modelAction);
             if(!status)
                 Logging.logError("Saving Calendar failed\n");
+            else
+                CalendarManager.reloacCalendar();
             stage.close();
         }
 
@@ -140,6 +143,7 @@ public class CalendarPopup implements Initializable {
         modelAction = ModelAction.EDIT;
         model = calendar;
         display();
+
     }
 
     static void displayAdd() {

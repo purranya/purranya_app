@@ -1,5 +1,6 @@
 package app;
 
+import api_client.Server;
 import models.db_models.Calendar;
 import models.db_models.Event;
 import models.db_models.Label;
@@ -42,12 +43,23 @@ public class CalendarManager
         CalendarManager.calendar = calendar;
     }
 
+    public static void reloacCalendar()
+    {
+        if(calendar!=null)
+        {
+            calendar = Server.getCalendar(
+                    App.login.getUsername(),
+                    App.login.getPassword(),
+                    calendar.getCalendar());
+        }
+    }
+
     public Label getLabelById(long id)
     {
         for (Label l : calendar.getLabels())
             if (l.getId() == id) return l;
 
-        return getLabelById(0);
+        return nullLabel;
     }
 
     public Event getEventById(long id)

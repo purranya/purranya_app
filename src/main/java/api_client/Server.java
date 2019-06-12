@@ -1,7 +1,10 @@
 package api_client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 import models.db_models.Calendar;
+import models.db_models.Event;
+import models.db_models.Label;
 import models.db_models.Note;
 import models.transfer_models.OperationStatus;
 import models.transfer_models.*;
@@ -14,6 +17,7 @@ public class Server
     {
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JodaModule());
 
         Login l = new Login(username,password);
 
@@ -47,6 +51,7 @@ public class Server
     {
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JodaModule());
 
         Login l = new Login(username,password);
 
@@ -80,6 +85,7 @@ public class Server
     {
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JodaModule());
 
         Login l = new Login(username,password);
 
@@ -114,6 +120,7 @@ public class Server
     {
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JodaModule());
 
         Login l = new Login(username,password);
 
@@ -149,6 +156,7 @@ public class Server
     {
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JodaModule());
 
         Login l = new Login(username,password);
 
@@ -183,6 +191,7 @@ public class Server
     {
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JodaModule());
 
         Login l = new Login(username,password);
         String response = null;
@@ -216,7 +225,37 @@ public class Server
                 e.printStackTrace();
                 return false;
             }
-        } // TUTAJ DALSZE DODAWANIA
+        }
+        else if(model instanceof Event)
+        {
+            Event event = (Event)model;
+            try
+            {
+                params.put("login", om.writeValueAsString(l));
+                params.put("model", om.writeValueAsString(event));
+                response = new HTTPSClient().post("https://127.0.0.1:8443//event/" + action.toString(), params);
+            } catch (Exception e)
+            {
+                System.err.println("Could not connect to server");
+                e.printStackTrace();
+                return false;
+            }
+        }
+        else if(model instanceof Label)
+        {
+            Label label = (Label)model;
+            try
+            {
+                params.put("login", om.writeValueAsString(l));
+                params.put("model", om.writeValueAsString(label));
+                response = new HTTPSClient().post("https://127.0.0.1:8443//label/" + action.toString(), params);
+            } catch (Exception e)
+            {
+                System.err.println("Could not connect to server");
+                e.printStackTrace();
+                return false;
+            }
+        }
 
         OperationStatus answer = null;
 
