@@ -108,12 +108,19 @@ public class EventPopup implements Initializable
         model.setName(title.getText());
         model.setComment(description.getText());
 
-        if(dateOfStart.getValue()!=null && timeOfStart !=null)
+        if(dateOfStart.getValue()!=null && timeOfStart.getValue() !=null)
             model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(),timeOfStart.getValue()));
-        if(dateOfEnd.getValue()!=null && timeOfEnd !=null)
+        if(dateOfEnd.getValue()!=null && timeOfEnd.getValue() !=null)
             model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue(),timeOfEnd.getValue()));
-        else if(dateOfEnd.getValue()==null && timeOfEnd ==null)
+
+        if(dateOfEnd.getValue()==null && timeOfEnd.getValue() ==null)
             model.setEndDate(DateUtils.toDateTime(dateOfStart.getValue(),timeOfStart.getValue()));
+
+        if(dateOfStart.getValue()!=null && timeOfStart.getValue() ==null)
+            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(),LocalTime.of(0,0,0)));
+
+        if(dateOfEnd.getValue()!=null && timeOfEnd.getValue() ==null)
+            model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue(),LocalTime.of(23,59,59)));
 
         model.setCalendar_id(calendarManager.getCalendar().getId());
 
