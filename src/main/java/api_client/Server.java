@@ -1,5 +1,6 @@
 package api_client;
 
+import app.GlobalOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import models.db_models.Calendar;
@@ -13,8 +14,10 @@ import java.util.HashMap;
 
 public class Server
 {
+
     public static boolean logIn(String username, String password)
     {
+        GlobalOptions options = new GlobalOptions();
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JodaModule());
@@ -25,7 +28,7 @@ public class Server
         try
         {
             params.put("login",om.writeValueAsString(l));
-            response = new HTTPSClient().post("https://127.0.0.1:8443/login",params);
+            response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"/login",params);
         } catch (Exception e)
         {
             System.err.println("Could not connect to server");
@@ -49,6 +52,7 @@ public class Server
 
     public static boolean register(String username, String password)
     {
+        GlobalOptions options = new GlobalOptions();
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JodaModule());
@@ -59,7 +63,7 @@ public class Server
         try
         {
             params.put("login",om.writeValueAsString(l));
-            response = new HTTPSClient().post("https://127.0.0.1:8443/register",params);
+            response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"/register",params);
         } catch (Exception e)
         {
             System.err.println("Could not connect to server");
@@ -83,6 +87,7 @@ public class Server
 
     public static UserCalendarIndex getCalendarIndex(String username, String password)
     {
+        GlobalOptions options = new GlobalOptions();
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JodaModule());
@@ -93,7 +98,7 @@ public class Server
         try
         {
             params.put("login",om.writeValueAsString(l));
-            response = new HTTPSClient().post("https://127.0.0.1:8443//calendar/getindex",params);
+            response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"//calendar/getindex",params);
         } catch (Exception e)
         {
             System.err.println("Could not connect to server");
@@ -118,6 +123,7 @@ public class Server
 
     public static UserCalendar getCalendar(String username, String password ,Calendar calendar)
     {
+        GlobalOptions options = new GlobalOptions();
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JodaModule());
@@ -129,7 +135,7 @@ public class Server
         {
             params.put("model",om.writeValueAsString(calendar));
             params.put("login",om.writeValueAsString(l));
-            response = new HTTPSClient().post("https://127.0.0.1:8443//calendar/get",params);
+            response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"//calendar/get",params);
         } catch (Exception e)
         {
             System.err.println("Could not connect to server");
@@ -154,6 +160,7 @@ public class Server
 
     public static UserNoteIndex getNoteIndex(String username, String password)
     {
+        GlobalOptions options = new GlobalOptions();
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JodaModule());
@@ -164,7 +171,7 @@ public class Server
         try
         {
             params.put("login",om.writeValueAsString(l));
-            response = new HTTPSClient().post("https://127.0.0.1:8443//note/getindex",params);
+            response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"//note/getindex",params);
         } catch (Exception e)
         {
             System.err.println("Could not connect to server");
@@ -189,6 +196,7 @@ public class Server
 
     public static <T> boolean modelAction(String username, String password, T model, ModelAction action)
     {
+        GlobalOptions options = new GlobalOptions();
         HashMap<String,String> params = new HashMap<>();
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JodaModule());
@@ -203,7 +211,7 @@ public class Server
             {
                 params.put("login", om.writeValueAsString(l));
                 params.put("model", om.writeValueAsString(calendar));
-                response = new HTTPSClient().post("https://127.0.0.1:8443//calendar/" + action.toString(), params);
+                response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"//calendar/" + action.toString(), params);
             } catch (Exception e)
             {
                 System.err.println("Could not connect to server");
@@ -218,7 +226,7 @@ public class Server
             {
                 params.put("login", om.writeValueAsString(l));
                 params.put("model", om.writeValueAsString(note));
-                response = new HTTPSClient().post("https://127.0.0.1:8443//note/" + action.toString(), params);
+                response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"//note/" + action.toString(), params);
             } catch (Exception e)
             {
                 System.err.println("Could not connect to server");
@@ -233,7 +241,7 @@ public class Server
             {
                 params.put("login", om.writeValueAsString(l));
                 params.put("model", om.writeValueAsString(event));
-                response = new HTTPSClient().post("https://127.0.0.1:8443//event/" + action.toString(), params);
+                response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"//event/" + action.toString(), params);
             } catch (Exception e)
             {
                 System.err.println("Could not connect to server");
@@ -248,7 +256,7 @@ public class Server
             {
                 params.put("login", om.writeValueAsString(l));
                 params.put("model", om.writeValueAsString(label));
-                response = new HTTPSClient().post("https://127.0.0.1:8443//label/" + action.toString(), params);
+                response = new HTTPSClient().post("https://"+ options.get("api.host")+":"+options.get("api.port")+"//label/" + action.toString(), params);
             } catch (Exception e)
             {
                 System.err.println("Could not connect to server");

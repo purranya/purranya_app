@@ -45,6 +45,9 @@ public class GlobalOptions {
 
         options.put("logging.file","true");
         options.put("logging.console","true");
+
+        options.put("api.host","127.0.0.1");
+        options.put("api.port","8443");
     }
 
     private void load() throws IOException
