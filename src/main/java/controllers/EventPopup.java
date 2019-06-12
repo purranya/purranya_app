@@ -108,20 +108,34 @@ public class EventPopup implements Initializable
         model.setName(title.getText());
         model.setComment(description.getText());
 
-        if(dateOfStart.getValue()!=null && timeOfStart.getValue() !=null)
-            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(),timeOfStart.getValue()));
-        if(dateOfEnd.getValue()!=null && timeOfEnd.getValue() !=null)
-            model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue(),timeOfEnd.getValue()));
+        boolean startDateEntered = dateOfStart.getValue()!=null;
+        boolean startTimeEntered = timeOfStart.getValue()!=null;
+        boolean endDateEntered = dateOfEnd.getValue()!=null;
+        boolean endTimeEntered = timeOfEnd.getValue()!=null;
 
-        if(dateOfEnd.getValue()==null && timeOfEnd.getValue() ==null)
-            model.setEndDate(DateUtils.toDateTime(dateOfStart.getValue(),timeOfStart.getValue()));
+        if(startDateEntered && !startTimeEntered && !endDateEntered && !endTimeEntered)
+        {
+            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(), LocalTime.of(0, 0, 0)));
+            model.setEndDate(model.getStartDate());
+        }
 
-        if(dateOfStart.getValue()!=null && timeOfStart.getValue() ==null)
-            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(),LocalTime.of(0,0,0)));
+        if(startDateEntered && !startTimeEntered && endDateEntered && !endTimeEntered)
+        {
+            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(), LocalTime.of(0, 0, 0)));
+            model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue(), LocalTime.of(23, 59, 59)));
+        }
 
-        if(dateOfEnd.getValue()!=null && timeOfEnd.getValue() ==null)
-            model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue(),LocalTime.of(23,59,59)));
+        if(startDateEntered && startTimeEntered && !endDateEntered && !endTimeEntered)
+        {
+            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(), timeOfStart.getValue());
+            model.setEndDate(model.getStartDate());
+        }
 
+        if(startDateEntered && startTimeEntered && endDateEntered && endTimeEntered)
+        {
+            model.setStartDate(DateUtils.toDateTime(dateOfStart.getValue(), timeOfStart.getValue()));
+            model.setEndDate(DateUtils.toDateTime(dateOfEnd.getValue(), timeOfEnd.getValue()));
+        }
         model.setCalendar_id(calendarManager.getCalendar().getId());
 
         Label selectedLabel = label.getValue();
